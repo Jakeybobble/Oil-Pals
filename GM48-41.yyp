@@ -1,6 +1,8 @@
 {
   "resources": [
     {"id":{"name":"scr_rotateArray","path":"scripts/scr_rotateArray/scr_rotateArray.yy",},"order":1,},
+    {"id":{"name":"spr_tilewet","path":"sprites/spr_tilewet/spr_tilewet.yy",},"order":7,},
+    {"id":{"name":"spr_abilities","path":"sprites/spr_abilities/spr_abilities.yy",},"order":6,},
     {"id":{"name":"spr_testface","path":"sprites/spr_testface/spr_testface.yy",},"order":4,},
     {"id":{"name":"obj_pawn","path":"objects/obj_pawn/obj_pawn.yy",},"order":1,},
     {"id":{"name":"spr_testpawn","path":"sprites/spr_testpawn/spr_testpawn.yy",},"order":0,},

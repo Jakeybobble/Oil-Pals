@@ -15,10 +15,10 @@ movespace = 3;
 var a = new Attack(2,AttackType.normal);
 move1 = new Action();
 move1.pattern = [
-	[0,a,a,0,0,a,a,a],
-	[a,0,0,a,a,a,a,a],
-	[0,a,a,0,0,a,a,a]
+	[0,a,a,0],
+	[0,a,a,0],
+	[0,a,a,0]
 ];
-move1.centerx = 1; move1.centery = 1;
+move1.centerx = 1; move1.centery = 0;
 
 ds_list_add(actions, move1);
