@@ -1,12 +1,9 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-s = new char(1);
-
 is_player = true;
-name = s.nname;
-hp = s.hp;
-sprite_index = s.idle;
+name = "Dingo";
+hp = 5;
 spd = 5;
 
 tile = noone;
@@ -52,3 +49,5 @@ function moveToTileAnim(xpos, ypos){
 	}
 	
 }
+
+actions = ds_list_create();

@@ -2,4 +2,4 @@
 // Written by Jacob.
 
 draw_self();
-draw_text(0,0,failsafe_timer);
+//draw_text(0,0,failsafe_timer);

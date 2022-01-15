@@ -22,3 +22,16 @@ if(mouse_check_button_pressed(mb_left)){
 	
 	
 }
+
+var p = pawns[|whoseturn];
+var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
+var d = floor(((pdir + 45) mod 360)/90);
+
+if(mouse_check_button_pressed(mb_right)){
+	var action = new Action();
+	var newdir = (d +1 mod 3);
+	action.perform(p.tile.x,p.tile.y,newdir);
+	
+}
+
+draw_text(0,0,d);
