@@ -40,7 +40,7 @@ function Grid(x, y, width, height) constructor{
 				 var spr = t.getSprite();
 				 
 				 draw_sprite(spr, 0, xpos + xx*TS, ypos + yy*TS);
-				 draw_text(xpos + 6 + xx*TS, ypos + 6 + yy*TS, string(t.x) + ", " + string(t.y));
+				 //draw_text(xpos + 6 + xx*TS, ypos + 6 + yy*TS, string(t.x) + ", " + string(t.y));
 				 num++;
 				 
 				 draw_set_color(c_white);
@@ -98,24 +98,28 @@ function Action() constructor{
 	
 	function perform(pos_x, pos_y, rotation){
 		var newarray = pattern;
+		var newx = centerx;
+		var newy = centery;
 		if(rotation != 0){
 			repeat(rotation){
-				var results = scr_rotateArray(newarray, centerx, centery);
+				var results = scr_rotateArray(newarray, newx, newy);
 				newarray = results[0];
-				centerx = results[1]; centery = results[2];
+				newx = results[1]; newy = results[2];
 			}
 		}
 		
 		for(var xx = 0; xx < array_length(newarray); xx++){
 			for(var yy = 0; yy < array_length(newarray[0]); yy++){
 				
-				var cxpos = pos_x + xx - centerx; var cypos = pos_y + yy - centery;
+				var cxpos = pos_x + xx - newx; var cypos = pos_y + yy - newy;
 				if(cxpos >= 0 && cxpos < array_length(GRID.tiles) && cypos >= 0 && cypos < array_length(GRID.tiles[0])){
 					var t = GRID.tiles[cxpos,cypos];
 					var attack = newarray[xx,yy];
 					if(attack != 0){
-						t.status = TileStatus.test;
+						//t.status = TileStatus.test;
+						attack.perform(t);
 					}
+					
 				}
 				
 				
@@ -127,7 +131,14 @@ function Action() constructor{
 
 function Attack(dmg, type) constructor{
 	
-	function perform(){
-		
+	damage = dmg;
+	attacktype = type;
+	
+	function perform(tile){
+		if(tile.status == TileStatus.test){
+			tile.status = TileStatus.clear;
+		}else{
+			tile.status = TileStatus.test;	
+		}
 	}
 }

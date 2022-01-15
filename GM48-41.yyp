@@ -1,8 +1,10 @@
 {
   "resources": [
     {"id":{"name":"scr_rotateArray","path":"scripts/scr_rotateArray/scr_rotateArray.yy",},"order":1,},
+    {"id":{"name":"spr_testface","path":"sprites/spr_testface/spr_testface.yy",},"order":4,},
     {"id":{"name":"obj_pawn","path":"objects/obj_pawn/obj_pawn.yy",},"order":1,},
     {"id":{"name":"spr_testpawn","path":"sprites/spr_testpawn/spr_testpawn.yy",},"order":0,},
+    {"id":{"name":"spr_testface2","path":"sprites/spr_testface2/spr_testface2.yy",},"order":5,},
     {"id":{"name":"spr_tiletest","path":"sprites/spr_tiletest/spr_tiletest.yy",},"order":1,},
     {"id":{"name":"scr_init","path":"scripts/scr_init/scr_init.yy",},"order":0,},
     {"id":{"name":"obj_gamehandler","path":"objects/obj_gamehandler/obj_gamehandler.yy",},"order":0,},

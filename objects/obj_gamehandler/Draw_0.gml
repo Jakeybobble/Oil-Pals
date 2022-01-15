@@ -23,15 +23,21 @@ if(mouse_check_button_pressed(mb_left)){
 	
 }
 
-var p = pawns[|whoseturn];
-var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
-var d = floor(((pdir + 45) mod 360)/90);
-
 if(mouse_check_button_pressed(mb_right)){
-	var action = new Action();
+	var p = pawns[|whoseturn];
+	var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
+	var d = floor(((pdir + 45) mod 360)/90);
 	var newdir = (d +1 mod 3);
+	var action = p.actions[|0];
+	//var action = new Action();
 	action.perform(p.tile.x,p.tile.y,newdir);
 	
 }
 
-draw_text(0,0,d);
+for(var xx = 0; xx < ds_list_size(pawns); xx++){
+	var p = pawns[|xx];
+	if(p.is_player){
+		var s = sin(current_time/200)*15;
+		draw_sprite_ext(p.faceicon,0,32,room_height-48,1.4,1.4,s,c_white,1);
+	}
+}

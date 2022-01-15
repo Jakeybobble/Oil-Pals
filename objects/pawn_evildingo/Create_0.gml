@@ -8,6 +8,7 @@ is_player = true;
 name = "Evil Dingo";
 hp = 5;
 spd = 5;
+movespace = 3;
 
 //actions = ds_list_create();
 
@@ -18,5 +19,6 @@ move1.pattern = [
 	[a,0,0,a,a,a,a,a],
 	[0,a,a,0,0,a,a,a]
 ];
+move1.centerx = 1; move1.centery = 1;
 
 ds_list_add(actions, move1);

@@ -6,6 +6,8 @@ name = "Dingo";
 hp = 5;
 spd = 5;
 
+faceicon = spr_testface2;
+
 tile = noone;
 
 /// Set tile position of a pawn, also updates tile.
