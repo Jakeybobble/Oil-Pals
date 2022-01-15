@@ -5,6 +5,7 @@
     {"id":{"name":"spr_tiletest","path":"sprites/spr_tiletest/spr_tiletest.yy",},"order":1,},
     {"id":{"name":"scr_init","path":"scripts/scr_init/scr_init.yy",},"order":0,},
     {"id":{"name":"obj_gamehandler","path":"objects/obj_gamehandler/obj_gamehandler.yy",},"order":0,},
+    {"id":{"name":"spr_testpawn2","path":"sprites/spr_testpawn2/spr_testpawn2.yy",},"order":2,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},
   ],
   "Options": [
@@ -14,6 +15,10 @@
     {"name":"Main","path":"options/main/options_main.yy",},
     {"name":"Windows","path":"options/windows/options_windows.yy",},
     {"name":"operagx","path":"options/operagx/options_operagx.yy",},
+    {"name":"Android","path":"options/android/options_android.yy",},
+    {"name":"iOS","path":"options/ios/options_ios.yy",},
+    {"name":"tvOS","path":"options/tvos/options_tvos.yy",},
+    {"name":"Windows UWP","path":"options/windowsuap/options_windowsuap.yy",},
   ],
   "isDnDProject": false,
   "isEcma": false,

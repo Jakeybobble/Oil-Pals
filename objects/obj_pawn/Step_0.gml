@@ -3,7 +3,7 @@
 
 depth = -y;
 
-image_yscale = 1+sin(current_time/300)*0.2;
+image_yscale = 1+sin(current_time/300)*0.15;
 
 var gr = obj_gamehandler.grid;
 var xpos = gr.pos_x; var ypos = gr.pos_y;

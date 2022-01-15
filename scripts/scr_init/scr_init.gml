@@ -56,3 +56,18 @@ function Tile(posx, posy) constructor{
 	occupied = false;
 	stander = noone;
 }
+
+function char(cid) constructor{
+	switch(cid){
+		case 0:
+			idle = spr_testpawn;
+			hp = 5;
+			nname = "Dingo";
+			break;
+		case 1:
+			idle = spr_testpawn2;
+			hp = 5;
+			nname = "Dingo but Evil";
+			break;
+	}
+}
