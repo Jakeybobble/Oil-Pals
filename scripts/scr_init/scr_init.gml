@@ -67,7 +67,7 @@ function Tile(posx, posy) constructor{
 			case TileStatus.clear:
 				return spr_tiletest;
 			case TileStatus.test:
-				return spr_tiletest2;
+				return spr_fireyplot;
 		}
 	}
 }
@@ -86,15 +86,6 @@ function Action() constructor{
 	[0,a,0,0,a,0,0], 
 	[a,0,0,0,0,a,a]
 	];
-	
-	/*
-	enum AttackDir {
-		down = 0,
-		right = 3,
-		up = 2,
-		left = 1
-	}
-	*/
 	
 	function perform(pos_x, pos_y, rotation){
 		var newarray = pattern;

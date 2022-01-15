@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"87c49fee-52b4-4714-a9d0-590f3b6e6765","path":"sprites/spr_tilewet/spr_tilewet.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"87c49fee-52b4-4714-a9d0-590f3b6e6765","path":"sprites/spr_tilewet/spr_tilewet.yy",},"LayerId":{"name":"1d6ede6c-22d6-4a18-9b6f-55e0c65c6c1a","path":"sprites/spr_tilewet/spr_tilewet.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_tilewet","path":"sprites/spr_tilewet/spr_tilewet.yy",},"resourceVersion":"1.0","name":"87c49fee-52b4-4714-a9d0-590f3b6e6765","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"b891dc33-1ab3-44c9-b5e5-8fb8874b1397","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"b891dc33-1ab3-44c9-b5e5-8fb8874b1397","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"LayerId":{"name":"af7ab099-e9b0-4a2b-8fec-e5257fc5dedd","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"resourceVersion":"1.0","name":"b891dc33-1ab3-44c9-b5e5-8fb8874b1397","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_tilewet","path":"sprites/spr_tilewet/spr_tilewet.yy",},
+    "spriteId": {"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"b59dcdb3-9ad1-4722-b784-bd6f4983cc62","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"87c49fee-52b4-4714-a9d0-590f3b6e6765","path":"sprites/spr_tilewet/spr_tilewet.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"13ed6585-e16a-419a-9944-5f6e8c27b739","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"b891dc33-1ab3-44c9-b5e5-8fb8874b1397","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 6,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_tilewet","path":"sprites/spr_tilewet/spr_tilewet.yy",},
+    "parent": {"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_tilewet",
+    "name": "spr_fireyplot",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"1d6ede6c-22d6-4a18-9b6f-55e0c65c6c1a","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"af7ab099-e9b0-4a2b-8fec-e5257fc5dedd","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_tilewet",
+  "name": "spr_fireyplot",
   "tags": [],
   "resourceType": "GMSprite",
 }
