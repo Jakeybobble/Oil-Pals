@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Brigade Boy";
-hp = 3;
-maxhp = 3;
+hp = 5;
+maxhp = 5;
 spd = 5;
 movespace = 4;
 

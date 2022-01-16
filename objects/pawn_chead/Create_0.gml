@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Cleaverhead";
-hp = 5;
-maxhp = 5;
+hp = 7;
+maxhp = 7;
 spd = 5;
 movespace = 4;
 

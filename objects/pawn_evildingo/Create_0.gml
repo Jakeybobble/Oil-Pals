@@ -6,7 +6,7 @@ event_inherited();
 
 is_player = true;
 name = "Oilman";
-hp = 7;
+hp = 11;
 maxhp = 7;
 spd = 5;
 movespace = 4;

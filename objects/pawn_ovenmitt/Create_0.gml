@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Oven Mitt";
-hp = 10;
-maxhp = 10;
+hp = 13;
+maxhp = 13;
 spd = 5;
 movespace = 3;
 

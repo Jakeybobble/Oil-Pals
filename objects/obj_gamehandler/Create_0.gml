@@ -123,8 +123,13 @@ function endTurn(){
 	
 	
 	if(playersalive == 0){
-		//instance_create_depth(0,0,-600,obj_transition);
+		// GAME OVER
+		instance_create_depth(0,0,-600,obj_transition);
 	}else if(enemiesalive == 0){
+		// WIN
+		if(enemiesleft == 0){
+			// DO WIN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		}
 		//instance_create_depth(0,0,-600,obj_transition);
 	}
 	
@@ -132,7 +137,7 @@ function endTurn(){
 	state = PickState.choosemove;
 }
 
-enemiesleft = 5;
+enemiesleft = 1;
 nextenemy_turns = 0;
 turnspace = 2;
 nextenemy = pawn_tinman;
@@ -189,18 +194,21 @@ function endWave(){
 		nextenemy_turns--;
 	}else{
 		nextenemy_turns = turnspace;
-		var tries = 1000;
-		while(tries > 0){
-			var randx = irandom_range(0,array_length(GRID.tiles)-1);
-			var randy = irandom_range(0,array_length(GRID.tiles[0])-1);
-			var ttt = GRID.tiles[randx,randy];
-			if(!ttt.occupied){
-				ttt.status = TileStatus.clear;
-				nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
-				spawnEnemy(ttt.x,ttt.y);
-				break;
+		if(enemiesleft > 0){
+			enemiesleft--;
+			var tries = 100;
+			while(tries > 0){
+				var randx = irandom_range(0,array_length(GRID.tiles)-1);
+				var randy = irandom_range(0,array_length(GRID.tiles[0])-1);
+				var ttt = GRID.tiles[randx,randy];
+				if(!ttt.occupied){
+					ttt.status = TileStatus.clear;
+					nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
+					spawnEnemy(ttt.x,ttt.y);
+					break;
+				}
+				tries--;
 			}
-			tries--;
 		}
 	}
 	
