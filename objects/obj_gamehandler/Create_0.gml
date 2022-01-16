@@ -17,7 +17,7 @@ var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
 coolpawn.setToTile(5,5);
 ds_list_add(pawns, coolpawn);
 
-var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_ball);
+var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_evilball); // Evil
 twopawn.setToTile(6,6);
 ds_list_add(pawns, twopawn);
 
@@ -72,6 +72,7 @@ function endWave(){
 	for(var xx = 0; xx < array_length(grid.tiles); xx++){
 		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
 			var t = grid.tiles[xx,yy];
+			//t.update();
 			/*
 			if(t.status == TileStatus.clear){
 				t.status = TileStatus.fire;
