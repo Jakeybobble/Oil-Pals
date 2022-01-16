@@ -17,13 +17,12 @@ var a = new Attack(4,AttackType.normal,spr_noneicon);
 var c = new Attack(3,AttackType.normal,spr_noneicon);
 var b = new Attack(0,AttackType.water,spr_watericon);
 var d = new Attack(0,AttackType.normal,spr_specialicon);
+
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.water;
-	}
+	setToWater(tile);
 }
 a.perform = function(tile){
-	show_debug_message("Hey, it's working");
+	//none
 }
 c.perform = function(tile){
 	//dont do the default

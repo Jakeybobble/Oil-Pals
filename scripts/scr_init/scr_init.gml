@@ -194,13 +194,19 @@ function Attack(dmg, type, icon) constructor{
 		tile.stander.takeDamage(1); // Just default...
 	}
 	function setToOil(tile){
-		// Add common effects here, then call them in your perform().
+		if(tile.status == TileStatus.clear){
+			tile.status = TileStatus.oil;
+		}
 	}
 	function setToWater(tile){
-		
+		if(tile.status == TileStatus.clear){
+			tile.status = TileStatus.water;
+		}
 	}
 	function setToFire(tile){
-		
+		if(tile.status == TileStatus.clear){
+			tile.status = TileStatus.fire;
+		}
 	}
 }
 
