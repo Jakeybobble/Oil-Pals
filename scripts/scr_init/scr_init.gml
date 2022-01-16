@@ -87,7 +87,15 @@ function Action() constructor{
 	[a,0,0,0,0,a,a]
 	];
 	
-	function perform(pos_x, pos_y, rotation){
+	ability_icon_id = 0;
+	
+	is_distant = false;
+	
+	function perform(tilesarray){
+		
+	}
+	
+	function preview(pos_x, pos_y, rotation, doaction){
 		var newarray = pattern;
 		var newx = centerx;
 		var newy = centery;
@@ -104,11 +112,17 @@ function Action() constructor{
 				
 				var cxpos = pos_x + xx - newx; var cypos = pos_y + yy - newy;
 				if(cxpos >= 0 && cxpos < array_length(GRID.tiles) && cypos >= 0 && cypos < array_length(GRID.tiles[0])){
+					
 					var t = GRID.tiles[cxpos,cypos];
 					var attack = newarray[xx,yy];
+					
 					if(attack != 0){
-						//t.status = TileStatus.test;
-						attack.perform(t);
+						if(doaction){
+							//t.status = TileStatus.test;
+							attack.perform(t);
+						}
+						
+						draw_sprite(spr_fireyicon,0,(TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y);
 					}
 					
 				}

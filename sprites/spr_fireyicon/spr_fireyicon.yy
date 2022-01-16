@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 4,
-  "bbox_right": 62,
-  "bbox_top": 1,
-  "bbox_bottom": 101,
+  "bbox_left": 24,
+  "bbox_right": 39,
+  "bbox_top": 15,
+  "bbox_bottom": 41,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"86807e05-5209-4555-b6b5-c5fc798c39e5","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"86807e05-5209-4555-b6b5-c5fc798c39e5","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"LayerId":{"name":"bc86a6a8-2cec-46c2-9b9c-410baab2ebd3","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"resourceVersion":"1.0","name":"86807e05-5209-4555-b6b5-c5fc798c39e5","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"1adc480d-75fe-4bb1-890b-e3c5793f08a0","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"1adc480d-75fe-4bb1-890b-e3c5793f08a0","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"LayerId":{"name":"d2c4b465-2b23-4f7f-b28b-902b2bbaa90a","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"resourceVersion":"1.0","name":"1adc480d-75fe-4bb1-890b-e3c5793f08a0","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},
+    "spriteId": {"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"2e53845a-3d15-493e-ad92-59a2ff4e1847","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"86807e05-5209-4555-b6b5-c5fc798c39e5","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"6dc38791-a4c2-4580-9160-8d0d97c4f3c4","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"1adc480d-75fe-4bb1-890b-e3c5793f08a0","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,14 +58,14 @@
     "yorigin": 6,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},
+    "parent": {"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_fireyplot",
+    "name": "spr_fireyicon",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
-    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"bc86a6a8-2cec-46c2-9b9c-410baab2ebd3","tags":[],"resourceType":"GMImageLayer",},
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"d2c4b465-2b23-4f7f-b28b-902b2bbaa90a","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
   "parent": {
@@ -73,7 +73,7 @@
     "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_fireyplot",
+  "name": "spr_fireyicon",
   "tags": [],
   "resourceType": "GMSprite",
 }

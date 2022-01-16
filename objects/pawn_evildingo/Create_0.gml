@@ -21,4 +21,7 @@ move1.pattern = [
 ];
 move1.centerx = 1; move1.centery = 0;
 
-ds_list_add(actions, move1);
+move2 = new Action();
+move2.ability_icon_id = 2;
+
+ds_list_add(actions, move1, move2);

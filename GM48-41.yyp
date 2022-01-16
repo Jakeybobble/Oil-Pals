@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"scr_rotateArray","path":"scripts/scr_rotateArray/scr_rotateArray.yy",},"order":1,},
+    {"id":{"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"order":11,},
     {"id":{"name":"spr_man","path":"sprites/spr_man/spr_man.yy",},"order":7,},
     {"id":{"name":"spr_bboy","path":"sprites/spr_bboy/spr_bboy.yy",},"order":5,},
     {"id":{"name":"spr_oilyplot","path":"sprites/spr_oilyplot/spr_oilyplot.yy",},"order":8,},

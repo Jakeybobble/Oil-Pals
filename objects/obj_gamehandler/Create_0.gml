@@ -22,6 +22,21 @@ ds_list_add(pawns, coolpawn);
 pawn_moving = false;
 pawn_moving_x = 0; pawn_moving_y = 0; // Tile moving to
 
+enum PickState {
+	choosemove,
+	moving,
+	chooseaction,
+	chooseactionposition,
+	performing
+	
+}
+state = PickState.choosemove;
+
+tile_memory = noone;
+
 // Lists
 pawn_friendly = [obj_pawn,pawn_evildingo];
+
+chosen_action = noone;
+
 

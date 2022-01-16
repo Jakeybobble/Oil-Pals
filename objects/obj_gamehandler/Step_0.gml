@@ -5,6 +5,10 @@ if(keyboard_check_pressed(ord("R"))){
 	room_restart();
 }
 
+if(pawn_moving){
+	state = PickState.moving;
+}
+
 /*
 if(keyboard_check_pressed(vk_space)){
 	var t = pawns[|whoseturn].tile;
@@ -46,6 +50,7 @@ if(pawn_moving){
 		//p.failsafe_timer = 0;
 		p.setToTile(pawn_moving_x,pawn_moving_y);
 		pawn_moving = false;
+		state = PickState.chooseaction;
 		show_debug_message("Ended.");
 		
 	}
