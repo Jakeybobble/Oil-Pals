@@ -48,6 +48,7 @@ if(keyboard_check_pressed(vk_anykey)){
 
 if(pawn_moving){
 	var p = pawns[|whoseturn];
+	
 	if(p.moveToTileAnim(pawn_moving_x,pawn_moving_y)){
 		//p.failsafe_timer = 0;
 		p.setToTile(pawn_moving_x,pawn_moving_y);
@@ -55,5 +56,13 @@ if(pawn_moving){
 		state = PickState.chooseaction;
 		show_debug_message("Ended.");
 		
+	}
+}
+
+// Stall performing turn every time there is an action...
+if(state == PickState.performing){
+	performtimer--;
+	if(performtimer <= 0){
+		endTurn();
 	}
 }

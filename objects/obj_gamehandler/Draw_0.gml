@@ -11,21 +11,38 @@ var recty = gridpos_y + py*TS;
 
 
 if(state == PickState.choosemove){
-	draw_rectangle(rectx,recty,rectx+TS,recty+TS,true);
-
-	if(mouse_check_button_pressed(mb_left)){
-		var p = pawns[|whoseturn];
-		if(px >= 0 && px < array_length(grid.tiles)){
-			if(py >= 0 && py < array_length(grid.tiles[0])){
-				tile_memory = pawns[|whoseturn].tile;
-				if(px == p.tile.x && py == p.tile.y){
+	
+	if(px >= 0 && px < array_length(grid.tiles)){
+		if(py >= 0 && py < array_length(grid.tiles[0])){
+	
+			var p = pawns[|whoseturn];
+			var t = GRID.tiles[px,py];
+			var mytile = (px == p.tile.x && py == p.tile.y);
+			var col = c_white;
+			var canmovethere = false;
+			if(abs(p.tile.x - px) < p.movespace && abs(p.tile.y - py) < p.movespace){
+				if(t.occupied == false or mytile){
+					canmovethere = true;
+				}
+			}
+			if(!canmovethere){
+				col = c_gray
+			}
+			draw_set_color(col);
+			draw_rectangle(rectx,recty,rectx+TS,recty+TS,true);
+			draw_set_color(c_white);
+			
+			if(mouse_check_button_pressed(mb_left)){
+		
+				if(mytile){
+					tile_memory = pawns[|whoseturn].tile;
 					state = PickState.chooseaction;
-				}else{
+				}else if(t.occupied != true){
+					tile_memory = pawns[|whoseturn].tile;
 					pawn_moving = true;
 					pawn_moving_x = px;
 					pawn_moving_y = py;
 				}
-				
 			}
 		}
 	}
@@ -46,9 +63,9 @@ if(state == PickState.chooseactionposition){
 		state = PickState.chooseaction;
 		mouse_clear(mb_right);
 	}else if(mouse_check_button_pressed(mb_left)){
-		// TO-DO: Set this to performing!
-		//state = PickState.performing;
-		state = PickState.choosemove;
+		// X TO-DO: Set this to performing!
+		state = PickState.performing;
+		//state = PickState.choosemove;
 		doaction = true;
 		mouse_clear(mb_left);
 	}

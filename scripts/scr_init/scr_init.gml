@@ -89,6 +89,16 @@ enum AttackType {
 	water
 }
 
+function randomSound(array) constructor{
+	sounds = array;
+	function get(){
+		var r = irandom_range(0,array_length(sounds)-1);
+		return sounds[r];
+	}
+}
+
+global.sound_water = new randomSound([sou_water1,sou_water2,sou_water3]);
+
 function Action() constructor{
 	
 	var a = new Attack(2,AttackType.normal,spr_fireyicon);
@@ -103,6 +113,9 @@ function Action() constructor{
 	ability_icon_id = 0;
 	
 	is_distant = false;
+	
+	sound = global.sound_water;
+	sound_israndom = true;
 	
 	name = "Cool attack";
 	description = "Does a cool thing...";
@@ -144,6 +157,18 @@ function Action() constructor{
 			}
 		}
 		
+		if(doaction){
+			if(sound != noone){
+				var snd = sound;
+				if(sound_israndom){
+					snd = sound.get();
+					show_debug_message(snd);
+				}
+				audio_play_sound(snd,1,false);
+			}
+		}
+		
+		
 	}
 }
 
@@ -159,5 +184,53 @@ function Attack(dmg, type, icon) constructor{
 		}else{
 			tile.status = TileStatus.test;	
 		}
+		tile.stander.takeDamage(1); // Just default...
 	}
+	function setToOil(tile){
+		// Add common effects here, then call them in your perform().
+	}
+	function setToWater(tile){
+		
+	}
+	function setToFire(tile){
+		
+	}
+}
+
+function Status() constructor{
+	// Number means duration...
+	oiled = 3;
+	
+	function affectDamage(dmg){
+		var returndmg = dmg;
+		if(oiled){
+			returndmg*=2;
+		}
+		return returndmg;
+	}
+	function endWave(){
+		if(oiled>0) oiled--;
+	}
+	
+	function duringMove(tile){
+		
+	}
+	function onMove(){
+		
+	}
+	
+	function drawStatus(pawn){
+		if(oiled > 0){
+			var imgspd = 250;
+			var subimg = (current_time / imgspd) mod sprite_get_number(spr_effect_oiled);
+			draw_sprite(spr_effect_oiled,subimg,pawn.x,pawn.y);
+		}
+		
+	}
+	
+}
+
+function flyingNumber(_x,_y,num){
+	var inst = instance_create_depth(_x,_y,-300,obj_flyingnumbers);
+	inst.number = num;
 }

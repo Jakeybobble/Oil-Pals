@@ -5,8 +5,11 @@ is_player = true;
 name = "Dingo";
 hp = 5;
 spd = 5;
+movespace = 2;
 
 faceicon = spr_testface2;
+
+status = new Status(); // Contains pawn status effects
 
 tile = noone;
 
@@ -21,6 +24,11 @@ function startOfWave(){
 }
 function endOfWave(){
 	
+}
+function takeDamage(dmg){
+	var newdmg = status.affectDamage(dmg);
+	hp-= newdmg;
+	flyingNumber(x,y,newdmg);
 }
 
 /// Set tile position of a pawn, also updates tile.
