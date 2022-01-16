@@ -33,6 +33,11 @@ if(state == PickState.chooseaction){
 			}
 		}else if(mouse_check_button_pressed(mb_right)){
 			p.setToTile(tile_memory.x,tile_memory.y);
+			for(var _d = 0; _d < ds_list_size(tiledata_memory); _d++){
+				var _t = tiledata_memory[|_d];
+				_t.status = _t.memory;
+			}
+			ds_list_clear(tiledata_memory);
 			tile_memory = noone;
 			state = PickState.choosemove;
 			mouse_clear(mb_right);

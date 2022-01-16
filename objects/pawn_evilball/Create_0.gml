@@ -4,12 +4,12 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
-name = "Ball";
+is_player = false;
+name = "Evil Ball";
 hp = 10;
 maxhp = 10;
 spd = 5;
-movespace = 4;
+movespace = 3;
 
 //actions = ds_list_create();
 

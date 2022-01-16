@@ -68,4 +68,16 @@ function endWave(){
 		var p = pawns[|xx];
 		p.status.endWave();
 	}
+	
+	for(var xx = 0; xx < array_length(grid.tiles); xx++){
+		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
+			var t = grid.tiles[xx,yy];
+			/* Just a test...
+			if(t.status == TileStatus.clear){
+				t.status = TileStatus.fire;
+			}
+			*/
+		}
+	}
+	
 }

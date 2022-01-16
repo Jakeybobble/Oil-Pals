@@ -48,6 +48,16 @@ if(keyboard_check_pressed(vk_anykey)){
 
 if(pawn_moving){
 	var p = pawns[|whoseturn];
+	var px = (p.x div TS)- gridpos_x/TS; var py = (p.y div TS) - gridpos_y/TS;
+	var tilepassing = grid.tiles[px,py];
+	//show_debug_message();
+	if(ds_list_find_index(tiledata_memory,tilepassing) == -1){
+		//show_debug_message("Yeet");
+		tilepassing.memory = tilepassing.status;
+		ds_list_add(tiledata_memory,tilepassing);
+	}
+	p.status.duringMove(tilepassing);
+	//tilepassing.status = TileStatus.fire;
 	
 	if(p.moveToTileAnim(pawn_moving_x,pawn_moving_y)){
 		//p.failsafe_timer = 0;

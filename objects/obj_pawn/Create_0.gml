@@ -25,6 +25,9 @@ function startOfWave(){
 function endOfWave(){
 	
 }
+function onDeath(){
+	
+}
 function takeDamage(dmg){
 	var newdmg = status.affectDamage(dmg);
 	hp-= newdmg;

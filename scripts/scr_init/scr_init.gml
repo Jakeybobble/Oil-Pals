@@ -64,6 +64,7 @@ enum TileStatus {
 function Tile(posx, posy) constructor{
 	x = posx; y = posy;
 	status = TileStatus.clear;
+	memory = status;
 	occupied = false;
 	stander = noone;
 	function getSprite(){
@@ -78,6 +79,12 @@ function Tile(posx, posy) constructor{
 				return spr_tilewet;
 			case TileStatus.oil:
 				return spr_oilyplot;
+		}
+	}
+	function update(){
+		// In case things break or something...
+		if(stander == noone){ // TO-DO: Add more conditions here
+			occupied = false;
 		}
 	}
 }
@@ -213,7 +220,10 @@ function Status() constructor{
 	}
 	
 	function duringMove(tile){
-		
+		//tile.status = TileStatus.fire;
+		if(oiled>0){
+			tile.status = TileStatus.oil;
+		}
 	}
 	function onMove(){
 		
