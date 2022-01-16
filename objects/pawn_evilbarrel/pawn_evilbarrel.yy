@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_ball",
-    "path": "sprites/spr_ball/spr_ball.yy",
+    "name": "spr_evilbarrel",
+    "path": "sprites/spr_evilbarrel/spr_evilbarrel.yy",
   },
   "solid": false,
   "visible": true,
@@ -33,7 +33,7 @@
     "path": "folders/Objects/Pawns/Foelike.yy",
   },
   "resourceVersion": "1.0",
-  "name": "pawn_evilball",
+  "name": "pawn_evilbarrel",
   "tags": [],
   "resourceType": "GMObject",
 }
