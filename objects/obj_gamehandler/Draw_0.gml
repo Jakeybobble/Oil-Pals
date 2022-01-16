@@ -18,9 +18,14 @@ if(state == PickState.choosemove){
 		if(px >= 0 && px < array_length(grid.tiles)){
 			if(py >= 0 && py < array_length(grid.tiles[0])){
 				tile_memory = pawns[|whoseturn].tile;
-				pawn_moving = true;
-				pawn_moving_x = px;
-				pawn_moving_y = py;
+				if(px == p.tile.x && py == p.tile.y){
+					state = PickState.chooseaction;
+				}else{
+					pawn_moving = true;
+					pawn_moving_x = px;
+					pawn_moving_y = py;
+				}
+				
 			}
 		}
 	}
@@ -34,7 +39,7 @@ if(state == PickState.chooseactionposition){
 	var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
 	var d = floor(((pdir + 45) mod 360)/90);
 	var newdir = (d +1 mod 3);
-	var action = p.actions[|0];
+	var action = chosen_action;
 	var doaction = false;
 	if(mouse_check_button_pressed(mb_right)){
 		chosen_action = noone;

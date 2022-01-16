@@ -13,7 +13,8 @@ movespace = 3;
 
 //actions = ds_list_create();
 
-var a = new Attack(2,AttackType.normal);
+var a = new Attack(2,AttackType.normal,spr_fireyicon);
+
 move1 = new Action();
 move1.pattern = [
 	[0,a,a,0],

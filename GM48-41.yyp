@@ -27,7 +27,6 @@
     {"id":{"name":"spr_evilbboy","path":"sprites/spr_evilbboy/spr_evilbboy.yy",},"order":2,},
     {"id":{"name":"spr_barrel","path":"sprites/spr_barrel/spr_barrel.yy",},"order":0,},
     {"id":{"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},"order":9,},
-    {"id":{"name":"obj_oil","path":"objects/obj_oil/obj_oil.yy",},"order":4,},
     {"id":{"name":"pawn_evildingo","path":"objects/pawn_evildingo/pawn_evildingo.yy",},"order":0,},
     {"id":{"name":"spr_tiletest2","path":"sprites/spr_tiletest2/spr_tiletest2.yy",},"order":3,},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},"order":0,},

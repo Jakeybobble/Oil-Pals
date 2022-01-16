@@ -38,8 +38,9 @@ function Grid(x, y, width, height) constructor{
 				 //draw_rectangle(xpos + xx*TS, ypos + yy*TS, xpos + (xx*TS)+TS, ypos + (yy*TS)+TS, true);
 				 
 				 var spr = t.getSprite();
-				 
-				 draw_sprite(spr, 0, xpos + xx*TS, ypos + yy*TS);
+				 var imgspd = 300;
+				 var subimg = (current_time / imgspd) mod sprite_get_number(spr);
+				 draw_sprite(spr, subimg, xpos + xx*TS, ypos + yy*TS);
 				 //draw_text(xpos + 6 + xx*TS, ypos + 6 + yy*TS, string(t.x) + ", " + string(t.y));
 				 num++;
 				 
@@ -78,8 +79,8 @@ enum AttackType {
 
 function Action() constructor{
 	
-	var a = new Attack(2,AttackType.normal);
-	var b = new Attack(0,AttackType.normal);
+	var a = new Attack(2,AttackType.normal,spr_fireyicon);
+	var b = new Attack(0,AttackType.normal,spr_fireyicon);
 	centerx = 1; centery = 1;
 	pattern = [ // Note: this points downwards ->
 	[0,0,a,a,0,0,0],
@@ -90,6 +91,9 @@ function Action() constructor{
 	ability_icon_id = 0;
 	
 	is_distant = false;
+	
+	name = "Cool attack";
+	description = "Does a cool thing...";
 	
 	function perform(tilesarray){
 		
@@ -122,7 +126,9 @@ function Action() constructor{
 							attack.perform(t);
 						}
 						
-						draw_sprite(spr_fireyicon,0,(TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y);
+						var imgspd = 250;
+						var subimg = (current_time / imgspd) mod sprite_get_number(attack.hint_icon);
+						draw_sprite(attack.hint_icon,subimg,(TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y);
 					}
 					
 				}
@@ -134,10 +140,11 @@ function Action() constructor{
 	}
 }
 
-function Attack(dmg, type) constructor{
+function Attack(dmg, type, icon) constructor{
 	
 	damage = dmg;
 	attacktype = type;
+	hint_icon = icon;
 	
 	function perform(tile){
 		if(tile.status == TileStatus.test){
