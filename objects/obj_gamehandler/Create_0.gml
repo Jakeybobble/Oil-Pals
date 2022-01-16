@@ -23,7 +23,7 @@ var dddd = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_pond);
 dddd.setToTile(4,5);
 ds_list_add(pawns, dddd);
 
-var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals); // Evil
+var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_magmaball); // Evil
 twopawn.setToTile(6,6);
 twopawn.is_player = false;
 ds_list_add(pawns, twopawn);
