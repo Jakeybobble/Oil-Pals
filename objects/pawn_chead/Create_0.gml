@@ -9,7 +9,7 @@ name = "Cleaverhead";
 hp = 5;
 maxhp = 5;
 spd = 5;
-movespace = 5;
+movespace = 4;
 
 //actions = ds_list_create();
 

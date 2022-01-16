@@ -9,7 +9,7 @@ name = "Brigade Boy";
 hp = 3;
 maxhp = 3;
 spd = 5;
-movespace = 3;
+movespace = 4;
 
 //actions = ds_list_create();
 

@@ -9,7 +9,7 @@ name = "Ball";
 hp = 10;
 maxhp = 10;
 spd = 5;
-movespace = 4;
+movespace = 5;
 
 //actions = ds_list_create();
 

@@ -195,17 +195,17 @@ function Attack(dmg, type, icon) constructor{
 }
 
 function setToOil(tile){
-		if(tile.status == TileStatus.clear){
+		if(tile.status == TileStatus.clear or tile.status == TileStatus.water){
 			tile.status = TileStatus.oil;
 		}
 	}
 function setToWater(tile){
-	if(tile.status == TileStatus.clear){
+	if(tile.status == TileStatus.clear or tile.status == TileStatus.fire){
 		tile.status = TileStatus.water;
 	}
 }
 function setToFire(tile){
-	if(tile.status == TileStatus.clear){
+	if(tile.status == TileStatus.clear or tile.status == TileStatus.oil){
 		tile.status = TileStatus.fire;
 	}
 }

@@ -9,7 +9,7 @@ name = "Oilman";
 hp = 7;
 maxhp = 7;
 spd = 5;
-movespace = 3;
+movespace = 4;
 
 //actions = ds_list_create();
 
