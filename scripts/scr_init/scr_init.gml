@@ -54,7 +54,10 @@ function Grid(x, y, width, height) constructor{
 
 enum TileStatus {
 	clear,
-	test
+	test,
+	fire,
+	oil,
+	water
 }
 
 // To-do: Have tile standard for world...
@@ -69,19 +72,28 @@ function Tile(posx, posy) constructor{
 				return spr_tiletest;
 			case TileStatus.test:
 				return spr_fireyplot;
+			case TileStatus.fire:
+				return spr_fireyplot;
+			case TileStatus.water:
+				return spr_tilewet;
+			case TileStatus.oil:
+				return spr_oilyplot;
 		}
 	}
 }
 
 enum AttackType {
-	normal
+	normal,
+	oil,
+	fire,
+	water
 }
 
 function Action() constructor{
 	
 	var a = new Attack(2,AttackType.normal,spr_fireyicon);
 	var b = new Attack(0,AttackType.normal,spr_fireyicon);
-	centerx = 1; centery = 1;
+	centerx = 0; centery = 0;
 	pattern = [ // Note: this points downwards ->
 	[0,0,a,a,0,0,0],
 	[0,a,0,0,a,0,0], 

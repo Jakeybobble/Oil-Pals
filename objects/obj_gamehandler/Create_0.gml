@@ -14,7 +14,7 @@ grid = new Grid(gridpos_x, gridpos_y, grid_x, grid_y);
 pawns = ds_list_create(); // All pawns, including players
 whoseturn = 0;
 
-var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_evildingo);
+var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
 coolpawn.setToTile(5,5);
 ds_list_add(pawns, coolpawn);
 //coolpawn.tile = grid.tiles[0,0];
@@ -35,7 +35,7 @@ state = PickState.choosemove;
 tile_memory = noone;
 
 // Lists
-pawn_friendly = [obj_pawn,pawn_evildingo];
+pawn_friendly = [obj_pawn,pawn_evildingo,pawn_pond];
 
 chosen_action = noone;
 

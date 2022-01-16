@@ -1,0 +1,75 @@
+/// @description A piece of code.
+// Written by Jacob.
+
+// Inherit the parent event
+event_inherited();
+
+is_player = true;
+name = "Coals";
+hp = 5;
+maxhp = 5;
+spd = 5;
+movespace = 3;
+
+//actions = ds_list_create();
+
+var a = new Attack(0,AttackType.normal,spr_specialicon);
+var b = new Attack(3,AttackType.fire,spr_fireyicon);
+var c = new Attack(0,AttackType.fire,spr_fireyicon);
+var d = new Attack(0,AttackType.normal,spr_specialicon);
+b.perform = function(tile){
+	if(tile.status == TileStatus.clear){
+		tile.status = TileStatus.fire;
+	}
+}
+a.perform = function(tile){
+	x = tile.x;
+	y = tile.y;
+}
+c.perform = function(tile){
+	if(tile.status == TileStatus.clear){
+		tile.status = TileStatus.fire;
+	}
+}
+d.perform = function(tile){
+	if(tile.status == TileStatus.fire){
+		tile.status = TileStatus.clear;
+		hp++;
+	}
+}
+
+move1 = new Action();
+move1.pattern = [
+	[c,c,c],
+	[c,a,c],
+	[c,c,c]
+];
+move1.centerx = 1; move1.centery = 1;
+move1.ability_icon_id = 21;
+move1.is_distant = true;
+
+move1.name = "Hop";
+move1.description = "Jump to a location and spawn fire in adjacent tiles.";
+
+move2 = new Action();
+move2.pattern = [
+	[b,b,b]
+];
+move2.ability_icon_id = 22;
+move2.centery = -1;
+move2.centerx = 0;
+
+move2.name = "Flamewhistle";
+move2.description = "Spawns a row of flames and deals medium damage.";
+
+move3 = new Action();
+move3.pattern = [
+	[d]
+];
+move3.ability_icon_id = 23;
+move3.centerx = 0; move3.centery = 0;
+
+move3.name = "Ignite";
+move3.description = "When standing on a flame, absorb it and heal.";
+
+ds_list_add(actions, move1, move2, move3);
