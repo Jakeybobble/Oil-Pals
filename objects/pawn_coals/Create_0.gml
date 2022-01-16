@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Coals";
-hp = 5;
-maxhp = 5;
+hp = 6;
+maxhp = 6;
 spd = 5;
 movespace = 2;
 

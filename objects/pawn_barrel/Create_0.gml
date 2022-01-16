@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Barrel";
-hp = 10;
-maxhp = 10;
+hp = 15;
+maxhp = 15;
 spd = 5;
 movespace = 3;
 

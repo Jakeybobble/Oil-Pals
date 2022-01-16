@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Pond";
-hp = 7;
-maxhp = 7;
+hp = 11;
+maxhp = 11;
 spd = 5;
 movespace = 3;
 

@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Evil Brigade Boy";
-hp = 3;
-maxhp = 3;
+hp = 6;
+maxhp = 6;
 spd = 5;
 movespace = 3;
 

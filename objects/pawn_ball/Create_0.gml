@@ -6,8 +6,8 @@ event_inherited();
 
 is_player = true;
 name = "Ball";
-hp = 10;
-maxhp = 10;
+hp = 12;
+maxhp = 12;
 spd = 5;
 movespace = 5;
 
