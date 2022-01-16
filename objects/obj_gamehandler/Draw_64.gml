@@ -63,7 +63,7 @@ var ecount = 0;
 
 for(var xx = 0; xx < ds_list_size(pawns); xx++){
 	var p = pawns[|xx];
-	if(p.is_player){
+	if(p.is_player and !p.dead){
 		var s = sin(current_time/200)*15;
 		draw_sprite_ext(p.faceicon,p.cid,48,48+86*pcount,1.4,1.4,s,c_white,1);
 		if(whoseturn == xx){
@@ -72,7 +72,7 @@ for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		}
 		pcount++;
 	}
-	else{
+	else if(!p.dead){
 		var s = sin(current_time/200)*15;
 		draw_sprite_ext(p.faceicon,p.cid,672+48,48+86*ecount,1.4,1.4,s,c_white,1);
 		if(whoseturn == xx){
