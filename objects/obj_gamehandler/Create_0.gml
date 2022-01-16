@@ -104,7 +104,9 @@ function endTurn(){
 			
 			if(t.status == TileStatus.ruin){
 				if(t.stander){
-					t.stander.takeDamage(999);
+					if(!t.stander.dead){
+						t.stander.takeDamage(999);
+					}
 				}
 			}
 			
