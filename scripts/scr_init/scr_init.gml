@@ -67,6 +67,7 @@ function Tile(posx, posy) constructor{
 	memory = status;
 	occupied = false;
 	stander = noone;
+	firetime = 0;
 	function getSprite(){
 		switch(status){
 			case TileStatus.clear:
@@ -217,6 +218,7 @@ function setToWater(tile){
 function setToFire(tile){
 	if(tile.status == TileStatus.clear){
 		tile.status = TileStatus.fire;
+		tile.firetime = 2;
 	}else if(tile.status == TileStatus.oil){
 		// Create fire here...
 		tile.status = TileStatus.ruin;
