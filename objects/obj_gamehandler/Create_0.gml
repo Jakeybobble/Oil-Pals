@@ -23,10 +23,12 @@ var dddd = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals);
 dddd.setToTile(4,5);
 ds_list_add(pawns, dddd);
 
-var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_magmaball); // Evil
+/*
+var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals); // Evil
 twopawn.setToTile(6,6);
 twopawn.is_player = false;
 ds_list_add(pawns, twopawn);
+*/
 
 //coolpawn.tile = grid.tiles[0,0];
 
@@ -96,10 +98,32 @@ function endTurn(){
 		
 	}
 	
+	for(var xx = 0; xx < array_length(grid.tiles); xx++){
+		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
+			var t = grid.tiles[xx,yy];
+			
+			if(t.status == TileStatus.ruin){
+				if(t.stander){
+					if(!t.stander.dead){
+						t.stander.takeDamage(999);
+					}
+				}
+			}
+			
+			//t.update();
+			/*
+			if(t.status == TileStatus.clear){
+				t.status = TileStatus.fire;
+			}
+			*/
+		}
+	}
+	
+	
 	if(playersalive == 0){
-		instance_create_depth(0,0,-600,obj_transition);
+		//instance_create_depth(0,0,-600,obj_transition);
 	}else if(enemiesalive == 0){
-		instance_create_depth(0,0,-600,obj_transition);
+		//instance_create_depth(0,0,-600,obj_transition);
 	}
 	
 	startTurn();
