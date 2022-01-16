@@ -84,3 +84,6 @@ for(var xx = 0; xx < ds_list_size(pawns); xx++){
 	
 }
 
+draw_set_font(font_squarecakes);
+draw_text_transformed(0,room_height-16,"Level " + string(level),2,2,0);
+

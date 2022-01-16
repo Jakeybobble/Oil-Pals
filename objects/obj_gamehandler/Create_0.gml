@@ -1,6 +1,8 @@
 /// @description A piece of code.
 // Written by Jacob.
 
+level = 0;
+
 depth = 99;
 
 player_turn = true;
@@ -49,7 +51,7 @@ tile_memory = noone; // Last tile stood on
 tiledata_memory = ds_list_create(); // All tiles changed during move
 
 // Lists
-pawn_friendly = [obj_pawn,pawn_evildingo,pawn_pond];
+pawn_friendly = [pawn_evildingo,pawn_pond,pawn_barrel,pawn_chead,pawn_ovenmitt,pawn_coals,pawn_ball,pawn_bboy,pawn_ebboy];
 
 chosen_action = noone;
 
@@ -129,6 +131,20 @@ function endTurn(){
 	startTurn();
 	state = PickState.choosemove;
 }
+
+enemiesleft = 5;
+nextenemy_turns = 0;
+turnspace = 1;
+nextenemy = pawn_tinman;
+enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
+
+function spawnEnemy(xpos, ypos){
+	var tospawn = instance_create_depth(gridpos_x,gridpos_y, 0, nextenemy); // Evil
+	tospawn.setToTile(xpos,ypos);
+	tospawn.is_player = false;
+	ds_list_add(pawns, tospawn);
+}
+
 function endWave(){
 	
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
@@ -159,5 +175,25 @@ function endWave(){
 			*/
 		}
 	}
+	
+	if(nextenemy_turns > 0){
+		nextenemy_turns--;
+	}else{
+		nextenemy_turns = turnspace;
+		var tries = 1000;
+		while(tries > 0){
+			var randx = irandom_range(0,array_length(GRID.tiles)-1);
+			var randy = irandom_range(0,array_length(GRID.tiles[0])-1);
+			var ttt = GRID.tiles[randx,randy];
+			if(!ttt.occupied){
+				ttt.status = TileStatus.clear;
+				nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
+				spawnEnemy(ttt.x,ttt.y);
+				break;
+			}
+			tries--;
+		}
+	}
+	
 	
 }
