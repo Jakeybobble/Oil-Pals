@@ -11,6 +11,8 @@ maxhp = 5;
 spd = 5;
 movespace = 4;
 
+cid = 1;
+
 //actions = ds_list_create();
 
 var a = new Attack(4,AttackType.oil,spr_oilyicon);

@@ -11,6 +11,8 @@ maxhp = 5;
 spd = 5;
 movespace = 2;
 
+cid = 7;
+
 //actions = ds_list_create();
 
 var a = new Attack(0,AttackType.normal,spr_specialicon);

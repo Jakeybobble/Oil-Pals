@@ -5,6 +5,8 @@ depth = 99;
 
 player_turn = true;
 
+arrowy = 0;
+
 gridpos_x = 96;
 gridpos_y = 96;
 

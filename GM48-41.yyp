@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"pawn_ovenmitt","path":"objects/pawn_ovenmitt/pawn_ovenmitt.yy",},"order":4,},
+    {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},"order":23,},
     {"id":{"name":"spr_hpborder","path":"sprites/spr_hpborder/spr_hpborder.yy",},"order":13,},
     {"id":{"name":"scr_rotateArray","path":"scripts/scr_rotateArray/scr_rotateArray.yy",},"order":1,},
     {"id":{"name":"spr_barborder","path":"sprites/spr_barborder/spr_barborder.yy",},"order":12,},

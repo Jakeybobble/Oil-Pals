@@ -57,3 +57,17 @@ if(state == PickState.chooseaction){
 	}
 	
 }
+
+for(var xx = 0; xx < ds_list_size(pawns); xx++){
+	var p = pawns[|xx];
+	if(p.is_player){
+		var s = sin(current_time/200)*15;
+		draw_sprite_ext(p.faceicon,p.cid,48,48+86*xx,1.4,1.4,s,c_white,1);
+		if(whoseturn == xx){
+			arrowy = 40+86*xx;
+		}
+		draw_sprite_ext(spr_arrow,0,88+(s/2),arrowy,1,1,0,c_white,1);
+	}
+	
+}
+

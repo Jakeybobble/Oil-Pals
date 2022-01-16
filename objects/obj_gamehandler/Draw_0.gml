@@ -122,10 +122,3 @@ if(state == PickState.chooseactionposition){
 }
 
 
-for(var xx = 0; xx < ds_list_size(pawns); xx++){
-	var p = pawns[|xx];
-	if(p.is_player){
-		var s = sin(current_time/200)*15;
-		draw_sprite_ext(p.faceicon,0,32,room_height-48,1.4,1.4,s,c_white,1);
-	}
-}
