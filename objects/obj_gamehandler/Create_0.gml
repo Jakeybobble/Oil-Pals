@@ -19,7 +19,7 @@ var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
 coolpawn.setToTile(5,5);
 ds_list_add(pawns, coolpawn);
 
-var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead); // Evil
+var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals); // Evil
 twopawn.setToTile(6,6);
 twopawn.is_player = false;
 ds_list_add(pawns, twopawn);

@@ -96,26 +96,62 @@ if(state == PickState.choosemove){
 if(state == PickState.chooseactionposition){
 	
 	var p = pawns[|whoseturn];
-	var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
-	var d = floor(((pdir + 45) mod 360)/90);
-	var newdir = (d +1 mod 3);
-	var action = chosen_action;
-	var doaction = false;
-	if(mouse_check_button_pressed(mb_right)){
-		chosen_action = noone;
-		state = PickState.chooseaction;
-		mouse_clear(mb_right);
-	}else if(mouse_check_button_pressed(mb_left)){
-		// X TO-DO: Set this to performing!
+	if(p.is_player){
+		var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
+		var d = floor(((pdir + 45) mod 360)/90);
+		var newdir = (d +1 mod 3);
+		var action = chosen_action;
+		var doaction = false;
+		if(mouse_check_button_pressed(mb_right)){
+			chosen_action = noone;
+			state = PickState.chooseaction;
+			mouse_clear(mb_right);
+		}else if(mouse_check_button_pressed(mb_left)){
+			// X TO-DO: Set this to performing!
+			state = PickState.performing;
+			//state = PickState.choosemove;
+			doaction = true;
+			mouse_clear(mb_left);
+		}
+		if(action.is_distant){
+			action.preview(px,py,0, doaction);
+		}else{
+			action.preview(p.tile.x,p.tile.y,newdir, doaction);
+		}
+	}else if(!p.is_player){
+		//var pdir = point_direction();
+		var targets = ds_list_create();
+		for(var xx = 0; xx < ds_list_size(pawns); xx++){
+			var _p = pawns[|xx];
+			if(_p.is_player){
+				ds_list_add(targets,_p);
+			}
+		}
+		var closest = noone;
+		var lowestdis = 10000;
+		for(var xx = 0; xx < ds_list_size(targets); xx++){
+			var _p = targets[|xx];
+			var dis = point_distance(p.x,p.y,_p.x,_p.y);
+			if(dis < lowestdis){
+				closest = _p;
+				lowestdis = dis;
+			}
+		}
+		
+		var todir = point_direction(p.x,p.y,closest.x,closest.y);
+		var d = floor(((todir + 45) mod 360)/90);
+		var newdir = (d +1 mod 3);
+		var action = chosen_action;
+		
 		state = PickState.performing;
-		//state = PickState.choosemove;
-		doaction = true;
-		mouse_clear(mb_left);
-	}
-	if(action.is_distant){
-		action.preview(px,py,0, doaction);
-	}else{
-		action.preview(p.tile.x,p.tile.y,newdir, doaction);
+		
+		if(action.is_distant){
+			action.preview(closest.tile.x,closest.tile.y,0, true);
+		}else{
+			action.preview(p.tile.x,p.tile.y,newdir, true);
+		}
+		
+		ds_list_destroy(targets);
 	}
 	
 	
