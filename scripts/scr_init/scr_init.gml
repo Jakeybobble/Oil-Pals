@@ -193,26 +193,27 @@ function Attack(dmg, type, icon) constructor{
 		}
 		tile.stander.takeDamage(1); // Just default...
 	}
-	function setToOil(tile){
+}
+
+function setToOil(tile){
 		if(tile.status == TileStatus.clear){
 			tile.status = TileStatus.oil;
 		}
 	}
-	function setToWater(tile){
-		if(tile.status == TileStatus.clear){
-			tile.status = TileStatus.water;
-		}
+function setToWater(tile){
+	if(tile.status == TileStatus.clear){
+		tile.status = TileStatus.water;
 	}
-	function setToFire(tile){
-		if(tile.status == TileStatus.clear){
-			tile.status = TileStatus.fire;
-		}
+}
+function setToFire(tile){
+	if(tile.status == TileStatus.clear){
+		tile.status = TileStatus.fire;
 	}
 }
 
 function Status() constructor{
 	// Number means duration...
-	oiled = 3;
+	oiled = 0;
 	
 	function affectDamage(dmg){
 		var returndmg = dmg;

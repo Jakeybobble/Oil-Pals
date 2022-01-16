@@ -20,6 +20,7 @@ a.perform = function(tile){
 	if(tile.status == TileStatus.clear){
 		tile.status = TileStatus.oil;
 	}
+	
 	if(tile.stander != noone){
 		tile.stander.takeDamage(2);
 	}
