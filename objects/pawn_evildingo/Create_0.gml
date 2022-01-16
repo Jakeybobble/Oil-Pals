@@ -7,6 +7,7 @@ event_inherited();
 is_player = true;
 name = "Evil Dingo";
 hp = 5;
+maxhp = 5;
 spd = 5;
 movespace = 3;
 

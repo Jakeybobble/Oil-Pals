@@ -1,6 +1,8 @@
 {
   "resources": [
+    {"id":{"name":"spr_hpborder","path":"sprites/spr_hpborder/spr_hpborder.yy",},"order":13,},
     {"id":{"name":"scr_rotateArray","path":"scripts/scr_rotateArray/scr_rotateArray.yy",},"order":1,},
+    {"id":{"name":"spr_barborder","path":"sprites/spr_barborder/spr_barborder.yy",},"order":12,},
     {"id":{"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"order":11,},
     {"id":{"name":"spr_man","path":"sprites/spr_man/spr_man.yy",},"order":7,},
     {"id":{"name":"spr_bboy","path":"sprites/spr_bboy/spr_bboy.yy",},"order":5,},
@@ -11,6 +13,7 @@
     {"id":{"name":"spr_coals","path":"sprites/spr_coals/spr_coals.yy",},"order":6,},
     {"id":{"name":"spr_testface","path":"sprites/spr_testface/spr_testface.yy",},"order":4,},
     {"id":{"name":"obj_pawn","path":"objects/obj_pawn/obj_pawn.yy",},"order":1,},
+    {"id":{"name":"spr_hpbarfill","path":"sprites/spr_hpbarfill/spr_hpbarfill.yy",},"order":14,},
     {"id":{"name":"spr_testpawn","path":"sprites/spr_testpawn/spr_testpawn.yy",},"order":0,},
     {"id":{"name":"spr_testface2","path":"sprites/spr_testface2/spr_testface2.yy",},"order":5,},
     {"id":{"name":"spr_tiletest","path":"sprites/spr_tiletest/spr_tiletest.yy",},"order":1,},
