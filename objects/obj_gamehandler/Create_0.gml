@@ -134,7 +134,7 @@ function endTurn(){
 
 enemiesleft = 5;
 nextenemy_turns = 0;
-turnspace = 1;
+turnspace = 2;
 nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
 
@@ -173,6 +173,15 @@ function endWave(){
 				t.status = TileStatus.fire;
 			}
 			*/
+			
+			if(t.status == TileStatus.fire){
+				if(t.firetime > 0){
+					t.firetime--;
+				}else{
+					t.firetime = 0;
+					t.status = TileStatus.clear;
+				}
+			}
 		}
 	}
 	
