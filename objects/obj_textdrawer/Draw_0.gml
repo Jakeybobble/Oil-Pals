@@ -10,5 +10,5 @@ var newstring = string_copy(drawstring,0,count);
 draw_text(x,y,newstring);
 
 if(keyboard_check_pressed(ord("R"))){
-	game_restart();
+	restartGame();
 }

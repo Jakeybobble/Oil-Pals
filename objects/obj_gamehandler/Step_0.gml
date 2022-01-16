@@ -1,8 +1,8 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-if(keyboard_check_pressed(ord("R"))){
-	room_restart();
+if(keyboard_check_pressed(ord("O"))){
+	restartGame();
 }
 
 if(pawn_moving){

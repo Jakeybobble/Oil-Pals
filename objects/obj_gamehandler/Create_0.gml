@@ -17,6 +17,7 @@ grid = new Grid(gridpos_x, gridpos_y, grid_x, grid_y);
 
 pawns = ds_list_create(); // All pawns, including players
 
+/*
 var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
 coolpawn.setToTile(5,5);
 ds_list_add(pawns, coolpawn);
@@ -24,6 +25,14 @@ ds_list_add(pawns, coolpawn);
 var dddd = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals);
 dddd.setToTile(4,5);
 ds_list_add(pawns, dddd);
+*/
+
+for(var xx = 0; xx < ds_list_size(global.roster); xx++){
+	var newpawn = instance_create_depth(gridpos_x,gridpos_y, 0, global.roster[|xx]);
+	newpawn.setToTile(xx,0);
+	ds_list_add(pawns,newpawn);
+}
+
 
 /*
 var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals); // Evil
@@ -129,6 +138,16 @@ function endTurn(){
 		// WIN
 		if(enemiesleft == 0){
 			// DO WIN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			global.enemymax += 2;
+			global.level++;
+			
+			if(ds_list_size(global.roster) < 9){
+				room_goto(Room_Inbetween);
+			}else{
+				room_restart();	
+			}
+			
+			
 		}
 		//instance_create_depth(0,0,-600,obj_transition);
 	}
@@ -137,9 +156,9 @@ function endTurn(){
 	state = PickState.choosemove;
 }
 
-enemiesleft = 1;
+enemiesleft = global.enemymax;
 nextenemy_turns = 0;
-turnspace = 2;
+turnspace = 4;
 nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
 
