@@ -1,0 +1,1 @@
+draw_sprite_ext(spr_oil,0,x,y-yoffset,1,1,rot,c_white,1);
