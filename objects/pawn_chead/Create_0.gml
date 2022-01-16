@@ -13,6 +13,8 @@ movespace = 4;
 
 cid = 1;
 
+status.superoiled = 99999;
+status.oiled = 999999;
 //actions = ds_list_create();
 
 var a = new Attack(4,AttackType.oil,spr_oilyicon);

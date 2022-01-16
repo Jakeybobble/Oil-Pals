@@ -9,6 +9,8 @@ movespace = 2;
 
 faceicon = spr_testface2;
 
+fireimmunity = false;
+
 status = new Status(); // Contains pawn status effects
 
 tile = noone;

@@ -15,7 +15,7 @@ grid = new Grid(gridpos_x, gridpos_y, grid_x, grid_y);
 
 pawns = ds_list_create(); // All pawns, including players
 
-var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
+var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_pond);
 coolpawn.setToTile(5,5);
 ds_list_add(pawns, coolpawn);
 
@@ -56,7 +56,18 @@ function setPerformTimer(num){
 	}
 }
 
+function startTurn(){
+	var p = pawns[|whoseturn];
+	if(p.tile.status = TileStatus.oil){
+		p.status.oiled ++;
+	}
+}
+
 function endTurn(){
+	var p = pawns[|whoseturn];
+	
+	
+	
 	if(whoseturn+1 < ds_list_size(pawns)){
 		
 		whoseturn++;
@@ -64,17 +75,29 @@ function endTurn(){
 		whoseturn = 0;
 		endWave();
 	}
+	startTurn();
 	state = PickState.choosemove;
 }
 function endWave(){
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		var p = pawns[|xx];
+		
+		if(p.tile.status == TileStatus.fire){
+			if(p.fireimmunity){
+				
+			}else{
+				p.takeDamage(1);
+			}
+			
+		}
+		
 		p.status.endWave();
 	}
 	
 	for(var xx = 0; xx < array_length(grid.tiles); xx++){
 		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
 			var t = grid.tiles[xx,yy];
+			
 			//t.update();
 			/*
 			if(t.status == TileStatus.clear){

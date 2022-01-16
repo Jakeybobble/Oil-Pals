@@ -213,6 +213,7 @@ function setToFire(tile){
 function Status() constructor{
 	// Number means duration...
 	oiled = 0;
+	superoiled = 0;
 	
 	function affectDamage(dmg){
 		var returndmg = dmg;
@@ -227,9 +228,10 @@ function Status() constructor{
 	
 	function duringMove(tile){
 		//tile.status = TileStatus.fire;
-		if(oiled>0){
+		if(superoiled>0){
 			tile.status = TileStatus.oil;
 		}
+		
 	}
 	function onMove(){
 		
