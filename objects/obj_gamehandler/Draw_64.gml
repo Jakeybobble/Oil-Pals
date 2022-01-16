@@ -48,7 +48,12 @@ if(state == PickState.chooseaction){
 		}
 	}else if(!p.is_player){
 		// Beep boop.
-		state = PickState.performing;
+		
+		state = PickState.chooseactionposition;
+		var rand = irandom_range(0,ds_list_size(p.actions)-1);
+		chosen_action = p.actions[|rand];
+		
+		//state = PickState.performing;
 	}
 	
 }
