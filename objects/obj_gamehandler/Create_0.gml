@@ -15,7 +15,7 @@ grid = new Grid(gridpos_x, gridpos_y, grid_x, grid_y);
 
 pawns = ds_list_create(); // All pawns, including players
 
-var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_pond);
+var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
 coolpawn.setToTile(5,5);
 ds_list_add(pawns, coolpawn);
 
