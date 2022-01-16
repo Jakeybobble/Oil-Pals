@@ -5,6 +5,6 @@ blinds+=vsp;
 draw_set_color(c_black);
 draw_rectangle(0,0,room_width,blinds,false);
 if(blinds > room_height){
-	room_goto(1);
+	room_goto(Room_Between);
 	
 }
