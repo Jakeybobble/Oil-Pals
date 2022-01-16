@@ -23,7 +23,7 @@ if(state == PickState.choosemove){
 				var mytile = (px == p.tile.x && py == p.tile.y);
 				var col = c_white;
 				var canmovethere = false;
-				if(abs(p.tile.x - px) < p.movespace && abs(p.tile.y - py) < p.movespace){
+				if((abs(p.tile.x - px) < p.movespace) && (abs(p.tile.y - py) < p.movespace)){
 					if(t.occupied == false or mytile){
 						canmovethere = true;
 					}
@@ -53,6 +53,40 @@ if(state == PickState.choosemove){
 			}
 		}
 	}else if(!p.is_player){
+		var untilskip = 50;
+		//var randx = random_range();
+		while(untilskip > 0){
+			var randx = irandom_range(p.tile.x-p.movespace,p.tile.x+p.movespace);
+			var randy = irandom_range(p.tile.y-p.movespace,p.tile.y+p.movespace);
+			var mytile = (randx == p.tile.x && randy == p.tile.y);
+			if(randx >= 0 && randx < array_length(grid.tiles)){
+				if(randy >= 0 && randy < array_length(grid.tiles[0])){
+					var t = GRID.tiles[randx,randy];
+					
+					var canmovethere = false;
+					
+					if(t.occupied == false or mytile){
+						canmovethere = true;
+					}
+					
+					if(canmovethere){
+						if(mytile){
+							state = PickState.chooseaction;
+						}else if(t.occupied == false){
+							pawn_moving = true;
+							pawn_moving_x = randx;
+							pawn_moving_y = randy;
+						}
+						break;
+					}
+				}
+			}
+			untilskip--;
+		}
+		if(untilskip == 0){
+			state = PickState.chooseaction;
+		}
+		
 		
 	}
 }
