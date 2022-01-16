@@ -4,6 +4,7 @@
 is_player = true;
 name = "Dingo";
 hp = 5;
+maxhp = 5;
 spd = 5;
 movespace = 2;
 
@@ -14,6 +15,8 @@ fireimmunity = false;
 status = new Status(); // Contains pawn status effects
 
 tile = noone;
+
+dead = false;
 
 function startOfTurn(){
 	
@@ -32,8 +35,13 @@ function onDeath(){
 }
 function takeDamage(dmg){
 	var newdmg = status.affectDamage(dmg);
-	hp-= newdmg;
+	//hp-= newdmg;
+	hp = clamp(hp-newdmg,0,maxhp);
 	flyingNumber(x,y,newdmg);
+	if(hp <= 0){
+		onDeath();
+		dead = true;
+	}
 }
 
 /// Set tile position of a pawn, also updates tile.
