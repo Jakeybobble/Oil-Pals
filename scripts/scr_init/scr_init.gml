@@ -208,9 +208,41 @@ function setToWater(tile){
 	}
 }
 function setToFire(tile){
-	if(tile.status == TileStatus.clear or tile.status == TileStatus.oil){
+	if(tile.status == TileStatus.clear){
 		tile.status = TileStatus.fire;
+	}else if(tile.status == TileStatus.oil){
+		// Create fire here...
+		tile.status = TileStatus.ruin;
+		tile.occupied = true;
+		instance_create_depth((tile.x*TS)+GH.gridpos_x+TS/2,(tile.y*TS)+GH.gridpos_y+TS/2,0,obj_fire);
+		/*
+		if(tile.stander){
+			tile.stander.takeDamage(999);
+		}
+		*/
+		for(var xx = -1; xx < 2; xx+=2){
+			if(tile.x + xx > 0 && tile.x + xx < array_length(GRID.tiles)){
+					//if(tile.y + yy > 0 && tile.y + yy < array_length(GRID.tiles[0])){
+						var t = GRID.tiles[tile.x+xx,tile.y];
+						setToFire(t);
+						//oilFire(tile);
+					//}
+				}
+			for(var yy = -1; yy < 2; yy+=2){
+				if(tile.y + yy > 0 && tile.y + yy < array_length(GRID.tiles[0])){
+						var t = GRID.tiles[tile.x,tile.y+yy];
+						setToFire(t);
+						//oilFire(tile);
+				}
+			}
+		}
+		
 	}
+}
+function oilFire(tile){
+	//setToFire(tile);
+	tile.status = TileStatus.ruin;
+	
 }
 
 function Status() constructor{
@@ -232,7 +264,7 @@ function Status() constructor{
 	function duringMove(tile){
 		//tile.status = TileStatus.fire;
 		if(superoiled>0){
-			tile.status = TileStatus.oil;
+			setToOil(tile);
 		}
 		
 	}
