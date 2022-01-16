@@ -10,6 +10,19 @@ faceicon = spr_testface2;
 
 tile = noone;
 
+function startOfTurn(){
+	
+}
+function endOfTurn(){
+	
+}
+function startOfWave(){
+	
+}
+function endOfWave(){
+	
+}
+
 /// Set tile position of a pawn, also updates tile.
 /// Animations will be set in another function which runs before this.
 function setToTile(xpos, ypos){

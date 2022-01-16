@@ -14,11 +14,15 @@ movespace = 3;
 //actions = ds_list_create();
 
 var a = new Attack(2,AttackType.normal,spr_fireyicon);
+var b = new Attack(2,AttackType.normal,spr_fireyicon);
+b.perform = function(tile){
+	show_debug_message("Hey, it's working");
+}
 
 move1 = new Action();
 move1.pattern = [
 	[0,a,a,0],
-	[0,a,a,0],
+	[b,a,a,0],
 	[0,a,a,0]
 ];
 move1.centerx = 1; move1.centery = 0;

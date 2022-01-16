@@ -95,10 +95,6 @@ function Action() constructor{
 	name = "Cool attack";
 	description = "Does a cool thing...";
 	
-	function perform(tilesarray){
-		
-	}
-	
 	function preview(pos_x, pos_y, rotation, doaction){
 		var newarray = pattern;
 		var newx = centerx;
@@ -111,7 +107,7 @@ function Action() constructor{
 			}
 		}
 		
-		for(var xx = 0; xx < array_length(newarray); xx++){
+		for(var xx = 0; xx < array_length(newarray); xx++){ // Loop through pattern
 			for(var yy = 0; yy < array_length(newarray[0]); yy++){
 				
 				var cxpos = pos_x + xx - newx; var cypos = pos_y + yy - newy;
@@ -122,7 +118,6 @@ function Action() constructor{
 					
 					if(attack != 0){
 						if(doaction){
-							//t.status = TileStatus.test;
 							attack.perform(t);
 						}
 						

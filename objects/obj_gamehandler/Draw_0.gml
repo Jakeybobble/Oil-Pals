@@ -52,7 +52,12 @@ if(state == PickState.chooseactionposition){
 		doaction = true;
 		mouse_clear(mb_left);
 	}
-	action.preview(p.tile.x,p.tile.y,newdir, doaction);
+	if(action.is_distant){
+		action.preview(px,py,0, doaction);
+	}else{
+		action.preview(p.tile.x,p.tile.y,newdir, doaction);
+	}
+	
 	
 }
 
