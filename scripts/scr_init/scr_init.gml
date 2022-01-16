@@ -107,6 +107,8 @@ function randomSound(array) constructor{
 }
 
 global.sound_water = new randomSound([sou_water1,sou_water2,sou_water3]);
+global.sound_fire = new randomSound([sou_fire1,sou_fire2,sou_fire3]);
+global.sound_hit = new randomSound([hurt1,hurt2,hurt3]);
 
 function Action() constructor{
 	
@@ -123,8 +125,8 @@ function Action() constructor{
 	
 	is_distant = false;
 	
-	sound = global.sound_water;
-	sound_israndom = true;
+	sound = noone;
+	sound_israndom = false;
 	
 	name = "Cool attack";
 	description = "Does a cool thing...";
@@ -153,31 +155,36 @@ function Action() constructor{
 					if(attack != 0){
 						if(doaction){
 							attack.perform(t);
+							switch(attack.attacktype){
+								case AttackType.fire:
+									audio_play_sound(global.sound_fire.get(),1,0);
+									var atkc = c_red;
+									break;
+								case AttackType.water:
+									audio_play_sound(global.sound_water.get(),1,0);
+									var atkc = c_aqua;
+									break;
+								case AttackType.oil:
+									audio_play_sound(global.sound_water.get(),1,0);
+									var atkc = c_purple;
+									break;
+								case AttackType.normal:
+									if(attack.hint_icon != spr_specialicon){
+										audio_play_sound(global.sound_hit.get(),1,0);	
+									}
+									var atkc = c_purple;
+									break;
+							}
+							instance_create_depth((TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y,-100,obj_hitfx);
 						}
 						
 						var imgspd = 250;
 						var subimg = (current_time / imgspd) mod sprite_get_number(attack.hint_icon);
 						draw_sprite(attack.hint_icon,subimg,(TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y);
-					}
-					
+					}		
 				}
-				
-				
 			}
-		}
-		
-		if(doaction){
-			if(sound != noone){
-				var snd = sound;
-				if(sound_israndom){
-					snd = sound.get();
-					show_debug_message(snd);
-				}
-				audio_play_sound(snd,1,false);
-			}
-		}
-		
-		
+		}	
 	}
 }
 

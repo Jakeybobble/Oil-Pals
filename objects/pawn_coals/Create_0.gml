@@ -36,7 +36,10 @@ c.perform = function(tile){
 	setToFire(tile);
 }
 d.perform = function(tile){
-	setToFire(tile);
+	if(tile.status == TileStatus.fire){
+		tile.status = TileStatus.clear;
+		hp++;
+	}
 }
 
 move1 = new Action();
