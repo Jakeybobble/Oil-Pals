@@ -8,18 +8,13 @@
     {"id":{"name":"spr_barborder","path":"sprites/spr_barborder/spr_barborder.yy",},"order":12,},
     {"id":{"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"order":11,},
     {"id":{"name":"sou_water3","path":"sounds/sou_water3/sou_water3.yy",},"order":6,},
-<<<<<<< Updated upstream
-    {"id":{"name":"spr_oilball","path":"sprites/spr_oilball/spr_oilball.yy",},"order":9,},
-=======
-    {"id":{"name":"Room_Menu","path":"rooms/Room_Menu/Room_Menu.yy",},"order":0,},
-    {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":4,},
->>>>>>> Stashed changes
     {"id":{"name":"spr_man","path":"sprites/spr_man/spr_man.yy",},"order":7,},
     {"id":{"name":"spr_bboy","path":"sprites/spr_bboy/spr_bboy.yy",},"order":5,},
     {"id":{"name":"spr_oilyplot","path":"sprites/spr_oilyplot/spr_oilyplot.yy",},"order":8,},
     {"id":{"name":"spr_oil","path":"sprites/spr_oil/spr_oil.yy",},"order":15,},
     {"id":{"name":"spr_specialicon","path":"sprites/spr_specialicon/spr_specialicon.yy",},"order":19,},
     {"id":{"name":"spr_tilewet","path":"sprites/spr_tilewet/spr_tilewet.yy",},"order":7,},
+    {"id":{"name":"spr_oilball","path":"sprites/spr_oilball/spr_oilball.yy",},"order":27,},
     {"id":{"name":"pawn_ball","path":"objects/pawn_ball/pawn_ball.yy",},"order":6,},
     {"id":{"name":"spr_chead","path":"sprites/spr_chead/spr_chead.yy",},"order":4,},
     {"id":{"name":"spr_abilities","path":"sprites/spr_abilities/spr_abilities.yy",},"order":6,},
@@ -71,6 +66,7 @@
     {"id":{"name":"spr_grave","path":"sprites/spr_grave/spr_grave.yy",},"order":24,},
     {"id":{"name":"spr_deadgrass","path":"sprites/spr_deadgrass/spr_deadgrass.yy",},"order":26,},
     {"id":{"name":"pawn_evildingo","path":"objects/pawn_evildingo/pawn_evildingo.yy",},"order":0,},
+    {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":7,},
     {"id":{"name":"pawn_barrel","path":"objects/pawn_barrel/pawn_barrel.yy",},"order":2,},
     {"id":{"name":"spr_tiletest2","path":"sprites/spr_tiletest2/spr_tiletest2.yy",},"order":3,},
     {"id":{"name":"sou_water2","path":"sounds/sou_water2/sou_water2.yy",},"order":5,},
@@ -99,7 +95,6 @@
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"Room_Between","path":"rooms/Room_Between/Room_Between.yy",},},
-    {"roomId":{"name":"Room_Menu","path":"rooms/Room_Menu/Room_Menu.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":0,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
