@@ -20,7 +20,6 @@ function Grid(x, y, width, height) constructor{
 			 
 		 }
 	 }
-	 tiles[2,2].occupied = true;
 	 
 	 function getTile(xpos, ypos){
 		 return tiles[xpos,ypos];

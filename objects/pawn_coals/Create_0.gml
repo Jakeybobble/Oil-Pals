@@ -9,7 +9,7 @@ name = "Coals";
 hp = 5;
 maxhp = 5;
 spd = 5;
-movespace = 3;
+movespace = 2;
 
 //actions = ds_list_create();
 
@@ -18,24 +18,21 @@ var b = new Attack(3,AttackType.fire,spr_fireyicon);
 var c = new Attack(0,AttackType.fire,spr_fireyicon);
 var d = new Attack(0,AttackType.normal,spr_specialicon);
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
+	setToFire(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(3);
 	}
 }
-a.perform = function(tile){
-	x = tile.x;
-	y = tile.y;
+a.perform = function(_t){
+	if(!_t.occupied){
+		setToTile(_t.x,_t.y)
+	}
 }
 c.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
-	}
+	setToFire(tile);
 }
 d.perform = function(tile){
-	if(tile.status == TileStatus.fire){
-		tile.status = TileStatus.clear;
-		hp++;
-	}
+	setToFire(tile);
 }
 
 move1 = new Action();
@@ -49,7 +46,7 @@ move1.ability_icon_id = 21;
 move1.is_distant = true;
 
 move1.name = "Hop";
-move1.description = "Jump to a location and spawn fire in adjacent tiles.";
+move1.description = "Jump to a location and spawn fire in adjacent tiles. (dont click on enemies pls)";
 
 move2 = new Action();
 move2.pattern = [

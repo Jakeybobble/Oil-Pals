@@ -17,23 +17,18 @@ var a = new Attack(4,AttackType.oil,spr_oilyicon);
 var b = new Attack(0,AttackType.oil,spr_oilyicon);
 var c = new Attack(2,AttackType.oil,spr_oilyicon);
 a.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.oil;
-	}
-	
+	setToOil(tile);	
 	if(tile.stander != noone){
-		tile.stander.takeDamage(2);
-	}
-	
+		tile.stander.takeDamage(4);
+	}	
 }
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.oil;
-	}
+	setToOil(tile);
 }
 c.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.oil;
+	setToOil(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(2);
 	}
 }
 

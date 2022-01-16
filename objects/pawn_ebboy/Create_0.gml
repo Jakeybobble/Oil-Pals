@@ -16,20 +16,23 @@ movespace = 3;
 var a = new Attack(1,AttackType.normal,spr_noneicon);
 var b = new Attack(7,AttackType.fire,spr_fireyicon);
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
+	setToFire(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(7);
 	}
 }
 var c = new Attack(2,AttackType.fire,spr_fireyicon);
 c.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
+	setToFire(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(2);
 	}
 }
 var d = new Attack(3,AttackType.fire,spr_fireyicon);
 d.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
+	setToFire(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(3);
 	}
 }
 a.perform = function(tile){

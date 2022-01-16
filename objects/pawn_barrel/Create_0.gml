@@ -17,18 +17,21 @@ var a = new Attack(4,AttackType.fire,spr_fireyicon);
 var b = new Attack(2,AttackType.oil,spr_oilyicon);
 var c = new Attack(3,AttackType.oil,spr_oilyicon);
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.oil;
+	setToOil(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(2);
 	}
 }
 a.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
+	setToFire(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(4);
 	}
 }
 c.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.oil;
+	setToOil(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(3);
 	}
 }
 
@@ -61,7 +64,7 @@ move3.pattern = [
 move3.ability_icon_id = 8;
 move3.centerx = 0; move3.centery = 0;
 
-move2.name = "Oil Spray";
-move2.description = "Shoots oil a line of oil.";
+move3.name = "Oil Spray";
+move3.description = "Shoots oil a line of oil.";
 
 ds_list_add(actions, move1, move2, move3);

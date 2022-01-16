@@ -22,10 +22,14 @@ b.perform = function(tile){
 	setToWater(tile);
 }
 a.perform = function(tile){
-	//none
+	if(tile.stander != noone){
+		tile.stander.takeDamage(4);
+	}
 }
 c.perform = function(tile){
-	//dont do the default
+	if(tile.stander != noone){
+		tile.stander.takeDamage(3);
+	}
 }
 d.perform = function(tile){
 	if(tile.status == TileStatus.water){

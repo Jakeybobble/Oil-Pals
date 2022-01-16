@@ -17,8 +17,9 @@ var a = new Attack(0,AttackType.normal,spr_specialicon);
 var b = new Attack(5,AttackType.normal,spr_noneicon);
 var c = new Attack(3,AttackType.fire,spr_fireyicon);
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear and tile.occupied == true){
-		tile.status = TileStatus.fire;
+	if(tile.stander != noone){
+		tile.stander.takeDamage(5);
+		setToFire(tile);
 	}
 }
 a.perform = function(tile){
@@ -27,8 +28,9 @@ a.perform = function(tile){
 	}
 }
 c.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.fire;
+	setToFire(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(3);
 	}
 }
 

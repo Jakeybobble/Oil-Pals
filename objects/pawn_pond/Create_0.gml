@@ -16,12 +16,12 @@ movespace = 3;
 var a = new Attack(2,AttackType.normal,spr_noneicon);
 var b = new Attack(0,AttackType.water,spr_watericon);
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.water;
-	}
+	setToWater(tile);
 }
 a.perform = function(tile){
-	show_debug_message("Hey, it's working");
+	if(tile.stander != noone){
+		tile.stander.takeDamage(2);
+	}
 }
 
 move1 = new Action();

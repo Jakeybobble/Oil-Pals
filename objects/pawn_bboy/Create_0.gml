@@ -16,20 +16,23 @@ movespace = 3;
 var a = new Attack(1,AttackType.normal,spr_noneicon);
 var b = new Attack(7,AttackType.water,spr_watericon);
 b.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.water;
+	setToWater(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(7);
 	}
 }
 var c = new Attack(2,AttackType.water,spr_watericon);
 c.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.water;
+	setToWater(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(2);
 	}
 }
 var d = new Attack(3,AttackType.water,spr_watericon);
 d.perform = function(tile){
-	if(tile.status == TileStatus.clear){
-		tile.status = TileStatus.water;
+	setToWater(tile);
+	if(tile.stander != noone){
+		tile.stander.takeDamage(3);
 	}
 }
 a.perform = function(tile){
