@@ -13,82 +13,87 @@ var recty = gridpos_y + py*TS;
 if(state == PickState.choosemove){
 	var p = pawns[|whoseturn];
 	
-	if(p.is_player){
-		draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,0.46);
+	if(p.dead){
+		state = PickState.performing;
+	}else{
+		if(p.is_player){
+			draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,0.46);
 	
-		if(px >= 0 && px < array_length(grid.tiles)){
-			if(py >= 0 && py < array_length(grid.tiles[0])){
+			if(px >= 0 && px < array_length(grid.tiles)){
+				if(py >= 0 && py < array_length(grid.tiles[0])){
 			
-				var t = GRID.tiles[px,py];
-				var mytile = (px == p.tile.x && py == p.tile.y);
-				var col = c_white;
-				var canmovethere = false;
-				if((abs(p.tile.x - px) < p.movespace) && (abs(p.tile.y - py) < p.movespace)){
-					if(t.occupied == false or mytile){
-						canmovethere = true;
-					}
-				}
-				if(!canmovethere){
-					col = c_gray
-				}
-				draw_set_color(col);
-				draw_rectangle(rectx,recty,rectx+TS,recty+TS,true);
-				draw_set_color(c_white);
-			
-				if(mouse_check_button_pressed(mb_left)){
-		
-					if(canmovethere){
-						ds_list_clear(tiledata_memory);
-						if(mytile){
-							tile_memory = pawns[|whoseturn].tile;
-							state = PickState.chooseaction;
-						}else if(t.occupied != true){
-							tile_memory = pawns[|whoseturn].tile;
-							pawn_moving = true;
-							pawn_moving_x = px;
-							pawn_moving_y = py;
-						}
-					}
-				}
-			}
-		}
-	}else if(!p.is_player){
-		var untilskip = 50;
-		//var randx = random_range();
-		while(untilskip > 0){
-			var randx = irandom_range(p.tile.x-p.movespace,p.tile.x+p.movespace);
-			var randy = irandom_range(p.tile.y-p.movespace,p.tile.y+p.movespace);
-			var mytile = (randx == p.tile.x && randy == p.tile.y);
-			if(randx >= 0 && randx < array_length(grid.tiles)){
-				if(randy >= 0 && randy < array_length(grid.tiles[0])){
-					var t = GRID.tiles[randx,randy];
-					
+					var t = GRID.tiles[px,py];
+					var mytile = (px == p.tile.x && py == p.tile.y);
+					var col = c_white;
 					var canmovethere = false;
-					
-					if(t.occupied == false or mytile){
-						canmovethere = true;
-					}
-					
-					if(canmovethere){
-						if(mytile){
-							state = PickState.chooseaction;
-						}else if(t.occupied == false){
-							pawn_moving = true;
-							pawn_moving_x = randx;
-							pawn_moving_y = randy;
+					if((abs(p.tile.x - px) < p.movespace) && (abs(p.tile.y - py) < p.movespace)){
+						if(t.occupied == false or mytile){
+							canmovethere = true;
 						}
-						break;
+					}
+					if(!canmovethere){
+						col = c_gray
+					}
+					draw_set_color(col);
+					draw_rectangle(rectx,recty,rectx+TS,recty+TS,true);
+					draw_set_color(c_white);
+			
+					if(mouse_check_button_pressed(mb_left)){
+		
+						if(canmovethere){
+							ds_list_clear(tiledata_memory);
+							if(mytile){
+								tile_memory = pawns[|whoseturn].tile;
+								state = PickState.chooseaction;
+							}else if(t.occupied != true){
+								tile_memory = pawns[|whoseturn].tile;
+								pawn_moving = true;
+								pawn_moving_x = px;
+								pawn_moving_y = py;
+							}
+						}
 					}
 				}
 			}
-			untilskip--;
-		}
-		if(untilskip == 0){
-			state = PickState.chooseaction;
-		}
+		}else if(!p.is_player){
+			var untilskip = 50;
+			//var randx = random_range();
+			while(untilskip > 0){
+				var randx = irandom_range(p.tile.x-p.movespace,p.tile.x+p.movespace);
+				var randy = irandom_range(p.tile.y-p.movespace,p.tile.y+p.movespace);
+				var mytile = (randx == p.tile.x && randy == p.tile.y);
+				if(randx >= 0 && randx < array_length(grid.tiles)){
+					if(randy >= 0 && randy < array_length(grid.tiles[0])){
+						var t = GRID.tiles[randx,randy];
+					
+						var canmovethere = false;
+					
+						if(t.occupied == false or mytile){
+							canmovethere = true;
+						}
+					
+						if(canmovethere){
+							if(mytile){
+								state = PickState.chooseaction;
+							}else if(t.occupied == false){
+								pawn_moving = true;
+								pawn_moving_x = randx;
+								pawn_moving_y = randy;
+							}
+							break;
+						}
+					}
+				}
+				untilskip--;
+			}
+			if(untilskip == 0){
+				state = PickState.chooseaction;
+			}
 		
 		
+		}
 	}
+	
 }
 
 

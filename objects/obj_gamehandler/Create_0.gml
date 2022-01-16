@@ -79,10 +79,34 @@ function endTurn(){
 		whoseturn = 0;
 		endWave();
 	}
+	
+	var enemiesalive = 0;
+	var playersalive = 0;
+	
+	for(var xx = 0; xx < ds_list_size(pawns); xx++){
+		var p = pawns[|xx];
+		
+		if(!p.dead){
+			if(p.is_player){
+				playersalive++;
+			}else{
+				enemiesalive++;
+			}
+		}
+		
+	}
+	
+	if(playersalive == 0){
+		instance_create_depth(0,0,-600,obj_transition);
+	}else if(enemiesalive == 0){
+		instance_create_depth(0,0,-600,obj_transition);
+	}
+	
 	startTurn();
 	state = PickState.choosemove;
 }
 function endWave(){
+	
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		var p = pawns[|xx];
 		
@@ -96,6 +120,7 @@ function endWave(){
 		}
 		
 		p.status.endWave();
+		
 	}
 	
 	for(var xx = 0; xx < array_length(grid.tiles); xx++){

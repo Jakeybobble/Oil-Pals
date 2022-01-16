@@ -56,7 +56,8 @@ enum TileStatus {
 	test,
 	fire,
 	oil,
-	water
+	water,
+	ruin
 }
 
 // To-do: Have tile standard for world...
@@ -78,6 +79,8 @@ function Tile(posx, posy) constructor{
 				return spr_tilewet;
 			case TileStatus.oil:
 				return spr_oilyplot;
+			case TileStatus.ruin:
+				return spr_deadgrass;
 		}
 	}
 	function update(){
