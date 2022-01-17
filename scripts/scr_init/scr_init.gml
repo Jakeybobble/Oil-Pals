@@ -9,6 +9,7 @@ function scr_init(){
 #macro GRID obj_gamehandler.grid
 
 global.enemymax = 3;
+global.turnspace = 4;
 global.friendlies = [pawn_evildingo,pawn_chead,pawn_barrel,pawn_pond,pawn_ball,pawn_bboy,pawn_ebboy,pawn_coals,pawn_ovenmitt];
 global.roster = ds_list_create();
 global.level = 0;

@@ -140,6 +140,9 @@ function endTurn(){
 		if(enemiesleft == 0){
 			// DO WIN HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			global.enemymax += 2;
+			if(global.turnspace > 1){
+				global.turnspace--;
+			}
 			global.level++;
 			
 			if(ds_list_size(global.roster) < 9){
@@ -150,6 +153,22 @@ function endTurn(){
 			
 			
 		}
+		else{
+			enemiesleft--;
+			var tries = 100;
+			while(tries > 0){
+				var randx = irandom_range(0,array_length(GRID.tiles)-1);
+				var randy = irandom_range(0,array_length(GRID.tiles[0])-1);
+				var ttt = GRID.tiles[randx,randy];
+				if(!ttt.occupied){
+					ttt.status = TileStatus.clear;
+					nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
+					spawnEnemy(ttt.x,ttt.y);
+					break;
+				}
+				tries--;
+			}
+		}
 		//instance_create_depth(0,0,-600,obj_transition);
 	}
 	
@@ -159,7 +178,7 @@ function endTurn(){
 
 enemiesleft = global.enemymax;
 nextenemy_turns = 0;
-turnspace = 4;
+global.turnspace = 4;
 nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
 
@@ -213,7 +232,7 @@ function endWave(){
 	if(nextenemy_turns > 0){
 		nextenemy_turns--;
 	}else{
-		nextenemy_turns = turnspace;
+		nextenemy_turns = global.turnspace;
 		if(enemiesleft > 0){
 			enemiesleft--;
 			var tries = 100;
