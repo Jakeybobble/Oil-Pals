@@ -133,7 +133,8 @@ function endTurn(){
 	
 	if(playersalive == 0){
 		// GAME OVER
-		instance_create_depth(0,0,-600,obj_transition);
+		//instance_create_depth(0,0,-600,obj_transition);
+		room_goto(Room_Between);
 	}else if(enemiesalive == 0){
 		// WIN
 		if(enemiesleft == 0){
