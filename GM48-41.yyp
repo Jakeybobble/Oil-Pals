@@ -32,6 +32,7 @@
     {"id":{"name":"spr_effect_oiled","path":"sprites/spr_effect_oiled/spr_effect_oiled.yy",},"order":0,},
     {"id":{"name":"hurt1","path":"sounds/hurt1/hurt1.yy",},"order":8,},
     {"id":{"name":"spr_hpbarfill","path":"sprites/spr_hpbarfill/spr_hpbarfill.yy",},"order":14,},
+    {"id":{"name":"Sprite46","path":"sprites/Sprite46/Sprite46.yy",},"order":33,},
     {"id":{"name":"sou_fire2","path":"sounds/sou_fire2/sou_fire2.yy",},"order":1,},
     {"id":{"name":"spr_tinman","path":"sprites/spr_tinman/spr_tinman.yy",},"order":10,},
     {"id":{"name":"spr_testpawn","path":"sprites/spr_testpawn/spr_testpawn.yy",},"order":0,},

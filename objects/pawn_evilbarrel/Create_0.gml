@@ -33,7 +33,7 @@ a.perform = function(tile){
 c.perform = function(tile){
 	setToOil(tile);
 	if(tile.stander != noone){
-		tile.stander.takeDamage(3);
+		tile.stander.takeDamage(1);
 	}
 }
 
