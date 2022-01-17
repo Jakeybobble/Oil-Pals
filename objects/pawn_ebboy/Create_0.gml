@@ -9,7 +9,7 @@ name = "Evil Brigade Boy";
 hp = 6;
 maxhp = 6;
 spd = 5;
-movespace = 3;
+movespace = 4;
 
 cid = 6;
 

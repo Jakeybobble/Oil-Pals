@@ -21,7 +21,7 @@ var c = new Attack(0,AttackType.oil,spr_specialicon);
 b.perform = function(tile){
 	setToOil(tile);
 	if(tile.stander != noone){
-		tile.stander.takeDamage(3);
+		tile.stander.takeDamage(5);
 	}
 }
 a.perform = function(tile){
@@ -31,8 +31,9 @@ a.perform = function(tile){
 }
 
 c.perform = function(tile){
-	if(tile.stander != noone){
-		status.oiled = 2;
+	if(tile.status == TileStatus.oil){
+		tile.status = TileStatus.clear;
+		hp+=2;
 	}
 }
 
@@ -49,8 +50,8 @@ move2.pattern = [
 	[c]
 ];
 move2.ability_icon_id = 1;
-move2.name = "Oil Can";
-move2.description= "Become oiled.";
+move2.name = "Oil Guzzle";
+move2.description= "Drink oil from the tile you are standing on, healing you.";
 
 move3 = new Action();
 move3.pattern = [

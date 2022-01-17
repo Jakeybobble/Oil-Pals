@@ -38,7 +38,7 @@ c.perform = function(tile){
 d.perform = function(tile){
 	if(tile.status == TileStatus.fire){
 		tile.status = TileStatus.clear;
-		hp++;
+		hp+=2;
 	}
 }
 

@@ -84,6 +84,7 @@
     {"id":{"name":"obj_hitfx","path":"objects/obj_hitfx/obj_hitfx.yy",},"order":7,},
     {"id":{"name":"spr_deadgrass","path":"sprites/spr_deadgrass/spr_deadgrass.yy",},"order":26,},
     {"id":{"name":"pawn_evildingo","path":"objects/pawn_evildingo/pawn_evildingo.yy",},"order":0,},
+    {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":11,},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":6,},
     {"id":{"name":"pawn_barrel","path":"objects/pawn_barrel/pawn_barrel.yy",},"order":2,},
     {"id":{"name":"spr_tiletest2","path":"sprites/spr_tiletest2/spr_tiletest2.yy",},"order":3,},

@@ -16,3 +16,5 @@ if(obj_gamehandler.pawn_moving){
 }else{
 	x = xpos + TS/2; y = ypos + TS/2;
 }
+
+hp = clamp(hp,0,maxhp);
