@@ -87,6 +87,7 @@
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":6,},
     {"id":{"name":"pawn_barrel","path":"objects/pawn_barrel/pawn_barrel.yy",},"order":2,},
     {"id":{"name":"spr_tiletest2","path":"sprites/spr_tiletest2/spr_tiletest2.yy",},"order":3,},
+    {"id":{"name":"spr_death","path":"sprites/spr_death/spr_death.yy",},"order":34,},
     {"id":{"name":"sou_water2","path":"sounds/sou_water2/sou_water2.yy",},"order":5,},
     {"id":{"name":"Room_Between","path":"rooms/Room_Between/Room_Between.yy",},"order":2,},
     {"id":{"name":"pawn_evilbarrel","path":"objects/pawn_evilbarrel/pawn_evilbarrel.yy",},"order":4,},

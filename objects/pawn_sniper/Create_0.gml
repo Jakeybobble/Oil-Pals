@@ -20,7 +20,6 @@ var b = new Attack(2,AttackType.oil,spr_oilyicon);
 var c = new Attack(3,AttackType.oil,spr_oilyicon);
 
 a.perform = function(tile){
-	setToFire(tile);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(1);
 	}
