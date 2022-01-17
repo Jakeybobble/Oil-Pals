@@ -18,7 +18,7 @@ if(state == PickState.choosemove){
 	}else{
 		if(p.is_player){
 			draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,0.46);
-	
+			
 			if(px >= 0 && px < array_length(grid.tiles)){
 				if(py >= 0 && py < array_length(grid.tiles[0])){
 			
