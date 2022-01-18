@@ -29,8 +29,8 @@ function onEndWave(){
 function onDeath(){
 	
 }
-function takeDamage(dmg){
-	var newdmg = status.affectDamage(dmg);
+function takeDamage(dmg, type){ // Type is optional
+	var newdmg = status.affectDamage(dmg, type);
 	//hp-= newdmg;
 	hp = clamp(hp-newdmg,0,maxhp);
 	flyingNumber(x,y,newdmg);

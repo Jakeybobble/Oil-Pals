@@ -289,12 +289,12 @@ function Status() constructor{
 	superoiled = 0;
 	weaktowater = false;
 	
-	function affectDamage(dmg){
+	function affectDamage(dmg, type){
 		var returndmg = dmg;
 		if(oiled){
 			returndmg*=2;
 		}
-		if(weaktowater){
+		if(type == AttackType.water && weaktowater){
 			returndmg*=2;
 		}
 		return returndmg;
