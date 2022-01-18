@@ -8,6 +8,7 @@
     {"id":{"name":"spr_barborder","path":"sprites/spr_barborder/spr_barborder.yy",},"order":12,},
     {"id":{"name":"obj_play","path":"objects/obj_play/obj_play.yy",},"order":10,},
     {"id":{"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"order":11,},
+    {"id":{"name":"scr_info","path":"scripts/scr_info/scr_info.yy",},"order":3,},
     {"id":{"name":"sou_water3","path":"sounds/sou_water3/sou_water3.yy",},"order":6,},
     {"id":{"name":"spr_man","path":"sprites/spr_man/spr_man.yy",},"order":7,},
     {"id":{"name":"spr_addtoparty","path":"sprites/spr_addtoparty/spr_addtoparty.yy",},"order":29,},
