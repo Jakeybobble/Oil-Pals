@@ -334,7 +334,7 @@ enum BarkTypes {
 	waiting
 }
 
-function Barks() constructor{
+function Barks() constructor{ // Yes, with an S.
 	waiting = ["Dang, I'm waiting..."];
 	sound = noone;
 	
