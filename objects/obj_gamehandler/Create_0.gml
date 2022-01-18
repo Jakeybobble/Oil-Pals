@@ -61,8 +61,7 @@ function startTurn(){
 
 function endTurn(){
 	var p = pawns[|whoseturn];
-	
-	
+	p.onEndTurn(); // Run player end turn event.
 	
 	if(whoseturn+1 < ds_list_size(pawns)){
 		
@@ -170,6 +169,7 @@ function spawnEnemy(xpos, ypos){
 
 function endWave(){
 	
+	// For each player...
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		var p = pawns[|xx];
 		
@@ -182,20 +182,17 @@ function endWave(){
 			
 		}
 		
+		p.onEndWave();
 		p.status.endWave();
 		
 	}
 	
+	// For each tile...
 	for(var xx = 0; xx < array_length(grid.tiles); xx++){
 		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
 			var t = grid.tiles[xx,yy];
 			
-			//t.update();
-			/*
-			if(t.status == TileStatus.clear){
-				t.status = TileStatus.fire;
-			}
-			*/
+			//t.update(); // May be needed in the future.
 			
 			if(t.status == TileStatus.fire){
 				if(t.firetime > 0){

@@ -287,10 +287,14 @@ function Status() constructor{
 	// Number means duration...
 	oiled = 0;
 	superoiled = 0;
+	weaktowater = false;
 	
 	function affectDamage(dmg){
 		var returndmg = dmg;
 		if(oiled){
+			returndmg*=2;
+		}
+		if(weaktowater){
 			returndmg*=2;
 		}
 		return returndmg;
@@ -306,8 +310,8 @@ function Status() constructor{
 		}
 		
 	}
-	function onMove(){
-		
+	function endTurn(){
+		// TO-DO...
 	}
 	
 	function drawStatus(pawn){

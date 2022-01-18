@@ -20,16 +20,10 @@ dead = false;
 
 graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
 
-function startOfTurn(){
+function onEndTurn(){
 	
 }
-function endOfTurn(){
-	
-}
-function startOfWave(){
-	
-}
-function endOfWave(){
+function onEndWave(){
 	
 }
 function onDeath(){
