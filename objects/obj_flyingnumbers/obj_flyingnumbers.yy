@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_i_flyingnumbers",
+    "path": "sprites/spr_i_flyingnumbers/spr_i_flyingnumbers.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -25,8 +28,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Effects",
+    "path": "folders/Objects/Effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_flyingnumbers",

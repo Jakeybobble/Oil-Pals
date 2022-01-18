@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_i_gamehandler",
+    "path": "sprites/spr_i_gamehandler/spr_i_gamehandler.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

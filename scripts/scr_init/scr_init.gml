@@ -329,3 +329,26 @@ function flyingNumber(_x,_y,num){
 	var inst = instance_create_depth(_x,_y,-300,obj_flyingnumbers);
 	inst.number = num;
 }
+
+enum BarkTypes {
+	waiting
+}
+
+function Barks() constructor{
+	waiting = ["Dang, I'm waiting..."];
+	sound = noone;
+	
+	function bark(_type, _x, _y){
+		var b = instance_create_depth(_x,_y,-600,obj_bark);
+		var which = noone;
+		switch(_type){
+			case BarkTypes.waiting:
+				which = waiting;
+			break;
+		}
+		if(_type != noone){
+			var rand = irandom_range(0,array_length(which));
+			b.text = which[rand];
+		}
+	}
+}

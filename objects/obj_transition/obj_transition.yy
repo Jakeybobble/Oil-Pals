@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_i_transition",
+    "path": "sprites/spr_i_transition/spr_i_transition.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
@@ -24,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Effects",
+    "path": "folders/Objects/Effects.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_transition",
