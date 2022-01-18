@@ -8,7 +8,7 @@ is_player = true;
 name = "Brigade Boy";
 hp = 5;
 maxhp = 5;
-spd = 5;
+spd = 7;
 movespace = 4;
 
 cid = 5;

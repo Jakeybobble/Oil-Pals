@@ -8,7 +8,7 @@ is_player = true;
 name = "Evil Brigade Boy";
 hp = 6;
 maxhp = 6;
-spd = 5;
+spd = 7;
 movespace = 4;
 
 cid = 6;

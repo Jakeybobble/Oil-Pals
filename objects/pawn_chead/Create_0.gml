@@ -8,7 +8,7 @@ is_player = true;
 name = "Cleaverhead";
 hp = 7;
 maxhp = 7;
-spd = 5;
+spd = 9;
 movespace = 4;
 
 cid = 1;

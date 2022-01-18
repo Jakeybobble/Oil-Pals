@@ -8,7 +8,7 @@ is_player = true;
 name = "Barrel";
 hp = 15;
 maxhp = 15;
-spd = 5;
+spd = 3;
 movespace = 3;
 
 cid = 2;

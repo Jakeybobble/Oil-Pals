@@ -8,7 +8,7 @@ is_player = true;
 name = "Evil Barrel";
 hp = 20;
 maxhp = 20;
-spd = 5;
+spd = 3;
 movespace = 3;
 
 cid = 12;

@@ -8,7 +8,7 @@ is_player = false;
 name = "Magma Ball";
 hp = 30;
 maxhp = 30;
-spd = 5;
+spd = 6;
 movespace = 3;
 
 cid = 11;

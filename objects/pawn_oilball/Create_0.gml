@@ -8,7 +8,7 @@ is_player = false;
 name = "Evil Ball";
 hp = 25;
 maxhp = 25;
-spd = 5;
+spd = 3;
 movespace = 2;
 cid = 9;
 

@@ -8,7 +8,7 @@ is_player = false;
 name = "Tinman";
 hp = 20;
 maxhp = 20;
-spd = 5;
+spd = 2;
 movespace = 4;
 cid = 10;
 

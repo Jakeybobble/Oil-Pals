@@ -5,11 +5,11 @@
 event_inherited();
 
 is_player = true;
-name = "Evil Barrel";
-hp = 20;
-maxhp = 20;
-spd = 5;
-movespace = 3;
+name = "Sniper";
+hp = 15;
+maxhp = 15;
+spd = 10;
+movespace = 2;
 
 cid = 13;
 

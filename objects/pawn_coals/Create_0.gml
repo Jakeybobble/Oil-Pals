@@ -8,7 +8,7 @@ is_player = true;
 name = "Coals";
 hp = 6;
 maxhp = 6;
-spd = 5;
+spd = 7;
 movespace = 2;
 
 cid = 7;

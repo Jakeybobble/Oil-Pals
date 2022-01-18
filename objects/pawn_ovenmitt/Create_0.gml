@@ -8,7 +8,7 @@ is_player = true;
 name = "Oven Mitt";
 hp = 13;
 maxhp = 13;
-spd = 5;
+spd = 4;
 movespace = 3;
 
 cid = 8;
