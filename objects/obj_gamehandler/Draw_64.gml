@@ -25,7 +25,7 @@ if(state == PickState.chooseaction){
 				draw_text_ext(240,452,p.actions[|xx].description,16,340);
 			
 			}
-		
+			
 			if(mouse_check_button_pressed(mb_left)){
 				if(hovered){
 					state = PickState.chooseactionposition;
@@ -42,6 +42,12 @@ if(state == PickState.chooseaction){
 				tile_memory = noone;
 				state = PickState.choosemove;
 				mouse_clear(mb_right);
+			}else if(keyboard_check_pressed(vk_anykey)){
+				if(keyboard_lastkey == ord(string(xx+1))){
+					//show_debug_message("Wow! " + string(xx+1));
+					state = PickState.chooseactionposition;
+					chosen_action = p.actions[|xx];
+				}
 			}
 		
 			draw_sprite_ext(spr_abilities,action.ability_icon_id,posx,posy,2,2,0,drawcolor,1);
