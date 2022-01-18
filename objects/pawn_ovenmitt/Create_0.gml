@@ -6,6 +6,7 @@ event_inherited();
 
 is_player = true;
 name = "Oven Mitt";
+desc = "Tasked with cleanup duty. Dreams of being a musician someday."
 hp = 13;
 maxhp = 13;
 spd = 4;

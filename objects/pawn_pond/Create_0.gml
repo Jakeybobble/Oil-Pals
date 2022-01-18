@@ -6,6 +6,7 @@ event_inherited();
 
 is_player = true;
 name = "Pond";
+desc = "Your friendly neighborhood pond. Spreads joy (and water)."
 hp = 11;
 maxhp = 11;
 spd = 5;

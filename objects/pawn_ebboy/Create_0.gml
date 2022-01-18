@@ -6,6 +6,7 @@ event_inherited();
 
 is_player = true;
 name = "Evil Brigade Boy";
+desc = "Master of the super scalder. Same as Brigade Boy, but fire-y."
 hp = 6;
 maxhp = 6;
 spd = 7;

@@ -6,6 +6,7 @@ event_inherited();
 
 is_player = true;
 name = "Brigade Boy";
+desc = "Master of the super soaker. High damage but frail."
 hp = 5;
 maxhp = 5;
 spd = 7;

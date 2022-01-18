@@ -6,6 +6,7 @@ event_inherited();
 
 is_player = true;
 name = "Oilman";
+desc = "Big fan of oil. It's his favorite drink."
 hp = 11;
 maxhp = 7;
 spd = 3;
