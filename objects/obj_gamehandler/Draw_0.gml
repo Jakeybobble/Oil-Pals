@@ -1,13 +1,18 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-grid.drawTiles(gridpos_x, gridpos_y);
+grid.drawTiles(GRID.x, GRID.y);
 
 var mx = mouse_x; var my = mouse_y;
-var px = (mx div TS)- gridpos_x/TS; var py = (my div TS) - gridpos_y/TS;
 
-var rectx = gridpos_x + px*TS;
-var recty = gridpos_y + py*TS;
+// Returns square that the mouse is in.
+//show_debug_message(round(GRID.x + mx) div TS);
+//var px = (mx div TS)- GRID.x/TS; var py = (my div TS) - GRID.y/TS;
+
+var px = floor((mx-GRID.x)/TS); var py = floor((my-GRID.y)/TS);
+
+var rectx = GRID.x + px*TS;
+var recty = GRID.y + py*TS;
 
 
 if(state == PickState.choosemove){

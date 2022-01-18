@@ -9,39 +9,18 @@ player_turn = true;
 
 arrowy = 0;
 
-gridpos_x = 96;
-gridpos_y = 96;
-
-var grid_x = 13; var grid_y = 9; // ((((WIDTH!!!))))
-grid = new Grid(gridpos_x, gridpos_y, grid_x, grid_y);
+var gridpos_x = 96; var gridpos_y = 96;
+var grid_width = 13; var grid_height = 9;
+grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
 
 pawns = ds_list_create(); // All pawns, including players
 
-/*
-var coolpawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_chead);
-coolpawn.setToTile(5,5);
-ds_list_add(pawns, coolpawn);
-
-var dddd = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals);
-dddd.setToTile(4,5);
-ds_list_add(pawns, dddd);
-*/
 
 for(var xx = 0; xx < ds_list_size(global.roster); xx++){
-	var newpawn = instance_create_depth(gridpos_x,gridpos_y, 0, global.roster[|xx]);
+	var newpawn = instance_create_depth(GRID.x,GRID.y, 0, global.roster[|xx]);
 	newpawn.setToTile(xx,0);
 	ds_list_add(pawns,newpawn);
 }
-
-
-/*
-var twopawn = instance_create_depth(gridpos_x,gridpos_y, 0, pawn_coals); // Evil
-twopawn.setToTile(6,6);
-twopawn.is_player = false;
-ds_list_add(pawns, twopawn);
-*/
-
-//coolpawn.tile = grid.tiles[0,0];
 
 pawn_moving = false;
 pawn_moving_x = 0; pawn_moving_y = 0; // Tile moving to
@@ -183,7 +162,7 @@ nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
 
 function spawnEnemy(xpos, ypos){
-	var tospawn = instance_create_depth(gridpos_x,gridpos_y, 0, nextenemy); // Evil
+	var tospawn = instance_create_depth(GRID.x,GRID.y, 0, nextenemy); // Evil
 	tospawn.setToTile(xpos,ypos);
 	tospawn.is_player = false;
 	ds_list_add(pawns, tospawn);

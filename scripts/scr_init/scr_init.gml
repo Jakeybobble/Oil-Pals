@@ -22,9 +22,9 @@ function restartGame(){
 	game_restart();
 }
 
-function Grid(x, y, width, height) constructor{
+function Grid(_x, _y, width, height) constructor{
 	
-	pos_x = x; pos_y = y;
+	x = _x; y = _y;
 	tiles[0,0] = 0; // Tiles array
 	
 	 for(var xx = 0; xx < width; xx++){
@@ -50,10 +50,13 @@ function Grid(x, y, width, height) constructor{
 				 }
 				 //draw_rectangle(xpos + xx*TS, ypos + yy*TS, xpos + (xx*TS)+TS, ypos + (yy*TS)+TS, true);
 				 
+				 t.drawTile(xpos + xx*TS, ypos + yy*TS);
+				 /* This code was put into the function above...
 				 var spr = t.getSprite();
 				 var imgspd = 300;
 				 var subimg = (current_time / imgspd) mod sprite_get_number(spr);
 				 draw_sprite(spr, subimg, xpos + xx*TS, ypos + yy*TS);
+				 */
 				 //draw_text(xpos + 6 + xx*TS, ypos + 6 + yy*TS, string(t.x) + ", " + string(t.y));
 				 num++;
 				 
@@ -96,6 +99,18 @@ function Tile(posx, posy) constructor{
 				return spr_oilyplot;
 			case TileStatus.ruin:
 				return spr_deadgrass;
+		}
+	}
+	function drawTile(xpos,ypos){
+		
+		var spr = getSprite();
+		var imgspd = 300;
+		var subimg = (current_time / imgspd) mod sprite_get_number(spr);
+		draw_sprite(spr, subimg, xpos, ypos);
+		if(status == TileStatus.ruin){
+			var firescale = 1+sin(current_time/200)*0.5;
+			draw_sprite_ext(spr_coolfire,0,xpos+TS/2,ypos+TS/2,1,firescale,0,c_white,1);
+			
 		}
 	}
 	function update(){
@@ -190,12 +205,12 @@ function Action() constructor{
 									var atkc = c_purple;
 									break;
 							}
-							instance_create_depth((TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y,-100,obj_hitfx);
+							instance_create_depth((TS*t.x)+GRID.x,(TS*t.y)+GRID.y,-100,obj_hitfx);
 						}
 						
 						var imgspd = 250;
 						var subimg = (current_time / imgspd) mod sprite_get_number(attack.hint_icon);
-						draw_sprite(attack.hint_icon,subimg,(TS*t.x)+GH.gridpos_x,(TS*t.y)+GH.gridpos_y);
+						draw_sprite(attack.hint_icon,subimg,(TS*t.x)+GRID.x,(TS*t.y)+GRID.y);
 					}		
 				}
 			}
@@ -237,7 +252,7 @@ function setToFire(tile){
 		// Create fire here...
 		tile.status = TileStatus.ruin;
 		tile.occupied = true;
-		instance_create_depth((tile.x*TS)+GH.gridpos_x+TS/2,(tile.y*TS)+GH.gridpos_y+TS/2,0,obj_fire);
+		//instance_create_depth((tile.x*TS)+GRID.x+TS/2,(tile.y*TS)+GRID.y+TS/2,0,obj_fire);
 		/*
 		if(tile.stander){
 			tile.stander.takeDamage(999);

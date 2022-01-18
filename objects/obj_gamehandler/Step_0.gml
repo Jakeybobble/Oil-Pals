@@ -1,8 +1,16 @@
 /// @description A piece of code.
 // Written by Jacob.
 
+/*
+GRID.y = sin(current_time/700)*30;
+GRID.x = cos(current_time/700)*30;
+*/
+
 if(keyboard_check_pressed(ord("O"))){
 	restartGame();
+}
+if(keyboard_check_pressed(ord("N"))){
+	room_goto(Room_Inbetween);
 }
 
 if(pawn_moving){
@@ -14,7 +22,7 @@ sou_water=choose(sou_water1,sou_water2,sou_water3);
 
 if(pawn_moving){
 	var p = pawns[|whoseturn];
-	var px = (p.x div TS)- gridpos_x/TS; var py = (p.y div TS) - gridpos_y/TS;
+	var px = (p.x div TS)- GRID.x/TS; var py = (p.y div TS) - GRID.y/TS;
 	var tilepassing = grid.tiles[px,py];
 	//show_debug_message();
 	if(ds_list_find_index(tiledata_memory,tilepassing) == -1){

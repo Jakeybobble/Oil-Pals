@@ -72,8 +72,8 @@ function moveToTileAnim(xpos, ypos){
 	// Do anim stuff
 	// If close to position, return true, otherwise, return false.
 	var mspd = 4;
-	var xto = obj_gamehandler.gridpos_x + (TS/2) + t.x * TS;
-	var yto = obj_gamehandler.gridpos_y + (TS/2) + t.y * TS;
+	var xto = GRID.x + (TS/2) + t.x * TS;
+	var yto = GRID.y + (TS/2) + t.y * TS;
 	var dir = point_direction(x,y,xto,yto);
 	var xang = lengthdir_x(1, dir); var yang = lengthdir_y(1, dir);
 	x+=xang*mspd; y+=yang*mspd;
