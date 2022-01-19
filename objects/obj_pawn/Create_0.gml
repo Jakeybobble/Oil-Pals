@@ -4,7 +4,7 @@
 is_player = true;
 name = "Dingo";
 hp = 5;
-maxhp = 5;
+maxhp = hp;
 spd = 5;
 movespace = 2;
 
@@ -31,15 +31,21 @@ function onEndWave(){
 function onDeath(){
 	
 }
+function onTakeDamage(dmg, type){
+	
+}
+
 function takeDamage(dmg, type){ // Type is optional
 	var newdmg = status.affectDamage(dmg, type);
 	//hp-= newdmg;
 	hp = clamp(hp-newdmg,0,maxhp);
 	flyingNumber(x,y,newdmg);
 	if(hp <= 0){
-		onDeath();
 		dead = true;
+		onDeath(); // Previously before 'dead = true'.
 	}
+	onTakeDamage(dmg, type);
+	
 }
 
 /// Set tile position of a pawn, also updates tile.

@@ -18,6 +18,7 @@ global.level = 0;
 function restartGame(){
 	ds_list_clear(global.roster);
 	global.enemymax = 3;
+	global.turnspace = 4;
 	global.level = 0;
 	game_restart();
 }
@@ -35,6 +36,12 @@ function Grid(_x, _y, width, height) constructor{
 		 }
 	 }
 	 
+	 function getWidth(){
+		 return(array_length(tiles));
+	 }
+	 function getHeight(){
+		 return(array_length(tiles[0]));
+	 }
 	 function getTile(xpos, ypos){
 		 return tiles[xpos,ypos];
 	 }
@@ -119,6 +126,19 @@ function Tile(posx, posy) constructor{
 			occupied = false;
 		}
 	}
+	function xToWorld(){
+		return GRID.x + x*TS;
+	}
+	function yToWorld(){
+		return GRID.y + y*TS;
+	}
+}
+
+function xToWorld(_x){
+	return GRID.x + _x*TS;
+}
+function yToWorld(_y){
+	return GRID.y + _y*TS;
 }
 
 enum AttackType {
@@ -335,11 +355,15 @@ function flyingNumber(_x,_y,num){
 }
 
 enum BarkTypes {
-	waiting
+	waiting,
+	death,
+	damage
 }
 
 function Barks() constructor{ // Yes, with an S.
 	waiting = ["Dang, I'm waiting..."];
+	death = ["Dang, I'm dead..."];
+	damage = ["Dang, I'm being damaged..."];
 	sound = noone;
 	
 	function bark(_type, _x, _y){
@@ -349,12 +373,27 @@ function Barks() constructor{ // Yes, with an S.
 			case BarkTypes.waiting:
 				which = waiting;
 			break;
+			case BarkTypes.death:
+				which = death;
+			break;
+			case BarkTypes.damage:
+				which = damage;
+			break;
 		}
 		if(_type != noone){
-			var rand = irandom_range(0,array_length(which));
+			var rand = irandom(array_length(which)-1);
 			b.text = which[rand];
 		}
+		if(sound != noone){
+			audio_play_sound(sound,0,false);
+		}
 	}
+	
+	function freebark(_text,_x,_y){
+		var b = instance_create_depth(_x,_y,-600,obj_bark);
+		b.text = _text;
+	}
+	
 }
 
 function Ability() constructor{

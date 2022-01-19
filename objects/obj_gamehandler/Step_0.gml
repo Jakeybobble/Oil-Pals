@@ -12,6 +12,13 @@ if(keyboard_check_pressed(ord("O"))){
 if(keyboard_check_pressed(ord("N"))){
 	room_goto(Room_Inbetween);
 }
+if(keyboard_check(ord("J")) && keyboard_check_pressed(ord("B"))){
+	enemiesleft = 1337;
+	nextenemy_turns = 50000;
+	show_debug_message("!!!!!!!!!!!!!!!!IT'S TESTING TIME!!!!!!!!!!!!!!!!");
+	nextenemy = pawn_jakey;
+	spawnEnemy(8,5);
+}
 
 if(pawn_moving){
 	state = PickState.moving;
@@ -38,7 +45,7 @@ if(pawn_moving){
 		p.setToTile(pawn_moving_x,pawn_moving_y);
 		pawn_moving = false;
 		state = PickState.chooseaction;
-		show_debug_message("Ended.");
+		//show_debug_message("Ended.");
 		
 	}
 }

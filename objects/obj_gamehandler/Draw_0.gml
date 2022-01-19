@@ -140,10 +140,12 @@ if(state == PickState.chooseactionposition){
 			doaction = true;
 			mouse_clear(mb_left);
 		}
-		if(action.is_distant){
-			action.preview(px,py,0, doaction);
-		}else{
-			action.preview(p.tile.x,p.tile.y,newdir, doaction);
+		if(action != undefined){
+			if(action.is_distant){
+				action.preview(px,py,0, doaction);
+			}else{
+				action.preview(p.tile.x,p.tile.y,newdir, doaction);
+			}
 		}
 	}else if(!p.is_player){
 		//var pdir = point_direction();
@@ -172,12 +174,13 @@ if(state == PickState.chooseactionposition){
 		
 		state = PickState.performing;
 		
-		if(action.is_distant){
-			action.preview(closest.tile.x,closest.tile.y,0, true);
-		}else{
-			action.preview(p.tile.x,p.tile.y,newdir, true);
+		if(action != undefined){
+			if(action.is_distant){
+				action.preview(closest.tile.x,closest.tile.y,0, true);
+			}else{
+				action.preview(p.tile.x,p.tile.y,newdir, true);
+			}
 		}
-		
 		ds_list_destroy(targets);
 	}
 	

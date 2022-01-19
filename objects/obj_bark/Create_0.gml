@@ -2,3 +2,4 @@
 // Written by Jacob.
 
 text = "Woah.";
+timealive = 120;
