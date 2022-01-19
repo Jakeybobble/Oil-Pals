@@ -14,7 +14,7 @@ movespace = 5;
 cid = 0;
 
 barks.death = ["HA! Nice try.", "I'm not going away that easily...", "lol", "Never gonna happen", "Why don't you try that again?", "Missed me!", "Nope.", "Heyo.", "You know I coded this, right?", ""];
-barks.damage = ["Owie."];
+barks.damage = ["Owie.", "Oof.", "Ouch, ow ow.", ":-(", "What the heck.", "Dang brugh."];
 barks.sound = sou_laugh;
 //barks.freebark("Oh yeaaaaah", x, y);
 

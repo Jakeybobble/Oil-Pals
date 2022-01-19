@@ -1,10 +1,10 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-/*
-GRID.y = sin(current_time/700)*30;
-GRID.x = cos(current_time/700)*30;
-*/
+if(0){
+	GRID.y = sin(current_time/700)*30;
+	GRID.x = cos(current_time/700)*30;
+}
 
 if(keyboard_check_pressed(ord("O"))){
 	restartGame();
@@ -29,7 +29,8 @@ sou_water=choose(sou_water1,sou_water2,sou_water3);
 
 if(pawn_moving){
 	var p = pawns[|whoseturn];
-	var px = (p.x div TS)- GRID.x/TS; var py = (p.y div TS) - GRID.y/TS;
+	//var px = (p.x div TS)- GRID.x/TS; var py = (p.y div TS) - GRID.y/TS;
+	var px = floor((p.x-GRID.x)/TS); var py = floor((p.y-GRID.y)/TS);
 	var tilepassing = grid.tiles[px,py];
 	//show_debug_message();
 	if(ds_list_find_index(tiledata_memory,tilepassing) == -1){
