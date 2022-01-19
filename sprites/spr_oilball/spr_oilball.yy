@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Foelike",
+    "path": "folders/Sprites/Pawns/Foelike.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_oilball",

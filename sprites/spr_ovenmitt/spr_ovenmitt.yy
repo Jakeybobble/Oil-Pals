@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "characters",
-    "path": "folders/Sprites/characters.yy",
+    "name": "Friendly",
+    "path": "folders/Sprites/Pawns/Friendly.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_ovenmitt",

@@ -62,6 +62,7 @@ function startTurn(){
 function endTurn(){
 	var p = pawns[|whoseturn];
 	p.onEndTurn(); // Run player end turn event.
+	p.status.endTurn(); // NOTE: Status ends AFTER player end turn.
 	
 	if(whoseturn+1 < ds_list_size(pawns)){
 		

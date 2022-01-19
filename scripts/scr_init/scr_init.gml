@@ -288,6 +288,7 @@ function Status() constructor{
 	oiled = 0;
 	superoiled = 0;
 	weaktowater = false;
+	damageboost = 0;
 	
 	function affectDamage(dmg, type){
 		var returndmg = dmg;
@@ -301,6 +302,9 @@ function Status() constructor{
 	}
 	function endWave(){
 		if(oiled>0) oiled--;
+	}
+	function endTurn(){
+		if(damageboost>0) damageboost--;
 	}
 	
 	function duringMove(tile){

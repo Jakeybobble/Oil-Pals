@@ -69,8 +69,8 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "characters",
-    "path": "folders/Sprites/characters.yy",
+    "name": "Foelike",
+    "path": "folders/Sprites/Pawns/Foelike.yy",
   },
   "resourceVersion": "1.0",
   "name": "spr_evilbarrel",
