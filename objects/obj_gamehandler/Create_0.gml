@@ -17,7 +17,7 @@ pawns = ds_list_create(); // All pawns, including players
 
 
 for(var xx = 0; xx < ds_list_size(global.roster); xx++){
-	var newpawn = instance_create_depth(GRID.x,GRID.y, 0, global.roster[|xx]);
+	var newpawn = instance_create_depth(-100,-100, 0, global.roster[|xx]);
 	newpawn.setToTile(xx,0);
 	ds_list_add(pawns,newpawn);
 }
@@ -161,7 +161,7 @@ nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
 
 function spawnEnemy(xpos, ypos){
-	var tospawn = instance_create_depth(GRID.x,GRID.y, 0, nextenemy); // Evil
+	var tospawn = instance_create_depth(-100,-100, 0, nextenemy); // Evil
 	tospawn.setToTile(xpos,ypos);
 	tospawn.is_player = false;
 	ds_list_add(pawns, tospawn);

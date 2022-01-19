@@ -352,3 +352,13 @@ function Barks() constructor{ // Yes, with an S.
 		}
 	}
 }
+
+function Ability() constructor{
+	// Using this struct you'd be able to get info about an ability without having to create the object
+	
+	
+}
+
+function loadAbilities() {
+	// TO-DO: This will read abilities from a file and put them in a ds_map	
+}
