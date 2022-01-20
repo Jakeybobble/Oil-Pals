@@ -50,6 +50,7 @@ function Brain(_pawn) constructor{
 			var t = list[|irandom(size-1)];
 			return t;
 			break;
+			#region furtherFromTarget_random
 			case MovingType.furtherFromTarget_random:
 			var picks = ds_list_create();
 			var dis = point_distance(pawn.x,pawn.y,target.x,target.y);
@@ -68,12 +69,32 @@ function Brain(_pawn) constructor{
 			}else{
 				return noone;	
 			}
+			#endregion
+			break;
+			#region furthestFromTarget_far
+			case MovingType.furtherFromTarget_far: // Not yet tested.
+			var picks = ds_list_create();
+			var dis = point_distance(pawn.x,pawn.y,target.x,target.y);
+			var furthest_spot = undefined;
+			var furthest_dis = 0;
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				var dis2 = point_distance(t.xToWorld(),t.yToWorld(),target.x,target.y);
+				if(dis2 > dis){
+					//ds_list_add(picks,t);
+					furthest_spot = t;
+					furthest_dis = dis2;
+				}
+			}
+			ds_list_destroy(picks);
+			return furthest_spot;
+			#endregion
 			break;
 		}
 		
 	}
 	
-	function pickTarget(list){
+	function pickTarget(list){ // Pick a pawn to target.
 		// TO-DO: Make AI work on player team as well
 		switch(targetingtype){
 			case TargetingType.targetClosestEnemy:
@@ -89,7 +110,33 @@ function Brain(_pawn) constructor{
 			}
 			return closest_pawn;
 			
+			case TargetingType.targetFurthestEnemy:
+			var furthest_pawn = noone;
+			var furthest_val = 0;
+			for(var xx = 0; xx < ds_list_size(list); xx++){
+				var p = list[|xx];
+				var dis = point_distance(pawn.x,pawn.y,p.x,p.y);
+				if(dis > furthest_val & p.is_player){
+					furthest_val = dis;
+					furthest_pawn = p;
+				}
+			}
+			return furthest_pawn;
 			
+			case TargetingType.targetRandomEnemy:
+			var p = list[|irandom(ds_list_size(list)-1)];
+			return p;
+			
+			case TargetingType.targetRandomFriend:
+			
+			break;
+			case TargetingType.targetEnemiesFit:
+			
+			break;
+			case TargetingType.targetFriendsFit:
+			
+			break;
+			case TargetingType.targetFriendInRange:
 			
 			break;
 		}
