@@ -17,4 +17,15 @@ global.charabilities = [
 	["Osmosis","Absorbs water it is standing on, healing if successful."],
 	["Smash","Medium damage, medium range attack."],
 	["Soggy Sniper","Extreme damage, but hard to aim."],
+	["Water Cannon","Shoots a large low damage beam, leaving puddles behind."],
+	["Splash","Medium damage, close range."],
+	["Sizzling Sniper","Extreme damage, but hard to aim."],
+	["Lava Cannon","Shoots a large low damage beam, leaving fire."],
+	["Magma Splash","Medium damage, close range."],
+	["Hop","Jump to a location and spawn fire in adjacent tiles."],
+	["Flamewhistle","Spawns a row of flames and does medium damage."],
+	["Ignite","When standing on a flame, absorb it and heal."],
+	["Absorbtion","Clears any terrain on the spot you are standing on."],
+	["Body Slam","Deals high damage. If it hits, spawn a flame."],
+	["Human(?) Lighter","Spawns a flame."]
 ]
