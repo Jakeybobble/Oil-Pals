@@ -37,23 +37,61 @@ enum MovingType {
 	fearWater
 }
 
-function Brain() constructor{
+function Brain(_pawn) constructor{
 	movingtype = MovingType.randomSpot;
+	targetingtype = TargetingType.targetClosestEnemy;
+	may_abstain = 0; // Chance of just not doing their attack.
+	pawn = _pawn;
 	
-	function doMove(list){
+	function doMove(list, tile, target){
 		var size = ds_list_size(list);
 		switch(movingtype){
 			case MovingType.randomSpot:
 			var t = list[|irandom(size-1)];
 			return t;
-			/*
+			break;
+			case MovingType.furtherFromTarget_random:
+			var picks = ds_list_create();
+			var dis = point_distance(pawn.x,pawn.y,target.x,target.y);
 			for(var xx = 0; xx < size; xx++){
-				
+				var t = list[|xx];
+				var dis2 = point_distance(t.xToWorld(),t.yToWorld(),target.x,target.y);
+				if(dis2 > dis){
+					ds_list_add(picks,t);
+				}
 			}
-			*/
+			
+			var t = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			if(t != undefined){
+				return t;
+			}else{
+				return noone;	
+			}
 			break;
 		}
 		
 	}
 	
+	function pickTarget(list){
+		// TO-DO: Make AI work on player team as well
+		switch(targetingtype){
+			case TargetingType.targetClosestEnemy:
+			var closest_pawn = noone;
+			var closest_val = 10000;
+			for(var xx = 0; xx < ds_list_size(list); xx++){
+				var p = list[|xx];
+				var dis = point_distance(pawn.x,pawn.y,p.x,p.y)
+				if(dis < closest_val && p.is_player){
+					closest_val = dis;
+					closest_pawn = p;
+				}
+			}
+			return closest_pawn;
+			
+			
+			
+			break;
+		}
+	}
 }

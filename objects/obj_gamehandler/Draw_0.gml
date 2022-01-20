@@ -104,19 +104,22 @@ if(state == PickState.choosemove){
 				state = PickState.chooseaction;
 			}else{
 				var brain = p.brain;
-				var totile = brain.doMove(movable);
+				var target = brain.pickTarget(pawns);
+				var totile = brain.doMove(movable, p.tile, target);
+				
+				// In attack: Have ability to change target...
 				if(totile != noone){
 					// Do the move.
 					var mytile = (totile.x == p.tile.x && totile.y == p.tile.y);
-					if(mytile){
+					if(totile == mytile){
 						state = PickState.chooseaction;
 					}else{
 						pawn_moving = true;
 						pawn_moving_x = totile.x;
 						pawn_moving_y = totile.y;
 					}
-					
-					
+				}else{
+					state = PickState.chooseaction;
 				}
 				
 			}

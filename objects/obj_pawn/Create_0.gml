@@ -20,9 +20,16 @@ dead = false;
 
 barks = new Barks();
 
-brain = new Brain();
+brain = new Brain(self);
 
 graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
+
+function doConditions(){
+		// This will set the targeting and moving type depending on conditions.
+		// Conditions will be unique.
+		// Actions the pawn will also want to use will be set here.
+		// Note that this is only used by AI.
+	}
 
 function onEndTurn(){
 	
