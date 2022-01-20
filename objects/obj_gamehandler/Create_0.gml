@@ -78,7 +78,9 @@ function endTurn(){
 	var playersalive = 0;
 	
 	if(p.tile.status == TileStatus.oil){
-		p.status.oiled++;
+		if(p.status.oiled  <= 2){
+			p.status.oiled = 2;
+		}
 	}
 	
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
