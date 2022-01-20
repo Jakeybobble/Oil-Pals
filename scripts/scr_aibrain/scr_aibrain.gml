@@ -38,5 +38,22 @@ enum MovingType {
 }
 
 function Brain() constructor{
+	movingtype = MovingType.randomSpot;
+	
+	function doMove(list){
+		var size = ds_list_size(list);
+		switch(movingtype){
+			case MovingType.randomSpot:
+			var t = list[|irandom(size-1)];
+			return t;
+			/*
+			for(var xx = 0; xx < size; xx++){
+				
+			}
+			*/
+			break;
+		}
+		
+	}
 	
 }

@@ -9,7 +9,7 @@ name = "Bow down for your god";
 hp = 999;
 maxhp = hp;
 spd = 1;
-movespace = 5;
+movespace = 3;
 
 cid = 0;
 

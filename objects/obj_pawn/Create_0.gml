@@ -20,6 +20,8 @@ dead = false;
 
 barks = new Barks();
 
+brain = new Brain();
+
 graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
 
 function onEndTurn(){

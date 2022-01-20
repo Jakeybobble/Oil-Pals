@@ -54,9 +54,11 @@ function setPerformTimer(num){
 
 function startTurn(){
 	var p = pawns[|whoseturn];
+	/*
 	if(p.tile.status = TileStatus.oil){
 		p.status.oiled ++;
 	}
+	*/
 }
 
 function endTurn(){
@@ -74,6 +76,10 @@ function endTurn(){
 	
 	var enemiesalive = 0;
 	var playersalive = 0;
+	
+	if(p.tile.status == TileStatus.oil){
+		p.status.oiled++;
+	}
 	
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		var p = pawns[|xx];

@@ -78,12 +78,64 @@ if(state == PickState.choosemove){
 				}
 			}
 		}else if(!p.is_player){
+			
+			var movable = ds_list_create();
+			
+			var right = p.tile.x + clamp((GRID.getWidth() - p.tile.x),0,p.movespace);
+			var left = p.tile.x - clamp(p.tile.x,0,p.movespace-1);
+			var down = p.tile.y + clamp((GRID.getHeight() - p.tile.y),0,p.movespace);
+			var up = p.tile.y - clamp(p.tile.y,0,p.movespace-1);
+			
+			for(var xx = left; xx < right; xx++){
+				for(var yy = up; yy < down; yy++){
+					var t = GRID.tiles[xx,yy];
+					// Do fearOil & such here...
+					if(!t.occupied){
+						ds_list_add(movable,t);
+					}
+					//draw_sprite(spr_coolfire,0,t.xToWorld()+24,t.yToWorld()+24);
+				}
+				
+				//draw_sprite(spr_coolfire,0,p.x,p.y);
+			}
+			
+			if(ds_list_size(movable) == 0){
+				// Do skip...
+				state = PickState.chooseaction;
+			}else{
+				var brain = p.brain;
+				var totile = brain.doMove(movable);
+				if(totile != noone){
+					// Do the move.
+					var mytile = (totile.x == p.tile.x && totile.y == p.tile.y);
+					if(mytile){
+						state = PickState.chooseaction;
+					}else{
+						pawn_moving = true;
+						pawn_moving_x = totile.x;
+						pawn_moving_y = totile.y;
+					}
+					
+					
+				}
+				
+			}
+			
+			ds_list_destroy(movable);
+			
+			/*
 			var untilskip = 50;
 			//var randx = random_range();
 			while(untilskip > 0){
 				var randx = irandom_range(p.tile.x-p.movespace,p.tile.x+p.movespace);
 				var randy = irandom_range(p.tile.y-p.movespace,p.tile.y+p.movespace);
 				var mytile = (randx == p.tile.x && randy == p.tile.y);
+				// To-do: Can just subtract limits instead of having to check here...
+				// Would result in less checking!
+				
+				// Make brain return tile here...
+				// xtile + (GRID.getWidth() - xtile)
+				
 				if(randx >= 0 && randx < array_length(grid.tiles)){
 					if(randy >= 0 && randy < array_length(grid.tiles[0])){
 						var t = GRID.tiles[randx,randy];
@@ -111,6 +163,9 @@ if(state == PickState.choosemove){
 			if(untilskip == 0){
 				state = PickState.chooseaction;
 			}
+			*/
+			
+			
 		
 		
 		}

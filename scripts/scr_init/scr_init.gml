@@ -385,7 +385,9 @@ function Barks() constructor{ // Yes, with an S.
 			b.text = which[rand];
 		}
 		if(sound != noone){
-			audio_play_sound(sound,0,false);
+			if(!audio_is_playing(sound)){
+				audio_play_sound(sound,0,false);
+			}
 		}
 	}
 	
