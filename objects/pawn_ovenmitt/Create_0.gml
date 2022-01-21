@@ -12,7 +12,7 @@ maxhp = 13;
 spd = 4;
 movespace = 3;
 
-cid = 8;
+faceicon = spr_face_ovenmitt;
 
 //actions = ds_list_create();
 

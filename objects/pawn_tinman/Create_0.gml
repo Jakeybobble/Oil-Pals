@@ -10,7 +10,7 @@ hp = 20;
 maxhp = 20;
 spd = 2;
 movespace = 4;
-cid = 10;
+faceicon = spr_face_tinman;
 
 //actions = ds_list_create();
 

@@ -11,7 +11,7 @@ maxhp = 30;
 spd = 6;
 movespace = 3;
 
-cid = 11;
+faceicon = spr_face_magmaball;
 
 //actions = ds_list_create();
 

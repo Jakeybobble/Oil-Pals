@@ -10,7 +10,7 @@ hp = 25;
 maxhp = 25;
 spd = 3;
 movespace = 2;
-cid = 9;
+faceicon = spr_face_oilball;
 
 //actions = ds_list_create();
 

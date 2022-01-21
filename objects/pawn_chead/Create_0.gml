@@ -12,7 +12,7 @@ maxhp = 7;
 spd = 9;
 movespace = 4;
 
-cid = 1;
+faceicon = spr_face_chead;
 
 status.superoiled = 99999;
 status.oiled = 999999;

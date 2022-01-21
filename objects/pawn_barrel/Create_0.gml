@@ -12,7 +12,7 @@ maxhp = 15;
 spd = 3;
 movespace = 3;
 
-cid = 2;
+faceicon = spr_face_barrel;
 
 //actions = ds_list_create();
 

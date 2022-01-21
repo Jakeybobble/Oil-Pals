@@ -11,7 +11,7 @@ maxhp = 15;
 spd = 10;
 movespace = 2;
 
-cid = 13;
+faceicon = spr_face_sniper;
 
 //actions = ds_list_create();
 

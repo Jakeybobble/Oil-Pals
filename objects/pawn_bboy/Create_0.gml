@@ -12,7 +12,7 @@ maxhp = 5;
 spd = 7;
 movespace = 4;
 
-cid = 5;
+faceicon = spr_face_bboy;
 
 //actions = ds_list_create();
 

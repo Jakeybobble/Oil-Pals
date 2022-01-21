@@ -11,7 +11,7 @@ maxhp = 20;
 spd = 3;
 movespace = 3;
 
-cid = 12;
+faceicon = spr_face_evilbarrel;
 
 //actions = ds_list_create();
 

@@ -12,7 +12,7 @@ maxhp = 7;
 spd = 3;
 movespace = 4;
 
-cid = 0;
+faceicon = spr_face_oilman;
 
 //actions = ds_list_create();
 

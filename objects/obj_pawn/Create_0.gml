@@ -8,7 +8,7 @@ maxhp = hp;
 spd = 5;
 movespace = 2;
 
-faceicon = spr_testface2;
+faceicon = spr_face_oilman;
 
 fireimmunity = false;
 

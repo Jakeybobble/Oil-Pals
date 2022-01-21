@@ -12,7 +12,7 @@ maxhp = 11;
 spd = 5;
 movespace = 3;
 
-cid = 3;
+faceicon = spr_face_pond;
 
 //actions = ds_list_create();
 

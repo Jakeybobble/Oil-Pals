@@ -29,8 +29,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Foelike",
-    "path": "folders/Objects/Pawns/Foelike.yy",
+    "name": "Other",
+    "path": "folders/Objects/Pawns/Other.yy",
   },
   "resourceVersion": "1.0",
   "name": "pawn_jakey",

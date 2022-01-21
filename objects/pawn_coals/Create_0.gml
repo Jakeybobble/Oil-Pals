@@ -12,7 +12,7 @@ maxhp = 6;
 spd = 7;
 movespace = 2;
 
-cid = 7;
+faceicon = spr_face_coals;
 
 fireimmunity = true;
 
