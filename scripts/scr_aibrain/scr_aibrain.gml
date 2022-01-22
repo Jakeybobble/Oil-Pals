@@ -43,6 +43,9 @@ function Brain(_pawn) constructor{
 	may_abstain = 0; // Chance of just not doing their attack.
 	pawn = _pawn;
 	
+	
+	movingtype_backup = MovingType.randomSpot;
+	
 	function doMove(list, tile, target){
 		var size = ds_list_size(list);
 		switch(movingtype){
@@ -89,6 +92,33 @@ function Brain(_pawn) constructor{
 			ds_list_destroy(picks);
 			return furthest_spot;
 			#endregion
+			break;
+			case MovingType.randomAligned:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.x == target.tile.x or t.y == target.tile.y){
+					ds_list_add(picks, t);
+				}
+			}
+			
+			/*
+			if(){
+				
+			}
+			*/
+			var toreturn = picks[|irandom(ds_list_size(picks)-1)];
+			show_debug_message(ds_list_size(picks));
+			ds_list_destroy(picks);
+			
+			return toreturn;
+			
+			break;
+			case MovingType.randomAligned_close:
+			
+			break;
+			case MovingType.randomAligned_exact:
+			
 			break;
 		}
 		

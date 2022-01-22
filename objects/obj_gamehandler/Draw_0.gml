@@ -107,6 +107,10 @@ if(state == PickState.choosemove){
 				var target = brain.pickTarget(pawns);
 				var totile = brain.doMove(movable, p.tile, target);
 				
+				if(totile == undefined){
+					//
+					brain.doMove(movable, p.tile, target);
+				}
 				// In attack: Have ability to change target...
 				if(totile != noone){
 					// Do the move.
