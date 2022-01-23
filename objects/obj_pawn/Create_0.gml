@@ -7,6 +7,7 @@ hp = 5;
 maxhp = hp;
 spd = 5;
 movespace = 2;
+defense = 0;
 
 faceicon = spr_face_oilman;
 
@@ -49,7 +50,8 @@ function onTakeDamage(dmg, type){
 }
 
 function takeDamage(dmg, type){ // Type is optional
-	var newdmg = status.affectDamage(dmg, type);
+	var newdmg = status.affectDamage(dmg, type)-defense;
+	newdmg = clamp(newdmg,1,status.affectDamage(dmg, type))
 	//hp-= newdmg;
 	hp = clamp(hp-newdmg,0,maxhp);
 	flyingNumber(x,y,newdmg);
