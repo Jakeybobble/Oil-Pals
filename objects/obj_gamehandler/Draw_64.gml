@@ -69,23 +69,25 @@ var ecount = 0;
 
 for(var xx = 0; xx < ds_list_size(pawns); xx++){
 	var p = pawns[|xx];
-	if(p.is_player and !p.dead){
-		var s = sin(current_time/200)*15;
-		draw_sprite_ext(p.faceicon,0,48,48+86*pcount,1.4,1.4,s,c_white,1);
-		if(whoseturn == xx){
-			arrowy = 40+86*pcount;
-			draw_sprite_ext(spr_arrow,0,88+(s/2),arrowy,1,1,0,c_white,1);
+	if(!p.dead){
+		if(p.is_player){
+			var s = sin(current_time/200)*15;
+			draw_sprite_ext(p.faceicon,0,48,48+86*pcount,1.4,1.4,s,c_white,1);
+			if(whoseturn == xx){
+				arrowy = 40+86*pcount;
+				draw_sprite_ext(spr_arrow,0,88+(s/2),arrowy,1,1,0,c_white,1);
+			}
+			pcount++;
 		}
-		pcount++;
-	}
-	else if(!p.dead){
-		var s = sin(current_time/200)*15;
-		draw_sprite_ext(p.faceicon,0,672+48,48+86*ecount,1.4,1.4,s,c_white,1);
-		if(whoseturn == xx){
-			arrowy = 40+86*ecount;
-			draw_sprite_ext(spr_arrow,0,680+(s/2),arrowy,-1,1,0,c_white,1);
+		else{
+			var s = sin(current_time/200)*15;
+			draw_sprite_ext(p.faceicon,0,672+48,48+86*ecount,1.4,1.4,s,c_white,1);
+			if(whoseturn == xx){
+				arrowy = 40+86*ecount;
+				draw_sprite_ext(spr_arrow,0,680+(s/2),arrowy,-1,1,0,c_white,1);
+			}
+			ecount++;
 		}
-		ecount++;
 	}
 	
 }

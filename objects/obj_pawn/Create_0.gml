@@ -17,6 +17,7 @@ status = new Status(); // Contains pawn status effects
 tile = noone;
 
 dead = false;
+hasplayed = false;
 
 barks = new Barks();
 

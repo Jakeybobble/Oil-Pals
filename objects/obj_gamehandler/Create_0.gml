@@ -16,10 +16,59 @@ grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
 pawns = ds_list_create(); // All pawns, including players
 
 
+tile_memory = noone; // Last tile stood on
+tiledata_memory = ds_list_create(); // All tiles changed during move
+
+// Lists (Unused right now...)
+pawn_friendly = [pawn_evildingo,pawn_pond,pawn_barrel,pawn_chead,pawn_ovenmitt,pawn_coals,pawn_ball,pawn_bboy,pawn_ebboy];
+
+chosen_action = noone;
+
+performtimer = 0;
+whoseturn = 0;
+
+function spawnPawn(instance, xpos, ypos, is_player){
+	var t = GRID.tiles[xpos,ypos];
+	var tospawn = instance_create_depth(t.xToWorld()+TS/2,t.yToWorld()+TS/2, 0, instance); // Evil
+	tospawn.setToTile(xpos,ypos);
+	tospawn.is_player = is_player;
+	ds_list_add(pawns, tospawn);
+	reSort();
+}
+
+/// @description Resorts pawns list and makes sure to bring whoseturn with it...
+function reSort(){ // Oh yeah, the sorting algorithm this uses is a 'Bubble sort'.
+	var n = ds_list_size(pawns);
+	for(var i = 0; i < n; i++){
+		for(var j = i + 1; j < n; j++){
+			if(-pawns[|i].spd > -pawns[|j].spd){
+				var temp = pawns[|i];
+				pawns[|i] = pawns[|j];
+				pawns[|j] = temp;
+			}
+		}
+	}
+	/*
+	for(var xx = 0; xx < n; xx++){
+		show_debug_message(pawns[|xx].name + " has speed " + string(pawns[|xx].spd) + ".");
+	}
+	*/
+}
+
+function nextTurn(){
+	for(var xx = 0; xx < ds_list_size(pawns); xx++){
+		
+	}
+}
+
+
 for(var xx = 0; xx < ds_list_size(global.roster); xx++){
+	/*
 	var newpawn = instance_create_depth(-100,-100, 0, global.roster[|xx]);
 	newpawn.setToTile(xx,0);
 	ds_list_add(pawns,newpawn);
+	*/
+	spawnPawn(global.roster[|xx],xx,0,true);
 }
 
 pawn_moving = false;
@@ -34,17 +83,6 @@ enum PickState {
 	
 }
 state = PickState.choosemove;
-
-tile_memory = noone; // Last tile stood on
-tiledata_memory = ds_list_create(); // All tiles changed during move
-
-// Lists
-pawn_friendly = [pawn_evildingo,pawn_pond,pawn_barrel,pawn_chead,pawn_ovenmitt,pawn_coals,pawn_ball,pawn_bboy,pawn_ebboy];
-
-chosen_action = noone;
-
-performtimer = 0;
-whoseturn = 0;
 
 function setPerformTimer(num){
 	if(num > performtimer){
@@ -69,7 +107,22 @@ function endTurn(){
 	var p = pawns[|whoseturn];
 	p.onEndTurn(); // Run player end turn event.
 	p.status.endTurn(); // NOTE: Status ends AFTER player end turn.
+	p.hasplayed = true;
 	
+	var endwave = true;
+	for(var xx = 0; xx < ds_list_size(pawns); xx++){
+		if(!pawns[|xx].hasplayed){
+			whoseturn = xx;
+			endwave = false;
+			break;
+		}
+	}
+	if(endwave){
+		whoseturn = 0;
+		endWave();
+		
+	}
+	/*
 	if(whoseturn+1 < ds_list_size(pawns)){
 		
 		whoseturn++;
@@ -77,6 +130,7 @@ function endTurn(){
 		whoseturn = 0;
 		endWave();
 	}
+	*/
 	
 	var enemiesalive = 0;
 	var playersalive = 0;
@@ -154,7 +208,8 @@ function endTurn(){
 				if(!ttt.occupied){
 					ttt.status = TileStatus.clear;
 					nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
-					spawnEnemy(ttt.x,ttt.y);
+					//spawnPawn(ttt.x,ttt.y,false); // Spawn enemy
+					spawnPawn(nextenemy,ttt.x,ttt.y,false);
 					break;
 				}
 				tries--;
@@ -175,18 +230,21 @@ global.turnspace = 4;
 nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
 
+/*
 function spawnEnemy(xpos, ypos){
 	var tospawn = instance_create_depth(-100,-100, 0, nextenemy); // Evil
 	tospawn.setToTile(xpos,ypos);
 	tospawn.is_player = false;
 	ds_list_add(pawns, tospawn);
 }
+*/
 
 function endWave(){
 	
 	// For each player...
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		var p = pawns[|xx];
+		p.hasplayed = false;
 		
 		if(p.tile.status == TileStatus.fire){
 			if(p.fireimmunity){
@@ -234,7 +292,7 @@ function endWave(){
 				if(!ttt.occupied){
 					ttt.status = TileStatus.clear;
 					nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
-					spawnEnemy(ttt.x,ttt.y);
+					spawnPawn(nextenemy,ttt.x,ttt.y,false);
 					break;
 				}
 				tries--;

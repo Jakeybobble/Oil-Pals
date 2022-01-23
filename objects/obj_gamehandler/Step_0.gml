@@ -6,21 +6,29 @@ if(0){
 	GRID.x = cos(current_time/700)*30;
 }
 
-if(keyboard_check_pressed(ord("O"))){
-	restartGame();
+if(keyboard_check_pressed(vk_anykey)){
+	switch(keyboard_lastkey){
+		case ord("O"):
+		restartGame();
+		break;
+		case ord("R"):
+		room_restart();
+		break;
+		case ord("N"):
+		room_goto(Room_Inbetween);
+		break;
+		case ord("I"):
+		reSort();
+		break;
+	}
 }
-if(keyboard_check_pressed(ord("R"))){
-	room_restart();
-}
-if(keyboard_check_pressed(ord("N"))){
-	room_goto(Room_Inbetween);
-}
+
 if(keyboard_check(ord("J")) && keyboard_check_pressed(ord("B"))){
 	enemiesleft = 1337;
 	nextenemy_turns = 50000;
 	show_debug_message("!!!!!!!!!!!!!!!!IT'S TESTING TIME!!!!!!!!!!!!!!!!");
-	nextenemy = pawn_jakey;
-	spawnEnemy(8,5);
+	//nextenemy = pawn_jakey;
+	spawnPawn(pawn_jakey,8,5, false);
 }
 
 if(pawn_moving){
