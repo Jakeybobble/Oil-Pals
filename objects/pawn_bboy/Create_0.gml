@@ -46,7 +46,7 @@ move1 = new Action();
 move1.pattern = [
 	[0,0,0,0,b]
 ];
-move1.ability_icon_id = 12;
+move1.ability_icon_id = 15;
 move1.centerx = 0; move1.centery = -1;
 move1.name = "Soggy Sniper";
 move1.description = "Extreme damage, but hard to aim.";
@@ -55,7 +55,7 @@ move2 = new Action();
 move2.pattern = [
 	[c,c,c,c,c]
 ];
-move2.ability_icon_id = 13;
+move2.ability_icon_id = 16;
 move2.centerx = 0; move2.centery = -1;
 move2.name = "Water Cannon";
 move2.description= "Shoots a large low damage beam, leaving puddles behind.";
@@ -66,7 +66,7 @@ move3.pattern = [
 	[d],
 	[d]
 ];
-move3.ability_icon_id = 14;
+move3.ability_icon_id = 17;
 move3.centery = -1;
 move3.centerx = 1;
 move3.name = "Splash";

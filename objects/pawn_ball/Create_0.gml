@@ -48,7 +48,7 @@ move1.pattern = [
 	[b,b,b]
 ];
 move1.centerx = 1; move1.centery = 1;
-move1.ability_icon_id = 15;
+move1.ability_icon_id = 12;
 
 move1.name = "Soggy Chomp";
 move1.description = "High damage and spews water where not attacking.";
@@ -58,7 +58,7 @@ move2.pattern = [
 	[d]
 
 ];
-move2.ability_icon_id = 16;
+move2.ability_icon_id = 13;
 move2.centery = 0;
 move2.centerx = 0;
 
@@ -69,7 +69,7 @@ move3 = new Action();
 move3.pattern = [
 	[0,c,c,c]
 ];
-move3.ability_icon_id = 17;
+move3.ability_icon_id = 14;
 
 move3.name = "Smash";
 move3.description = "Medium damage, medium range attack.";
