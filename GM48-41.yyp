@@ -42,6 +42,7 @@
     {"id":{"name":"spr_testface","path":"sprites/spr_testface/spr_testface.yy",},"order":0,},
     {"id":{"name":"obj_pawn","path":"objects/obj_pawn/obj_pawn.yy",},"order":1,},
     {"id":{"name":"spr_effect_oiled","path":"sprites/spr_effect_oiled/spr_effect_oiled.yy",},"order":0,},
+    {"id":{"name":"scr_abilities","path":"scripts/scr_abilities/scr_abilities.yy",},"order":6,},
     {"id":{"name":"hurt1","path":"sounds/hurt1/hurt1.yy",},"order":8,},
     {"id":{"name":"spr_i_flyingnumbers","path":"sprites/spr_i_flyingnumbers/spr_i_flyingnumbers.yy",},"order":0,},
     {"id":{"name":"spr_i_transition","path":"sprites/spr_i_transition/spr_i_transition.yy",},"order":3,},

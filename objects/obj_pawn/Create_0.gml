@@ -31,6 +31,9 @@ function doConditions(){
 		// Note that this is only used by AI.
 	}
 
+function onStartTurn(){
+	
+}
 function onEndTurn(){
 	
 }

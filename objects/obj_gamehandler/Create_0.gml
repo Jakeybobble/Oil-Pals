@@ -52,8 +52,12 @@ function setPerformTimer(num){
 	}
 }
 
+heyos = 0;
+
 function startTurn(){
 	var p = pawns[|whoseturn];
+	p.onStartTurn();
+	show_debug_message(p.name + "'s turn...");
 	/*
 	if(p.tile.status = TileStatus.oil){
 		p.status.oiled ++;
@@ -162,6 +166,8 @@ function endTurn(){
 	startTurn();
 	state = PickState.choosemove;
 }
+
+startTurn();
 
 enemiesleft = global.enemymax;
 nextenemy_turns = 0;
