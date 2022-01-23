@@ -51,7 +51,7 @@ function onTakeDamage(dmg, type){
 
 function takeDamage(dmg, type){ // Type is optional
 	var newdmg = status.affectDamage(dmg, type)-defense;
-	newdmg = clamp(newdmg,1,111111111111111)
+	newdmg = clamp(newdmg,1,hp)
 	//hp-= newdmg;
 	hp = clamp(hp-newdmg,0,maxhp);
 	flyingNumber(x,y,newdmg);
