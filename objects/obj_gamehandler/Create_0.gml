@@ -275,6 +275,14 @@ function endWave(){
 					t.status = TileStatus.clear;
 				}
 			}
+			if(t.status == TileStatus.water){
+				if(t.firetime > 0){
+					t.firetime--;
+				}else{
+					t.firetime = 0;
+					t.status = TileStatus.clear;
+				}
+			}
 		}
 	}
 	

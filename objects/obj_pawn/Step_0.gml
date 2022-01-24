@@ -19,3 +19,10 @@ if(GH.pawn_moving && GH.pawns[|GH.whoseturn].id == id){
 }
 
 hp = clamp(hp,0,maxhp);
+
+if(tile.status == TileStatus.water){
+	defense = 2;
+}
+else{
+	defense = 0;
+}

@@ -260,9 +260,8 @@ function setToOil(tile){
 		}
 	}
 function setToWater(tile){
-	if(tile.status == TileStatus.clear or tile.status == TileStatus.fire){
-		tile.status = TileStatus.water;
-	}
+	tile.status = TileStatus.water;
+	tile.firetime = 2;
 }
 function setToFire(tile){
 	if(tile.status == TileStatus.clear){
