@@ -9,7 +9,7 @@ name = "Bow down for your god";
 hp = 999;
 maxhp = hp;
 spd = irandom(100);
-movespace = 3;
+movespace = 5;
 
 faceicon = spr_face_jakey;
 
@@ -18,7 +18,7 @@ barks.damage = ["Owie.", "Oof.", "Ouch, ow ow.", ":-(", "What the heck.", "Dang 
 barks.sound = sou_laugh;
 //barks.freebark("Oh yeaaaaah", x, y);
 
-brain.movingtype = MovingType.randomSpot;
+brain.movingtype = MovingType.randomAligned_diagonal;
 
 function onDeath(){
 	dead = false;

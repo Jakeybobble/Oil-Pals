@@ -109,11 +109,12 @@ if(state == PickState.choosemove){
 				
 				if(totile == undefined){
 					//
-					brain.doMove(movable, p.tile, target);
+					//brain.doMove(movable, p.tile, target);
 				}
 				// In attack: Have ability to change target...
-				if(totile != noone){
+				if(totile != noone && totile != undefined){
 					// Do the move.
+					//show_debug_message(totile);
 					var mytile = (totile.x == p.tile.x && totile.y == p.tile.y);
 					if(totile == mytile){
 						state = PickState.chooseaction;

@@ -32,6 +32,7 @@ enum MovingType {
 	randomAligned, // Moves to either the same X or Y as the target
 	randomAligned_close,
 	randomAligned_exact, // Takes extra variable, will try to snipe from a certain offset.
+	randomAligned_diagonal,
 	fearOil, // Fears may be moved to separate enum as they do not have a target
 	fearFire,
 	fearWater
@@ -46,7 +47,7 @@ function Brain(_pawn) constructor{
 	
 	movingtype_backup = MovingType.randomSpot;
 	
-	function doMove(list, tile, target){
+	function doMove(list, tile, target){ // TO-DO: Input the movingtype instead of grabbing it from the struct.
 		var size = ds_list_size(list);
 		switch(movingtype){
 			case MovingType.randomSpot:
@@ -101,12 +102,6 @@ function Brain(_pawn) constructor{
 					ds_list_add(picks, t);
 				}
 			}
-			
-			/*
-			if(){
-				
-			}
-			*/
 			var toreturn = picks[|irandom(ds_list_size(picks)-1)];
 			show_debug_message(ds_list_size(picks));
 			ds_list_destroy(picks);
@@ -120,6 +115,73 @@ function Brain(_pawn) constructor{
 			case MovingType.randomAligned_exact:
 			
 			break;
+			case MovingType.straightToTarget_front:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.x == target.tile.x){
+					var yy = t.y - target.tile.y;
+					if(abs(yy) == 1){
+						//t.status = TileStatus.fire;
+						ds_list_add(picks,t);
+					}
+				}else if(t.y == target.tile.y){
+					var yy = t.x - target.tile.x;
+					if(abs(yy) == 1){
+						ds_list_add(picks,t);
+						//t.status = TileStatus.fire;
+					}
+				}
+			}
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.straightToTarget_diagonal:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				var w = t.x - target.tile.x;
+				var h = t.y - target.tile.y;
+				if(t.x != target.tile.x && t.y != target.tile.y){
+					if(abs(w) == 1 && abs(h) == 1){
+						ds_list_add(picks,t);
+					}
+					
+				}
+				
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.randomAligned_diagonal:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				var w = t.x - target.tile.x;
+				var h = t.y - target.tile.y;
+				if(abs(w) == abs(h)){
+					ds_list_add(picks,t);
+				}
+			}
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			/* Easily copyable code! Yay!
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				// Stuff here...
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			*/
 		}
 		
 	}
