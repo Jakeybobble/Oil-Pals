@@ -31,7 +31,18 @@ function doConditions(){
 		// Conditions will be unique.
 		// Actions the pawn will also want to use will be set here.
 		// Note that this is only used by AI.
-	}
+		/*
+		if(){
+			
+		}
+		*/
+		
+}
+function pickTarget(){
+	// This does the same thing as brain.pickTarget(), but runs before both moving
+	// and attacking! The AI can pick what attack they want to do with what movement.
+}
+
 
 function onStartTurn(){
 	

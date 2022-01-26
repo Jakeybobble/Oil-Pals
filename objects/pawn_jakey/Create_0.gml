@@ -20,6 +20,10 @@ barks.sound = sou_laugh;
 
 brain.movingtype = MovingType.straightToTarget_front;
 
+function doConditions(){
+	
+}
+
 function onDeath(){
 	dead = false;
 	hp = maxhp;

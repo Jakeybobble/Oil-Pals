@@ -43,6 +43,7 @@ function Brain(_pawn) constructor{
 	targetingtype = TargetingType.targetClosestEnemy;
 	may_abstain = 0; // Chance of just not doing their attack.
 	pawn = _pawn;
+	nextaction = undefined;
 	
 	
 	movingtype_backup = MovingType.randomSpot;
