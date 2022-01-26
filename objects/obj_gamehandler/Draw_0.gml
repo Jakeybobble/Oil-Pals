@@ -105,11 +105,10 @@ if(state == PickState.choosemove){
 			}else{
 				var brain = p.brain;
 				var target = brain.pickTarget(pawns);
-				var totile = brain.doMove(movable, p.tile, target);
+				var totile = brain.doMove(movable, p.tile, target,brain.movingtype);
 				
-				if(totile == undefined){
-					//
-					//brain.doMove(movable, p.tile, target);
+				if(totile == undefined or totile == noone){
+					totile = brain.doMove(movable, p.tile, target,brain.movingtype_backup);
 				}
 				// In attack: Have ability to change target...
 				if(totile != noone && totile != undefined){

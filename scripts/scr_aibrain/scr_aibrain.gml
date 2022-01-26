@@ -47,9 +47,9 @@ function Brain(_pawn) constructor{
 	
 	movingtype_backup = MovingType.randomSpot;
 	
-	function doMove(list, tile, target){ // TO-DO: Input the movingtype instead of grabbing it from the struct.
+	function doMove(list, tile, target, type){ // TO-DO: Input the movingtype instead of grabbing it from the struct.
 		var size = ds_list_size(list);
-		switch(movingtype){
+		switch(type){
 			case MovingType.randomSpot:
 			var t = list[|irandom(size-1)];
 			return t;
