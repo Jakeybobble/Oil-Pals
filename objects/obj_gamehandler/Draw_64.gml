@@ -98,5 +98,5 @@ for(var xx = 0; xx < ds_list_size(pawns); xx++){
 }
 
 draw_set_font(font_squarecakes);
-draw_text_transformed(0,room_height-36,"Level " + string(global.level) + "\nWave: " + string(wave) +"\nEnemies spawning: " + string(enemiesleft),2,2,0);
+draw_text_transformed(0,room_height-58,"Level " + string(global.level) + "\nWave: " + string(wave) +"\nEnemies spawning: " + string(enemiesleft),2,2,0);
 

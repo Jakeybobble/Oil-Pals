@@ -11,7 +11,13 @@ maxhp = 30;
 spd = 6;
 movespace = 3;
 
+barks.damage = ["BluRbz!!","bLoRR!", "OoMP!!", "Blaaaaa..."];
+
 faceicon = spr_face_magmaball;
+
+function onTakeDamage(dmg, type){
+	barks.bark(BarkTypes.damage,x,y-32);
+}
 
 //actions = ds_list_create();
 

@@ -75,7 +75,9 @@ function takeDamage(dmg, type){ // Type is optional
 		dead = true;
 		onDeath(); // Previously before 'dead = true'.
 	}
-	onTakeDamage(dmg, type);
+	if(!dead){
+		onTakeDamage(dmg, type);
+	}
 	
 }
 
