@@ -187,9 +187,9 @@ if(state == PickState.choosemove){
 
 
 if(state == PickState.chooseactionposition){
-	
 	var p = pawns[|whoseturn];
 	if(p.is_player){
+		#region Is Player
 		var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
 		var d = floor(((pdir + 45) mod 360)/90);
 		var newdir = (d +1 mod 3);
@@ -201,10 +201,20 @@ if(state == PickState.chooseactionposition){
 			mouse_clear(mb_right);
 		}else if(mouse_check_button_pressed(mb_left)){
 			// X TO-DO: Set this to performing!
-			state = PickState.performing;
-			//state = PickState.choosemove;
-			doaction = true;
-			mouse_clear(mb_left);
+			var action_passes = true;
+			if(action.is_distant && !mouseWithinBounds()){
+				action_passes = false;
+			}
+			
+			// TO-DO: ACTION CANCELLING!!!
+			
+			if(action_passes){
+				state = PickState.performing;
+				//state = PickState.choosemove;
+				doaction = true;
+				mouse_clear(mb_left);
+			}
+			
 		}
 		if(action != undefined){
 			if(action.is_distant){
@@ -213,7 +223,9 @@ if(state == PickState.chooseactionposition){
 				action.preview(p.tile.x,p.tile.y,newdir, doaction);
 			}
 		}
+		#endregion
 	}else if(!p.is_player){
+		#region Is not Player
 		//var pdir = point_direction();
 		var targets = ds_list_create();
 		for(var xx = 0; xx < ds_list_size(pawns); xx++){
@@ -248,6 +260,7 @@ if(state == PickState.chooseactionposition){
 			}
 		}
 		ds_list_destroy(targets);
+		#endregion
 	}
 	
 	

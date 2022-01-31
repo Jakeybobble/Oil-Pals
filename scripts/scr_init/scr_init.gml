@@ -310,8 +310,11 @@ function Status() constructor{
 	// Number means duration...
 	oiled = 0;
 	superoiled = 0;
+	wet = 0;
+	onfire = 0;
 	weaktowater = false;
 	damageboost = 0;
+	// TO-DO: Make effects either block out or interupt eachother.
 	
 	function affectDamage(dmg, type){
 		var returndmg = dmg;
@@ -325,6 +328,8 @@ function Status() constructor{
 	}
 	function endWave(){
 		if(oiled>0) oiled--;
+		if(onfire>0) onfire--;
+		if(wet>0) wet--;
 	}
 	function endTurn(){
 		if(damageboost>0) damageboost--;
@@ -343,9 +348,13 @@ function Status() constructor{
 	
 	function drawStatus(pawn){
 		if(oiled > 0){
-			var imgspd = 250;
-			var subimg = (current_time / imgspd) mod sprite_get_number(spr_effect_oiled);
-			draw_sprite(spr_effect_oiled,subimg,pawn.x,pawn.y);
+			draw_sprite_animated(spr_effect_oiled,pawn.x,pawn.y,250);
+		}
+		if(onfire > 0){
+			draw_sprite_animated(spr_effect_onfire,pawn.x,pawn.y,100);
+		}
+		if(wet > 0){
+			draw_sprite_animated(spr_effect_wet,pawn.x,pawn.y,100);
 		}
 		
 	}
