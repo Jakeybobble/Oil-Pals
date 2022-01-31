@@ -27,6 +27,8 @@ chosen_action = noone;
 performtimer = 0;
 whoseturn = 0;
 
+wave = 1;
+
 function spawnPawn(instance, xpos, ypos, is_player){
 	var t = GRID.tiles[xpos,ypos];
 	var tospawn = instance_create_depth(t.xToWorld()+TS/2,t.yToWorld()+TS/2, 0, instance); // Evil
@@ -119,6 +121,7 @@ function endTurn(){
 	}
 	if(endwave){
 		whoseturn = 0;
+		wave++;
 		endWave();
 		
 	}

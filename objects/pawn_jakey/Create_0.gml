@@ -20,8 +20,15 @@ barks.sound = sou_laugh;
 
 brain.movingtype = MovingType.straightToTarget_front;
 
-function doConditions(){
-	
+function doConditions(hasmoved){
+	// Conditions are unique to every enemy... Probably.
+	//show_debug_message(GH.wave % 2);
+	brain.nextaction = 0;
+	if(GH.wave % 2 == 0){
+		brain.nextaction = 0;
+	}else{
+		brain.nextaction = 1;
+	}
 }
 
 function onDeath(){
@@ -39,3 +46,38 @@ function onEndTurn(){
 function onTakeDamage(dmg, type){
 	barks.bark(BarkTypes.damage,x,y-32);
 }
+
+#region Actions
+// Attack 1
+var a = new Attack(3,AttackType.normal,spr_noneicon);
+a.perform = function(tile){
+	/*
+	if(tile.stander != noone){
+		tile.stander.takeDamage(2);
+	}
+	*/
+	barks.freebark("Wohoo! The round is even.",x,y-32);
+}
+
+move1 = new Action();
+move1.pattern = [
+	[a]
+];
+move1.centerx = 0; move1.centery = 0;
+move1.ability_icon_id = 15;
+
+// Attack 2
+var b = new Attack(3,AttackType.normal,spr_noneicon);
+b.perform = function(tile){
+	barks.freebark("Dang. The round is odd.",x,y-32);
+}
+
+move2 = new Action();
+move2.pattern = [
+	[b]
+];
+move2.centerx = 0; move1.centery = 0;
+move2.ability_icon_id = 15;
+
+ds_list_add(actions,move1,move2);
+#endregion

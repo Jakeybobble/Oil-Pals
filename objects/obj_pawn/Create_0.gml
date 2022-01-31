@@ -26,7 +26,9 @@ brain = new Brain(self);
 
 graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
 
-function doConditions(){
+actions = ds_list_create();
+
+function doConditions(hasmoved){
 		// This will set the targeting and moving type depending on conditions.
 		// Conditions will be unique.
 		// Actions the pawn will also want to use will be set here.
@@ -36,6 +38,9 @@ function doConditions(){
 			
 		}
 		*/
+		brain.nextaction = 0;
+		var rand = irandom_range(0,ds_list_size(actions)-1);
+		brain.nextaction = rand;
 		
 }
 function pickTarget(){
@@ -115,5 +120,3 @@ function moveToTileAnim(xpos, ypos){
 	}
 	
 }
-
-actions = ds_list_create();

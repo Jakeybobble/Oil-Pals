@@ -22,6 +22,7 @@ if(state == PickState.choosemove){
 		state = PickState.performing;
 	}else{
 		if(p.is_player){
+			#region Is Player
 			draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,0.46);
 			
 			// Makes sure that the player can't cheat by pulling off something frame perfect.
@@ -77,8 +78,9 @@ if(state == PickState.choosemove){
 					}
 				}
 			}
+			#endregion
 		}else if(!p.is_player){
-			
+			#region Is Not Player
 			var movable = ds_list_create();
 			
 			var right = p.tile.x + clamp((GRID.getWidth() - p.tile.x),0,p.movespace);
@@ -93,16 +95,18 @@ if(state == PickState.choosemove){
 					if(!t.occupied){
 						ds_list_add(movable,t);
 					}
-					//draw_sprite(spr_coolfire,0,t.xToWorld()+24,t.yToWorld()+24);
 				}
-				
-				//draw_sprite(spr_coolfire,0,p.x,p.y);
 			}
 			
 			if(ds_list_size(movable) == 0){
 				// Do skip...
 				state = PickState.chooseaction;
 			}else{
+				
+				// Choose where to move...
+				
+				p.doConditions(false);
+				
 				var brain = p.brain;
 				var target = brain.pickTarget(pawns);
 				var totile = brain.doMove(movable, p.tile, target,brain.movingtype);
@@ -174,7 +178,7 @@ if(state == PickState.choosemove){
 			
 			
 		
-		
+		#endregion
 		}
 	}
 	

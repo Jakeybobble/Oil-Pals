@@ -1,6 +1,7 @@
 if(state == PickState.chooseaction){
 	var p = pawns[|whoseturn];
 	if(p.is_player){
+		#region Is Player
 		var count = ds_list_size(p.actions);
 		draw_set_color(c_black);
 		draw_set_alpha(0.5);
@@ -52,12 +53,16 @@ if(state == PickState.chooseaction){
 		
 			draw_sprite_ext(spr_abilities,action.ability_icon_id,posx,posy,2,2,0,drawcolor,1);
 		}
+		#endregion
 	}else if(!p.is_player){
 		// Beep boop.
 		
 		state = PickState.chooseactionposition;
-		var rand = irandom_range(0,ds_list_size(p.actions)-1);
-		chosen_action = p.actions[|rand];
+		//var rand = irandom_range(0,ds_list_size(p.actions)-1);
+		p.doConditions(true);
+		var _pick = p.brain.nextaction
+		chosen_action = p.actions[|_pick];
+		
 		
 		//state = PickState.performing;
 	}
@@ -93,5 +98,5 @@ for(var xx = 0; xx < ds_list_size(pawns); xx++){
 }
 
 draw_set_font(font_squarecakes);
-draw_text_transformed(0,room_height-36,"Level " + string(global.level) +"\nEnemies spawning: " + string(enemiesleft),2,2,0);
+draw_text_transformed(0,room_height-36,"Level " + string(global.level) + "\nWave: " + string(wave) +"\nEnemies spawning: " + string(enemiesleft),2,2,0);
 

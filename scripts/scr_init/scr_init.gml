@@ -245,12 +245,16 @@ function Attack(dmg, type, icon) constructor{
 	hint_icon = icon;
 	
 	function perform(tile){
+		/* Why was this still here?
 		if(tile.status == TileStatus.test){
 			tile.status = TileStatus.clear;
 		}else{
 			tile.status = TileStatus.test;	
 		}
-		tile.stander.takeDamage(1); // Just default...
+		*/
+		if(tile.stander != noone){
+			tile.stander.takeDamage(1); // Just default...
+		}
 	}
 }
 
@@ -393,6 +397,11 @@ function Barks() constructor{ // Yes, with an S.
 	function freebark(_text,_x,_y){
 		var b = instance_create_depth(_x,_y,-600,obj_bark);
 		b.text = _text;
+		if(sound != noone){
+			if(!audio_is_playing(sound)){
+				audio_play_sound(sound,0,false);
+			}
+		}
 	}
 	
 }

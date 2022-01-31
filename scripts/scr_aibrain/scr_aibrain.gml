@@ -43,7 +43,9 @@ function Brain(_pawn) constructor{
 	targetingtype = TargetingType.targetClosestEnemy;
 	may_abstain = 0; // Chance of just not doing their attack.
 	pawn = _pawn;
-	nextaction = undefined;
+	nextaction = 0;
+	willreconsider = false; // If true, will do another condition check after moving
+	// Issue: There is no default move. Make it a thing?
 	
 	
 	movingtype_backup = MovingType.randomSpot;
