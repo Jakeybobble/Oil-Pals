@@ -14,10 +14,10 @@ faceicon = spr_face_oilball;
 
 //actions = ds_list_create();
 
-var a = new Attack(4,AttackType.normal,spr_noneicon);
-var c = new Attack(3,AttackType.normal,spr_noneicon);
-var b = new Attack(0,AttackType.water,spr_watericon);
-var d = new Attack(0,AttackType.normal,spr_specialicon);
+var a = new Attack(AttackType.normal,spr_noneicon);
+var c = new Attack(AttackType.normal,spr_noneicon);
+var b = new Attack(AttackType.water,spr_watericon);
+var d = new Attack(AttackType.normal,spr_specialicon);
 b.perform = function(tile){
 	setToOil(tile);
 	if(tile.stander != noone){
@@ -37,7 +37,7 @@ d.perform = function(tile){
 	}
 }
 
-move1 = new Action();
+move1 = new Ability();
 move1.pattern = [
 	[b,b,b,b]
 ];
@@ -47,7 +47,7 @@ move1.ability_icon_id = 15;
 move1.name = "Soggy Chomp";
 move1.description = "High damage and spews water where not attacking.";
 
-move2 = new Action();
+move2 = new Ability();
 move2.pattern = [
 	[0,0,b,0,0],
 	[0,0,b,0,0],
@@ -63,7 +63,7 @@ move2.centerx = 2;
 move2.name = "Osmosis";
 move2.description = "Absorb water it is standing on. Heal if successful.";
 
-move3 = new Action();
+move3 = new Ability();
 move3.pattern = [
 	[0]
 ];

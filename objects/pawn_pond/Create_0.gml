@@ -14,51 +14,8 @@ movespace = 3;
 
 faceicon = spr_face_pond;
 
-//actions = ds_list_create();
-
-var a = new Attack(2,AttackType.normal,spr_noneicon);
-var b = new Attack(0,AttackType.water,spr_watericon);
-b.perform = function(tile){
-	setToWater(tile);
-}
-a.perform = function(tile){
-	if(tile.stander != noone){
-		tile.stander.takeDamage(2);
-	}
-}
-
-move1 = new Action();
-move1.pattern = [
-	[a]
-];
-move1.is_distant = true;
-move1.centerx = 0; move1.centery = 0;
-move1.ability_icon_id = 9;
-
-move1.name = "Bamboo Artillery";
-move1.description = "Shoots medium damage at a spot anywhere.";
-
-move2 = new Action();
-move2.pattern = [
-	[b,b,b],
-	[b,0,b],
-	[b,b,b]
-];
-move2.ability_icon_id = 10;
-move2.centery = 1;
-move2.centerx = 1;
-
-move2.name = "Tsunami";
-move2.description = "Spawns puddles in all adjacent tiles. No damage.";
-
-move3 = new Action();
-move3.pattern = [
-	[b]
-];
-move3.ability_icon_id = 11;
-move3.is_distant = true;
-
-move3.name = "Extinguisher";
-move3.description = "Spawns a puddle anywhere. No damage.";
+move1 = global.abilities[?"bambooartillery"];
+move2 = global.abilities[?"tsunami"];
+move3 = global.abilities[?"extinguisher"];
 
 ds_list_add(actions, move1, move2, move3);

@@ -15,9 +15,9 @@ faceicon = spr_face_sniper;
 
 //actions = ds_list_create();
 
-var a = new Attack(4,AttackType.fire,spr_fireyicon);
-var b = new Attack(2,AttackType.oil,spr_oilyicon);
-var c = new Attack(3,AttackType.oil,spr_oilyicon);
+var a = new Attack(AttackType.fire,spr_fireyicon);
+var b = new Attack(AttackType.oil,spr_oilyicon);
+var c = new Attack(AttackType.oil,spr_oilyicon);
 
 a.perform = function(tile){
 	if(tile.stander != noone){
@@ -26,7 +26,7 @@ a.perform = function(tile){
 }
 
 
-move1 = new Action();
+move1 = new Ability();
 move1.pattern = [
 	[a]
 ];

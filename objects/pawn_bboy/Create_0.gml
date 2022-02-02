@@ -14,62 +14,8 @@ movespace = 4;
 
 faceicon = spr_face_bboy;
 
-//actions = ds_list_create();
-
-var a = new Attack(1,AttackType.normal,spr_noneicon);
-var b = new Attack(7,AttackType.water,spr_watericon);
-b.perform = function(tile){
-	setToWater(tile);
-	if(tile.stander != noone){
-		tile.stander.takeDamage(7);
-	}
-}
-var c = new Attack(2,AttackType.water,spr_watericon);
-c.perform = function(tile){
-	setToWater(tile);
-	if(tile.stander != noone){
-		tile.stander.takeDamage(2);
-	}
-}
-var d = new Attack(3,AttackType.water,spr_watericon);
-d.perform = function(tile){
-	setToWater(tile);
-	if(tile.stander != noone){
-		tile.stander.takeDamage(3);
-	}
-}
-a.perform = function(tile){
-	show_debug_message("Hey, it's working");
-}
-
-move1 = new Action();
-move1.pattern = [
-	[0,0,0,0,b]
-];
-move1.ability_icon_id = 15;
-move1.centerx = 0; move1.centery = -1;
-move1.name = "Soggy Sniper";
-move1.description = "Extreme damage, but hard to aim.";
-
-move2 = new Action();
-move2.pattern = [
-	[c,c,c,c,c]
-];
-move2.ability_icon_id = 16;
-move2.centerx = 0; move2.centery = -1;
-move2.name = "Water Cannon";
-move2.description= "Shoots a large low damage beam, leaving puddles behind.";
-
-move3 = new Action();
-move3.pattern = [
-	[d],
-	[d],
-	[d]
-];
-move3.ability_icon_id = 17;
-move3.centery = -1;
-move3.centerx = 1;
-move3.name = "Splash";
-move3.description = "Medium damage, close range."
+move1 = global.abilities[?"soggysniper"];
+move2 = global.abilities[?"watercannon"];
+move3 = global.abilities[?"splash"];
 
 ds_list_add(actions, move1, move2, move3);

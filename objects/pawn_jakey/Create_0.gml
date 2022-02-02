@@ -48,36 +48,21 @@ function onTakeDamage(dmg, type){
 }
 
 #region Actions
-// Attack 1
-var a = new Attack(3,AttackType.normal,spr_noneicon);
-a.perform = function(tile){
-	/*
-	if(tile.stander != noone){
-		tile.stander.takeDamage(2);
-	}
-	*/
-	barks.freebark("Wohoo! The round is even.",x,y-32);
-}
 
-move1 = new Action();
-move1.pattern = [
-	[a]
-];
-move1.centerx = 0; move1.centery = 0;
-move1.ability_icon_id = 15;
+// Attack 1 :-)
+move1 = global.abilities[?"test"];
 
 // Attack 2
-var b = new Attack(3,AttackType.normal,spr_noneicon);
+var b = new Attack(AttackType.normal, spr_noneicon);
 b.perform = function(tile){
-	barks.freebark("Dang. The round is odd.",x,y-32);
+	barks.freebark("This is an odd round, it is...",x,y-32);
 }
-
-move2 = new Action();
+move2 = new Ability();
 move2.pattern = [
 	[b]
 ];
 move2.centerx = 0; move1.centery = 0;
-move2.ability_icon_id = 15;
+move2.icon_id = 15;
 
 ds_list_add(actions,move1,move2);
 #endregion

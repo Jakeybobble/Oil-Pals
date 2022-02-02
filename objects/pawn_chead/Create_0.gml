@@ -16,61 +16,9 @@ faceicon = spr_face_chead;
 
 status.superoiled = 99999;
 status.oiled = 999999;
-//actions = ds_list_create();
 
-var a = new Attack(4,AttackType.oil,spr_oilyicon);
-var b = new Attack(0,AttackType.oil,spr_oilyicon);
-var c = new Attack(2,AttackType.oil,spr_oilyicon);
-a.perform = function(tile){
-	setToOil(tile);	
-	if(tile.stander != noone){
-		tile.stander.takeDamage(4);
-	}	
-}
-b.perform = function(tile){
-	setToOil(tile);
-}
-c.perform = function(tile){
-	setToOil(tile);
-	if(tile.stander != noone){
-		tile.stander.takeDamage(2);
-	}
-}
-
-move1 = new Action();
-move1.pattern = [
-	[a],
-	[a],
-	[a]
-];
-move1.centerx = 1; move1.centery = -1;
-move1.ability_icon_id = 3;
-move1.name = "Oiled Swipe";
-move1.description = "High damage and create oil tiles.";
-
-move2 = new Action();
-move2.pattern = [
-	[b,b,b,b,b],
-	[b,b,b,b,b],
-	[b,b,0,b,b],
-	[b,b,b,b,b],
-	[b,b,b,b,b]
-];
-move2.ability_icon_id = 4;
-move2.centery = 2;
-move2.centerx = 2;
-move2.name = "Split Skull";
-move2.description = "Covers a massive radius in oil. No damage.";
-
-move3 = new Action();
-move3.pattern = [
-	[0,0,c,c],
-	[0,c,c,c],
-	[0,0,c,c]
-];
-move3.ability_icon_id = 5;
-move3.centerx = 1; move3.centery = 0;
-move3.name = "Sneeze";
-move3.description = "Spews medium damage oil ahead.";
+move1 = global.abilities[?"oiledswipe"];
+move2 = global.abilities[?"splitskull"];
+move3 = global.abilities[?"sneeze"];
 
 ds_list_add(actions, move1, move2, move3);

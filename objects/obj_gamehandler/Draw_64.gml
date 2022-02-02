@@ -30,7 +30,7 @@ if(state == PickState.chooseaction){
 			if(mouse_check_button_pressed(mb_left)){
 				if(hovered){
 					state = PickState.chooseactionposition;
-					chosen_action = p.actions[|xx];
+					chosen_ability = p.actions[|xx];
 					mouse_clear(mb_left);
 				}
 			}else if(mouse_check_button_pressed(mb_right)){
@@ -47,11 +47,11 @@ if(state == PickState.chooseaction){
 				if(keyboard_lastkey == ord(string(xx+1))){
 					//show_debug_message("Wow! " + string(xx+1));
 					state = PickState.chooseactionposition;
-					chosen_action = p.actions[|xx];
+					chosen_ability = p.actions[|xx];
 				}
 			}
 		
-			draw_sprite_ext(spr_abilities,action.ability_icon_id,posx,posy,2,2,0,drawcolor,1);
+			draw_sprite_ext(spr_abilities,action.icon_id,posx,posy,2,2,0,drawcolor,1);
 		}
 		#endregion
 	}else if(!p.is_player){
@@ -61,7 +61,7 @@ if(state == PickState.chooseaction){
 		//var rand = irandom_range(0,ds_list_size(p.actions)-1);
 		p.doConditions(true);
 		var _pick = p.brain.nextaction
-		chosen_action = p.actions[|_pick];
+		chosen_ability = p.actions[|_pick];
 		
 		
 		//state = PickState.performing;

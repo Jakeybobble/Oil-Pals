@@ -35,7 +35,7 @@ if(state == PickState.choosemove){
 						ds_list_clear(tiledata_memory);
 						tile_memory = pawns[|whoseturn].tile;
 						state = PickState.chooseactionposition;
-						chosen_action = p.actions[|xx];
+						chosen_ability = p.actions[|xx];
 					}
 				}
 			}
@@ -133,51 +133,6 @@ if(state == PickState.choosemove){
 			}
 			
 			ds_list_destroy(movable);
-			
-			/*
-			var untilskip = 50;
-			//var randx = random_range();
-			while(untilskip > 0){
-				var randx = irandom_range(p.tile.x-p.movespace,p.tile.x+p.movespace);
-				var randy = irandom_range(p.tile.y-p.movespace,p.tile.y+p.movespace);
-				var mytile = (randx == p.tile.x && randy == p.tile.y);
-				// To-do: Can just subtract limits instead of having to check here...
-				// Would result in less checking!
-				
-				// Make brain return tile here...
-				// xtile + (GRID.getWidth() - xtile)
-				
-				if(randx >= 0 && randx < array_length(grid.tiles)){
-					if(randy >= 0 && randy < array_length(grid.tiles[0])){
-						var t = GRID.tiles[randx,randy];
-					
-						var canmovethere = false;
-					
-						if(t.occupied == false or mytile){
-							canmovethere = true;
-						}
-					
-						if(canmovethere){
-							if(mytile){
-								state = PickState.chooseaction;
-							}else if(t.occupied == false){
-								pawn_moving = true;
-								pawn_moving_x = randx;
-								pawn_moving_y = randy;
-							}
-							break;
-						}
-					}
-				}
-				untilskip--;
-			}
-			if(untilskip == 0){
-				state = PickState.chooseaction;
-			}
-			*/
-			
-			
-		
 		#endregion
 		}
 	}
@@ -193,10 +148,11 @@ if(state == PickState.chooseactionposition){
 		var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
 		var d = floor(((pdir + 45) mod 360)/90);
 		var newdir = (d +1 mod 3);
-		var action = chosen_action;
+		var ability = chosen_ability;
 		var doaction = false;
+		/* Old
 		if(mouse_check_button_pressed(mb_right)){
-			chosen_action = noone;
+			chosen_ability = noone;
 			state = PickState.chooseaction;
 			mouse_clear(mb_right);
 		}else if(mouse_check_button_pressed(mb_left)){
@@ -223,10 +179,33 @@ if(state == PickState.chooseactionposition){
 				action.preview(p.tile.x,p.tile.y,newdir, doaction);
 			}
 		}
+		*/
+		var to_attack = undefined;
+		if(ability != undefined){
+			to_attack = ability.getTiles(px,py,newdir,p);
+			ability.preview(to_attack);
+		}
+		
+		if(mouse_check_button_pressed(mb_right)){
+			chosen_ability = noone;
+			state = PickState.chooseaction;
+			mouse_clear(mb_right);
+		}else if(mouse_check_button_pressed(mb_left)){
+			if(to_attack != undefined){
+				var perform = ability.perform(to_attack,p);
+				if(perform){
+					state = PickState.performing;
+				}
+				mouse_clear(mb_left);
+			}
+		}
 		#endregion
 	}else if(!p.is_player){
 		#region Is not Player
 		//var pdir = point_direction();
+		
+		// TO-DO: Apply targeting here!!! ( I forgot... :-) )
+		
 		var targets = ds_list_create();
 		for(var xx = 0; xx < ds_list_size(pawns); xx++){
 			var _p = pawns[|xx];
@@ -248,16 +227,22 @@ if(state == PickState.chooseactionposition){
 		var todir = point_direction(p.x,p.y,closest.x,closest.y);
 		var d = floor(((todir + 45) mod 360)/90);
 		var newdir = (d +1 mod 3);
-		var action = chosen_action;
+		var ability = chosen_ability;
 		
 		state = PickState.performing;
-		
+		/*
 		if(action != undefined){
 			if(action.is_distant){
 				action.preview(closest.tile.x,closest.tile.y,0, true);
 			}else{
 				action.preview(p.tile.x,p.tile.y,newdir, true);
 			}
+		}
+		*/
+		var to_attack = undefined;
+		if(ability != undefined){
+			to_attack = ability.getTiles(closest.tile.x,closest.tile.y,newdir,p);
+			ability.perform(to_attack,p);
 		}
 		ds_list_destroy(targets);
 		#endregion

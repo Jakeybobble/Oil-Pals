@@ -15,9 +15,9 @@ faceicon = spr_face_evilbarrel;
 
 //actions = ds_list_create();
 
-var a = new Attack(4,AttackType.fire,spr_fireyicon);
-var b = new Attack(2,AttackType.oil,spr_oilyicon);
-var c = new Attack(3,AttackType.oil,spr_oilyicon);
+var a = new Attack(AttackType.fire,spr_fireyicon);
+var b = new Attack(AttackType.oil,spr_oilyicon);
+var c = new Attack(AttackType.oil,spr_oilyicon);
 b.perform = function(tile){
 	setToOil(tile);
 	if(tile.stander != noone){
@@ -37,7 +37,7 @@ c.perform = function(tile){
 	}
 }
 
-move1 = new Action();
+move1 = new Ability();
 move1.pattern = [
 	[0,0,a]
 ];
@@ -47,7 +47,7 @@ move1.ability_icon_id = 6;
 move1.name = "Cigarette Toss";
 move1.description = "Spawns flames and deals high damage.";
 
-move2 = new Action();
+move2 = new Ability();
 move2.pattern = [
 	[c]
 ];
@@ -59,7 +59,7 @@ move2.is_distant = true;
 move2.name = "Oil Artillery";
 move2.description = "Shoots oil anywhere on the map.";
 
-move3 = new Action();
+move3 = new Ability();
 move3.pattern = [
 	[0,b,b,b,b]
 ];

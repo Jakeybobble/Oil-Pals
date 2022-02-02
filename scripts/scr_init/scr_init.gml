@@ -141,13 +141,6 @@ function yToWorld(_y){
 	return GRID.y + _y*TS;
 }
 
-enum AttackType {
-	normal,
-	oil,
-	fire,
-	water
-}
-
 function randomSound(array) constructor{
 	sounds = array;
 	function get(){
@@ -160,10 +153,11 @@ global.sound_water = new randomSound([sou_water1,sou_water2,sou_water3]);
 global.sound_fire = new randomSound([sou_fire1,sou_fire2,sou_fire3]);
 global.sound_hit = new randomSound([hurt1,hurt2,hurt3]);
 
+/* Deprecated
 function Action() constructor{
 	
-	var a = new Attack(2,AttackType.normal,spr_fireyicon);
-	var b = new Attack(0,AttackType.normal,spr_fireyicon);
+	var a = new Attack(2,spr_fireyicon);
+	var b = new Attack(0,spr_fireyicon);
 	centerx = 0; centery = 0;
 	pattern = [ // Note: this points downwards ->
 	[0,0,a,a,0,0,0],
@@ -187,7 +181,7 @@ function Action() constructor{
 		var newy = centery;
 		if(rotation != 0){
 			repeat(rotation){
-				var results = scr_rotateArray(newarray, newx, newy);
+				var results = rotateArray(newarray, newx, newy);
 				newarray = results[0];
 				newx = results[1]; newy = results[2];
 			}
@@ -237,26 +231,7 @@ function Action() constructor{
 		}	
 	}
 }
-
-function Attack(dmg, type, icon) constructor{
-	
-	damage = dmg;
-	attacktype = type;
-	hint_icon = icon;
-	
-	function perform(tile){
-		/* Why was this still here?
-		if(tile.status == TileStatus.test){
-			tile.status = TileStatus.clear;
-		}else{
-			tile.status = TileStatus.test;	
-		}
-		*/
-		if(tile.stander != noone){
-			tile.stander.takeDamage(1); // Just default...
-		}
-	}
-}
+*/
 
 function setToOil(tile){
 		if(tile.status == TileStatus.clear or tile.status == TileStatus.water){

@@ -22,7 +22,7 @@ tiledata_memory = ds_list_create(); // All tiles changed during move
 // Lists (Unused right now...)
 pawn_friendly = [pawn_evildingo,pawn_pond,pawn_barrel,pawn_chead,pawn_ovenmitt,pawn_coals,pawn_ball,pawn_bboy,pawn_ebboy];
 
-chosen_action = noone;
+chosen_ability = noone;
 
 performtimer = 0;
 whoseturn = 0;
@@ -97,7 +97,7 @@ heyos = 0;
 function startTurn(){
 	var p = pawns[|whoseturn];
 	p.onStartTurn();
-	show_debug_message(p.name + "'s turn...");
+	//show_debug_message(p.name + "'s turn...");
 	/*
 	if(p.tile.status = TileStatus.oil){
 		p.status.oiled ++;
