@@ -12,6 +12,7 @@ function scr_functions(){
 function getBiggestDistance(pawn1, pawn2){ // Returns biggest tile distance between two pawns.
 	var t1 = pawn1.tile; var t2 = pawn2.tile;
 	var xdif = abs(t2.x-t1.x); var ydif = abs(t2.y-t1.y);
+	//show_debug_message(string(xdif) + ", " + string(ydif));
 	return max(xdif, ydif);
 }
 function pawnExists(pawn){ // Returns true if pawn exists and is also alive
@@ -28,7 +29,7 @@ function getRandomSpecificPawn(pawn){ // Returns random pawn of type
 	if(pawnExists(pawn)){
 		for(var xx = 0; xx < ds_list_size(GH.pawns); xx++){
 			if(p == GH.pawns[|xx].object_index){
-				return GH.pawns[|xx];
+				return GH.pawns[|xx]; // TO-DO: Make this random.
 			}
 		}
 	}

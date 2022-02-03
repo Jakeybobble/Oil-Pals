@@ -94,6 +94,16 @@ function setToTile(xpos, ypos){
 	t.stander = self;
 	
 }
+function swapTiles(pawn){ // Swap tiles with another pawn
+	var fromtile = tile;
+	var totile = pawn.tile;
+	tile = totile;
+	tile.occupied = true;
+	tile.stander = self;
+	pawn.tile = fromtile;
+	fromtile.occupied = true;
+	fromtile.stander = pawn;
+}
 
 failsafe_timer = 0;
 function moveToTileAnim(xpos, ypos){

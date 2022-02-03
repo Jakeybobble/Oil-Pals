@@ -41,10 +41,10 @@ enum MovingType {
 function Brain(_pawn) constructor{
 	movingtype = MovingType.randomSpot;
 	targetingtype = TargetingType.targetClosestEnemy;
-	may_abstain = 0; // Chance of just not doing their attack.
+	abstain = false; // Will skip attacking if this is true.
 	pawn = _pawn;
 	nextaction = 0;
-	willreconsider = false; // If true, will do another condition check after moving
+	willreconsider = false; // If true, will do another condition check after moving. Remember to set to false first (to default it out).
 	// Issue: There is no default move. Make it a thing?
 	
 	
@@ -103,6 +103,7 @@ function Brain(_pawn) constructor{
 				var t = list[|xx];
 				if(t.x == target.tile.x or t.y == target.tile.y){
 					ds_list_add(picks, t);
+					//t.status = TileStatus.water;
 				}
 			}
 			var toreturn = picks[|irandom(ds_list_size(picks)-1)];
@@ -191,6 +192,12 @@ function Brain(_pawn) constructor{
 	
 	function pickTarget(list){ // Pick a pawn to target.
 		// TO-DO: Make AI work on player team as well
+		
+		// NOTE TO SELF:
+		// I don't quite remember my thoughts about this, but I think you're supposed to
+		// create a list of possible targets (so like, all players for example), but
+		// that doesn't make sense with all the "targetRandomFriend" stuff.
+		
 		switch(targetingtype){
 			case TargetingType.targetClosestEnemy:
 			var closest_pawn = noone;
@@ -218,7 +225,7 @@ function Brain(_pawn) constructor{
 			}
 			return furthest_pawn;
 			
-			case TargetingType.targetRandomEnemy:
+			case TargetingType.targetRandomEnemy: // UNFINISHED
 			var p = list[|irandom(ds_list_size(list)-1)];
 			return p;
 			

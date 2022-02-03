@@ -124,6 +124,8 @@ function Tile(posx, posy) constructor{
 		// In case things break or something...
 		if(stander == noone){ // TO-DO: Add more conditions here
 			occupied = false;
+		}else{
+			occupied = true;
 		}
 	}
 	function xToWorld(){

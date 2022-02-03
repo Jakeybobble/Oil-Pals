@@ -11,7 +11,7 @@ maxhp = 30;
 spd = 6;
 movespace = 3;
 
-barks.damage = ["BluRbz!!","bLoRR!", "OoMP!!", "Blaaaaa..."];
+barks.damage = ["Meow."];
 
 faceicon = spr_face_magmaball;
 

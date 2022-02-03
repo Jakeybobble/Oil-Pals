@@ -149,37 +149,7 @@ if(state == PickState.chooseactionposition){
 		var d = floor(((pdir + 45) mod 360)/90);
 		var newdir = (d +1 mod 3);
 		var ability = chosen_ability;
-		var doaction = false;
-		/* Old
-		if(mouse_check_button_pressed(mb_right)){
-			chosen_ability = noone;
-			state = PickState.chooseaction;
-			mouse_clear(mb_right);
-		}else if(mouse_check_button_pressed(mb_left)){
-			// X TO-DO: Set this to performing!
-			var action_passes = true;
-			if(action.is_distant && !mouseWithinBounds()){
-				action_passes = false;
-			}
-			
-			// TO-DO: ACTION CANCELLING!!!
-			
-			if(action_passes){
-				state = PickState.performing;
-				//state = PickState.choosemove;
-				doaction = true;
-				mouse_clear(mb_left);
-			}
-			
-		}
-		if(action != undefined){
-			if(action.is_distant){
-				action.preview(px,py,0, doaction);
-			}else{
-				action.preview(p.tile.x,p.tile.y,newdir, doaction);
-			}
-		}
-		*/
+		
 		var to_attack = undefined;
 		if(ability != undefined){
 			to_attack = ability.getTiles(px,py,newdir,p);
@@ -202,10 +172,8 @@ if(state == PickState.chooseactionposition){
 		#endregion
 	}else if(!p.is_player){
 		#region Is not Player
-		//var pdir = point_direction();
 		
-		// TO-DO: Apply targeting here!!! ( I forgot... :-) )
-		
+		/* Old
 		var targets = ds_list_create();
 		for(var xx = 0; xx < ds_list_size(pawns); xx++){
 			var _p = pawns[|xx];
@@ -223,28 +191,27 @@ if(state == PickState.chooseactionposition){
 				lowestdis = dis;
 			}
 		}
-		
-		var todir = point_direction(p.x,p.y,closest.x,closest.y);
-		var d = floor(((todir + 45) mod 360)/90);
-		var newdir = (d +1 mod 3);
-		var ability = chosen_ability;
+		*/
 		
 		state = PickState.performing;
-		/*
-		if(action != undefined){
-			if(action.is_distant){
-				action.preview(closest.tile.x,closest.tile.y,0, true);
-			}else{
-				action.preview(p.tile.x,p.tile.y,newdir, true);
+		targetpawn = p.brain.pickTarget(pawns);
+		if(targetpawn != undefined){
+			var todir = point_direction(p.x,p.y,targetpawn.x,targetpawn.y);
+			var d = floor(((todir + 45) mod 360)/90);
+			var newdir = (d +1 mod 3);
+			var ability = chosen_ability;
+			
+			var to_attack = undefined; // Tiles to attack from Ability.
+			if(ability != undefined){
+				to_attack = ability.getTiles(targetpawn.tile.x,targetpawn.tile.y,newdir,p);
+				ability.perform(to_attack,p);
 			}
 		}
-		*/
-		var to_attack = undefined;
-		if(ability != undefined){
-			to_attack = ability.getTiles(closest.tile.x,closest.tile.y,newdir,p);
-			ability.perform(to_attack,p);
-		}
-		ds_list_destroy(targets);
+		
+		
+		
+		
+		//ds_list_destroy(targets);
 		#endregion
 	}
 	

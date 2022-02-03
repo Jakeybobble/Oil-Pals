@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "spr_i_camera",
-    "path": "sprites/spr_i_camera/spr_i_camera.yy",
+    "name": "spr_fishman",
+    "path": "sprites/spr_fishman/spr_fishman.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
-  "persistent": true,
-  "parentObjectId": null,
+  "persistent": false,
+  "parentObjectId": {
+    "name": "obj_pawn",
+    "path": "objects/obj_pawn/obj_pawn.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -21,17 +24,16 @@
   "physicsKinematic": false,
   "physicsShapePoints": [],
   "eventList": [
-    {"isDnD":false,"eventNum":70,"eventType":9,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
+    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Foelike",
+    "path": "folders/Objects/Pawns/Foelike.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_camera",
+  "name": "pawn_fishman",
   "tags": [],
   "resourceType": "GMObject",
 }

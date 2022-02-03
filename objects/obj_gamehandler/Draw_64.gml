@@ -59,10 +59,18 @@ if(state == PickState.chooseaction){
 		
 		state = PickState.chooseactionposition;
 		//var rand = irandom_range(0,ds_list_size(p.actions)-1);
-		p.doConditions(true);
-		var _pick = p.brain.nextaction
-		chosen_ability = p.actions[|_pick];
-		
+		if(p.brain.willreconsider){
+			p.doConditions(true);
+		}
+		if(!p.brain.abstain){
+			var _pick = p.brain.nextaction
+			chosen_ability = p.actions[|_pick];
+			
+			
+		}else{ // If abstaining attack.
+			p.brain.abstain = false;
+			state = PickState.performing;
+		}
 		
 		//state = PickState.performing;
 	}
