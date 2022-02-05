@@ -35,7 +35,7 @@ if(pawn_moving){
 	state = PickState.moving;
 }
 
-sou_fire=choose(sou_fire1,sou_fire2,sou_fire3,sou_fire4);
+sou_fire=choose(sou_fire1,sou_fire2,sou_fire4);
 sou_water=choose(sou_water1,sou_water2,sou_water3);
 
 if(pawn_moving){

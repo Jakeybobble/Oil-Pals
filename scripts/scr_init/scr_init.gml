@@ -152,7 +152,7 @@ function randomSound(array) constructor{
 }
 
 global.sound_water = new randomSound([sou_water1,sou_water2,sou_water3]);
-global.sound_fire = new randomSound([sou_fire1,sou_fire2,sou_fire3]);
+global.sound_fire = new randomSound([sou_fire1,sou_fire2,sou_fire4]);
 global.sound_hit = new randomSound([hurt1,hurt2,hurt3]);
 
 /* Deprecated

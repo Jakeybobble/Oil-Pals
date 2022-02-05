@@ -82,7 +82,6 @@
     {"id":{"name":"sou_water1","path":"sounds/sou_water1/sou_water1.yy",},"order":4,},
     {"id":{"name":"obj_charselect","path":"objects/obj_charselect/obj_charselect.yy",},"order":9,},
     {"id":{"name":"spr_ball","path":"sprites/spr_ball/spr_ball.yy",},"order":8,},
-    {"id":{"name":"sou_fire3","path":"sounds/sou_fire3/sou_fire3.yy",},"order":2,},
     {"id":{"name":"spr_fishman","path":"sprites/spr_fishman/spr_fishman.yy",},"order":7,},
     {"id":{"name":"Sprite32","path":"sprites/Sprite32/Sprite32.yy",},"order":14,},
     {"id":{"name":"spr_evilbarrel","path":"sprites/spr_evilbarrel/spr_evilbarrel.yy",},"order":1,},
