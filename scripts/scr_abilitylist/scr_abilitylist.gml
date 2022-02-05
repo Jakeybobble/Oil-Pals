@@ -194,10 +194,11 @@ ds_map_add(global.abilities,"sneeze",sneeze);
 #region // OVENMITT
 var a = new Attack(AttackType.normal,spr_specialicon); var b = new Attack(AttackType.normal,spr_noneicon); var c = new Attack(AttackType.fire,spr_fireyicon);
 
-a.perform = function(tile){
+a.perform = function(tile,caster){
 	if(tile.status != TileStatus.clear){
 		tile.status = TileStatus.clear;
 	}
+	caster.status.clear();
 }
 b.perform = function(tile){
 	if(tile.stander != noone){
@@ -213,7 +214,7 @@ c.perform = function(tile){
 }
 
 var absorption = new Ability();
-absorption.setInfo("Absorption", "Clears any terrain on the spot you are standing on.", 24);
+absorption.setInfo("Absorption", "Clears any terrain on the spot you are standing on.\nAlso clears status.", 24);
 absorption.pattern = [
 	[a]
 ];

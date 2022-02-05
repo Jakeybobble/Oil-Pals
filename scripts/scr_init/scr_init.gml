@@ -335,6 +335,9 @@ function Status() constructor{
 		}
 		
 	}
+	function clear(){ // Clears all status effects...
+		oiled = 0; wet = 0; onfire = 0; damageboost = 0;
+	}
 	
 }
 
