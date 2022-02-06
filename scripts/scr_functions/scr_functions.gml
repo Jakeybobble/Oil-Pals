@@ -15,6 +15,13 @@ function getBiggestDistance(pawn1, pawn2){ // Returns biggest tile distance betw
 	//show_debug_message(string(xdif) + ", " + string(ydif));
 	return max(xdif, ydif);
 }
+
+function getTileBiggestDistance(tile1, tile2){ // Returns biggest tile distance between two pawns.
+	var xdif = abs(tile2.x-tile1.x); var ydif = abs(tile2.y-tile1.y);
+	//show_debug_message(string(xdif) + ", " + string(ydif));
+	return max(xdif, ydif);
+}
+
 function pawnExists(pawn){ // Returns true if pawn exists and is also alive
 	if(instance_exists(pawn)){
 		if(!pawn.dead){

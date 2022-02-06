@@ -112,6 +112,7 @@ if(state == PickState.choosemove){
 				var totile = brain.doMove(movable, p.tile, target,brain.movingtype);
 				
 				if(totile == undefined or totile == noone){
+					show_debug_message(p.name + " used backup moving type.");
 					totile = brain.doMove(movable, p.tile, target,brain.movingtype_backup);
 				}
 				// In attack: Have ability to change target...

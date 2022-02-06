@@ -47,7 +47,7 @@ function Brain(_pawn) constructor{
 	nextaction = 0;
 	willreconsider = false; // If true, will do another condition check after moving. Remember to set to false first (to default it out).
 	// Issue: There is no default move. Make it a thing?
-	
+	offset = 1; // Extra variable for certain moving types.
 	
 	movingtype_backup = MovingType.randomSpot;
 	
@@ -108,7 +108,6 @@ function Brain(_pawn) constructor{
 				}
 			}
 			var toreturn = picks[|irandom(ds_list_size(picks)-1)];
-			show_debug_message(ds_list_size(picks));
 			ds_list_destroy(picks);
 			
 			return toreturn;
@@ -118,7 +117,21 @@ function Brain(_pawn) constructor{
 			
 			break;
 			case MovingType.randomAligned_exact:
-			
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.x == target.tile.x or t.y == target.tile.y){
+					var d = getTileBiggestDistance(t,target.tile);
+					if(d == offset){
+						ds_list_add(picks, t);
+						//t.status = TileStatus.water;
+					}
+				}
+			}
+			var toreturn = picks[|irandom(ds_list_size(picks)-1)];
+			//show_debug_message(ds_list_size(picks));
+			ds_list_destroy(picks);
+			return toreturn;
 			break;
 			case MovingType.straightToTarget_front:
 			var picks = ds_list_create();
@@ -238,9 +251,18 @@ function Brain(_pawn) constructor{
 			ds_list_destroy(picks);
 			return pick;
 			case TargetingType.targetRandomFriend:
-			
+			var picks = ds_list_create();
+			for(var xx = 0; xx < ds_list_size(list); xx++){
+				if(!list[|xx].is_player){
+					ds_list_add(picks);
+				}
+			}
+			ds_list_shuffle(picks);
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
 			break;
-			case TargetingType.targetEnemiesFit:
+			case TargetingType.targetEnemiesFit: // Might not be possible to make...
 			
 			break;
 			case TargetingType.targetFriendsFit:
