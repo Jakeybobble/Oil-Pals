@@ -14,6 +14,7 @@ enum TargetingType { // Used for both moving and attacks, should it be so?
 	targetSelf,
 	targetFriendInRange,
 	targetFriendInRangePlusSelf,
+	targetRandomAny
 }
 
 // Idea: Have attack "priority" number... AI will try to pick attacks closer to priority number
@@ -225,10 +226,17 @@ function Brain(_pawn) constructor{
 			}
 			return furthest_pawn;
 			
-			case TargetingType.targetRandomEnemy: // UNFINISHED
-			var p = list[|irandom(ds_list_size(list)-1)];
-			return p;
-			
+			case TargetingType.targetRandomEnemy:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < ds_list_size(list); xx++){
+				if(list[|xx].is_player){
+					ds_list_add(picks);
+				}
+			}
+			ds_list_shuffle(picks);
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
 			case TargetingType.targetRandomFriend:
 			
 			break;
@@ -240,6 +248,10 @@ function Brain(_pawn) constructor{
 			break;
 			case TargetingType.targetFriendInRange:
 			
+			break;
+			case TargetingType.targetRandomAny:
+			var p = list[|irandom(ds_list_size(list)-1)];
+			return p;
 			break;
 		}
 	}
