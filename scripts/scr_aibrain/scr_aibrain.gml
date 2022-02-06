@@ -30,8 +30,9 @@ enum MovingType {
 	straightToTarget_front, // Try to move to a tile touching the target tile
 	straightToTarget_diagonal,
 	straightToTarget_either,
+	straightToTarget_exact,
 	randomAligned, // Moves to either the same X or Y as the target
-	randomAligned_close,
+	randomAligned_close, // Not sure why I added this, it's the same as straightToTarget_front
 	randomAligned_exact, // Takes extra variable, will try to snipe from a certain offset.
 	randomAligned_diagonal,
 	fearOil, // Fears may be moved to separate enum as they do not have a target
@@ -170,6 +171,30 @@ function Brain(_pawn) constructor{
 				
 			}
 			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.straightToTarget_either:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(getTileBiggestDistance(t,target.tile) == 1){
+					ds_list_add(picks,t);
+				}
+			}
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.straightToTarget_exact:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(getTileBiggestDistance(t,target.tile) == offset){
+					ds_list_add(picks,t);
+				}
+			}
 			var pick = picks[|irandom(ds_list_size(picks)-1)];
 			ds_list_destroy(picks);
 			return pick;

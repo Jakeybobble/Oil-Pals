@@ -18,7 +18,7 @@ barks.damage = ["Owie.", "Oof.", "Ouch, ow ow.", ":-(", "What the heck.", "Dang 
 barks.sound = sou_laugh;
 //barks.freebark("Oh yeaaaaah", x, y);
 
-brain.movingtype = MovingType.randomAligned_exact;
+brain.movingtype = MovingType.straightToTarget_exact;
 brain.offset = 3;
 
 function doConditions(hasmoved){
