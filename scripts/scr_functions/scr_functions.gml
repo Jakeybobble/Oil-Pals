@@ -24,14 +24,20 @@ function pawnExists(pawn){ // Returns true if pawn exists and is also alive
 		}
 	}
 }
-function getRandomSpecificPawn(pawn){ // Returns random pawn of type
+function getRandomSpecificPawn(pawn){ // Returns random pawn of type // UNTESTED!!!
 	var p = pawn.object_index;
 	if(pawnExists(pawn)){
+		var returns = ds_list_create();
 		for(var xx = 0; xx < ds_list_size(GH.pawns); xx++){
 			if(p == GH.pawns[|xx].object_index){
-				return GH.pawns[|xx]; // TO-DO: Make this random.
+				//return GH.pawns[|xx];
+				ds_list_add(GH.pawns[|xx]);
 			}
 		}
+		var ret = returns[|irandom(ds_list_size(returns)-1)];
+		ds_list_destroy(returns);
+		return ret;
+		
 	}
 	return noone;
 }
