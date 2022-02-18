@@ -106,7 +106,10 @@ function Ability() constructor{
 			instance_create_depth(t.xToWorld(),t.yToWorld(),-100,obj_hitfx);
 		}
 		
-		// TO-DO: Add sound here.
+		// TO-DO: Create new sound system and then change this basic code...
+		if(sound != undefined){
+			audio_play_sound(sound,1,false);
+		}
 		
 		return true;
 	}

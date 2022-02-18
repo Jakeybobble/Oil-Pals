@@ -11,6 +11,9 @@ enum WorldType {
 	test,
 	grassy
 }
+enum SpawnType_player {
+	topleft
+}
 function World() constructor{
 	
 	//grid = undefined;
@@ -18,8 +21,27 @@ function World() constructor{
 	var gridpos_x = 96; var gridpos_y = 96;
 	var grid_width = 13; var grid_height = 9;
 	grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
+	spawntype_player = SpawnType_player.topleft;
+	spawntype_enemy = undefined; // <- To-do.
 	function build(){
 		
+	}
+	
+	function spawnFriendlies(){
+		switch(spawntype_player){
+			// TO-DO: More spawn types, spawn parameters
+			case SpawnType_player.topleft:
+			for(var xx = 0; xx < ds_list_size(global.roster); xx++){
+			GH.spawnPawn(global.roster[|xx],xx,0,true);
+			}
+			break;
+		}
+		
+	}
+	
+	// Events
+	function atInit(){
+		spawnFriendlies();
 	}
 	
 }

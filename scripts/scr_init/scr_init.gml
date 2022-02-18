@@ -33,7 +33,6 @@ function Grid(_x, _y, width, height) constructor{
 			 
 		 }
 	 }
-	 
 	 function getWidth(){
 		 return(array_length(tiles));
 	 }

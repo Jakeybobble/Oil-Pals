@@ -44,6 +44,7 @@ oilslap.setInfo("Oil Slap", "Does extra damage on oil spot.",0);
 oilslap.pattern = [
 	[0,a,a,b]
 ];
+oilslap.sound = sou_water1; // Placeholder
 ds_map_add(global.abilities,"oilslap",oilslap);
 
 var oilguzzle = new Ability();
@@ -51,6 +52,7 @@ oilguzzle.setInfo("Oil Guzzle", "Drink oil from the tile you are standing on, he
 oilguzzle.pattern = [
 	[c]
 ];
+oilguzzle.sound = sou_silly; // Placeholder
 ds_map_add(global.abilities,"oilguzzle",oilguzzle);
 
 var oildrool = new Ability();
@@ -61,6 +63,7 @@ oildrool.pattern = [
 	[b],
 	[b]
 ];
+oildrool.sound = sou_water2; // Placeholder
 ds_map_add(global.abilities,"oildrool",oildrool);
 #endregion
 #region // POND

@@ -66,15 +66,7 @@ function nextTurn(){
 	}
 }
 
-
-for(var xx = 0; xx < ds_list_size(global.roster); xx++){
-	/*
-	var newpawn = instance_create_depth(-100,-100, 0, global.roster[|xx]);
-	newpawn.setToTile(xx,0);
-	ds_list_add(pawns,newpawn);
-	*/
-	spawnPawn(global.roster[|xx],xx,0,true);
-}
+world.atInit(); // <- Here's the world init!
 
 pawn_moving = false;
 pawn_moving_x = 0; pawn_moving_y = 0; // Tile moving to
