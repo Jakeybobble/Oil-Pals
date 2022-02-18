@@ -1,7 +1,7 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-grid.drawTiles(GRID.x, GRID.y);
+GRID.drawTiles(GRID.x, GRID.y);
 
 var mx = mouse_x; var my = mouse_y;
 
@@ -41,8 +41,8 @@ if(state == PickState.choosemove){
 			}
 			
 			if (!_cancel){
-				if(px >= 0 && px < array_length(grid.tiles)){
-					if(py >= 0 && py < array_length(grid.tiles[0])){
+				if(px >= 0 && px < array_length(GRID.tiles)){
+					if(py >= 0 && py < array_length(GRID.tiles[0])){
 			
 						var t = GRID.tiles[px,py];
 						var mytile = (px == p.tile.x && py == p.tile.y);

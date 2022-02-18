@@ -4,13 +4,20 @@ function scr_world(){
 
 }
 
+#macro GH obj_gamehandler
+#macro GRID obj_gamehandler.world.grid
+
 enum WorldType {
 	test,
 	grassy
 }
 function World() constructor{
 	
-	grid = undefined;
+	//grid = undefined;
+	/* TEMPORARY GRID CREATION! */
+	var gridpos_x = 96; var gridpos_y = 96;
+	var grid_width = 13; var grid_height = 9;
+	grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
 	function build(){
 		
 	}

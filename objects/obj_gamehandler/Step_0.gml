@@ -42,7 +42,7 @@ if(pawn_moving){
 	var p = pawns[|whoseturn];
 	//var px = (p.x div TS)- GRID.x/TS; var py = (p.y div TS) - GRID.y/TS;
 	var px = floor((p.x-GRID.x)/TS); var py = floor((p.y-GRID.y)/TS);
-	var tilepassing = grid.tiles[px,py];
+	var tilepassing = GRID.tiles[px,py];
 	//show_debug_message();
 	if(ds_list_find_index(tiledata_memory,tilepassing) == -1){
 		//show_debug_message("Yeet");

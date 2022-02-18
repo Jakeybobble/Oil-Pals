@@ -84,7 +84,7 @@ function takeDamage(dmg, type){ // Type is optional
 /// Set tile position of a pawn, also updates tile.
 /// Animations will be set in another function which runs before this.
 function setToTile(xpos, ypos){
-	var t = obj_gamehandler.grid.tiles[xpos,ypos]; // Tile to set to
+	var t = GRID.tiles[xpos,ypos]; // Tile to set to
 	if(tile != noone){
 		tile.occupied = false;
 		tile.stander = noone;
@@ -107,7 +107,7 @@ function swapTiles(pawn){ // Swap tiles with another pawn
 
 failsafe_timer = 0;
 function moveToTileAnim(xpos, ypos){
-	var t = obj_gamehandler.grid.tiles[xpos,ypos];
+	var t = GRID.tiles[xpos,ypos];
 	failsafe_timer++;
 	if(failsafe_timer > 500){
 		failsafe_timer = 0;

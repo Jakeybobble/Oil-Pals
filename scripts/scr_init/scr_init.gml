@@ -5,8 +5,6 @@ function scr_init(){
 }
 
 #macro TS 48
-#macro GH obj_gamehandler
-#macro GRID obj_gamehandler.grid
 
 global.enemymax = 3;
 global.turnspace = 4;

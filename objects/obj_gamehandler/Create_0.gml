@@ -9,9 +9,12 @@ player_turn = true;
 
 arrowy = 0;
 
+/*
 var gridpos_x = 96; var gridpos_y = 96;
 var grid_width = 13; var grid_height = 9;
 grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
+*/
+world = new World();
 
 pawns = ds_list_create(); // All pawns, including players
 
@@ -157,9 +160,9 @@ function endTurn(){
 		
 	}
 	
-	for(var xx = 0; xx < array_length(grid.tiles); xx++){
-		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
-			var t = grid.tiles[xx,yy];
+	for(var xx = 0; xx < array_length(GRID.tiles); xx++){
+		for(var yy = 0; yy < array_length(GRID.tiles[0]); yy++){
+			var t = GRID.tiles[xx,yy];
 			
 			if(t.status == TileStatus.ruin){
 				if(t.stander){
@@ -264,9 +267,9 @@ function endWave(){
 	}
 	
 	// For each tile...
-	for(var xx = 0; xx < array_length(grid.tiles); xx++){
-		for(var yy = 0; yy < array_length(grid.tiles[0]); yy++){
-			var t = grid.tiles[xx,yy];
+	for(var xx = 0; xx < array_length(GRID.tiles); xx++){
+		for(var yy = 0; yy < array_length(GRID.tiles[0]); yy++){
+			var t = GRID.tiles[xx,yy];
 			
 			//t.update(); // May be needed in the future.
 			
