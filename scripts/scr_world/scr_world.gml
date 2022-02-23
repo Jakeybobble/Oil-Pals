@@ -16,16 +16,16 @@ enum SpawnType_player {
 }
 function World() constructor{
 	
-	//grid = undefined;
-	/* TEMPORARY GRID CREATION! */
-	var gridpos_x = 96; var gridpos_y = 96;
-	var grid_width = 13; var grid_height = 9;
-	grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
+	grid = undefined;
 	spawntype_player = SpawnType_player.topleft;
 	spawntype_enemy = undefined; // <- To-do.
 	function build(){
-		
+		/* TEMPORARY GRID CREATION! */
+		var gridpos_x = 96; var gridpos_y = 96;
+		var grid_width = 13; var grid_height = 9;
+		grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
 	}
+	build(); // May call this from elsewhere
 	
 	function spawnFriendlies(){
 		switch(spawntype_player){

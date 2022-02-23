@@ -85,6 +85,9 @@ function Ability() constructor{
 			}
 		}
 	}
+	function onPerform(){ // Repleable method that runs at the end of perform()
+		
+	}
 	function perform(tiles, caster){
 		var cancel = false;
 		for(var xx = 0; xx < array_length(tiles); xx++){ // Check whether to cancel...
@@ -110,6 +113,8 @@ function Ability() constructor{
 		if(sound != undefined){
 			audio_play_sound(sound,1,false);
 		}
+		
+		onPerform(); // Note to self: Is it really a good idea to put this at the end?
 		
 		return true;
 	}
