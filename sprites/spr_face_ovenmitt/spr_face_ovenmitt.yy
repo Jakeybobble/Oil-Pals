@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_ovenmitt","path":"sprites/spr_face_ovenmitt/spr_face_ovenmitt.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_ovenmitt",
     "tags": [],
     "resourceType": "GMSequence",

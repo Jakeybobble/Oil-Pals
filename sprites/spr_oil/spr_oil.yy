@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_oil","path":"sprites/spr_oil/spr_oil.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_oil",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_jakey","path":"sprites/spr_face_jakey/spr_face_jakey.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_jakey",
     "tags": [],
     "resourceType": "GMSequence",

@@ -138,7 +138,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_i_bark","path":"sprites/spr_i_bark/spr_i_bark.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_i_bark",
     "tags": [],
     "resourceType": "GMSequence",

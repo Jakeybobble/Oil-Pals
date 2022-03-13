@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_myturn","path":"sprites/spr_myturn/spr_myturn.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_myturn",
     "tags": [],
     "resourceType": "GMSequence",

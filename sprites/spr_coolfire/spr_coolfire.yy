@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_coolfire","path":"sprites/spr_coolfire/spr_coolfire.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_coolfire",
     "tags": [],
     "resourceType": "GMSequence",

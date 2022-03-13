@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_testpawn2","path":"sprites/spr_testpawn2/spr_testpawn2.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_testpawn2",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_ball","path":"sprites/spr_face_ball/spr_face_ball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_ball",
     "tags": [],
     "resourceType": "GMSequence",

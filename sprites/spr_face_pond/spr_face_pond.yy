@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_pond","path":"sprites/spr_face_pond/spr_face_pond.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_pond",
     "tags": [],
     "resourceType": "GMSequence",

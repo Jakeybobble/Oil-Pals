@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_i_flyingnumbers","path":"sprites/spr_i_flyingnumbers/spr_i_flyingnumbers.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_i_flyingnumbers",
     "tags": [],
     "resourceType": "GMSequence",

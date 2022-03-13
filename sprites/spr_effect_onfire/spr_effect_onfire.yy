@@ -150,7 +150,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_effect_onfire","path":"sprites/spr_effect_onfire/spr_effect_onfire.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_effect_onfire",
     "tags": [],
     "resourceType": "GMSequence",

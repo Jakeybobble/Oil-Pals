@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_tinman","path":"sprites/spr_face_tinman/spr_face_tinman.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_tinman",
     "tags": [],
     "resourceType": "GMSequence",

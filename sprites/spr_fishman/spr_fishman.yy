@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fishman","path":"sprites/spr_fishman/spr_fishman.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fishman",
     "tags": [],
     "resourceType": "GMSequence",

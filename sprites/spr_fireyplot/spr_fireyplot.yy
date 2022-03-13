@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fireyplot","path":"sprites/spr_fireyplot/spr_fireyplot.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fireyplot",
     "tags": [],
     "resourceType": "GMSequence",

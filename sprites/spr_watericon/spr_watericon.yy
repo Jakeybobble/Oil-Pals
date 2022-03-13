@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_watericon","path":"sprites/spr_watericon/spr_watericon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_watericon",
     "tags": [],
     "resourceType": "GMSequence",

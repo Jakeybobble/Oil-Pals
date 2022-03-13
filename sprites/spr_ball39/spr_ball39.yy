@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_ball39","path":"sprites/spr_ball39/spr_ball39.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_ball",
     "tags": [],
     "resourceType": "GMSequence",

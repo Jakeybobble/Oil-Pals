@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_jakey","path":"sprites/spr_jakey/spr_jakey.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_jakey",
     "tags": [],
     "resourceType": "GMSequence",

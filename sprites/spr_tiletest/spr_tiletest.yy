@@ -138,7 +138,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tiletest","path":"sprites/spr_tiletest/spr_tiletest.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tiletest",
     "tags": [],
     "resourceType": "GMSequence",

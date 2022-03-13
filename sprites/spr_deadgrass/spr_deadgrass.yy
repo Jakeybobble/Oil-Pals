@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_deadgrass","path":"sprites/spr_deadgrass/spr_deadgrass.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_deadgrass",
     "tags": [],
     "resourceType": "GMSequence",

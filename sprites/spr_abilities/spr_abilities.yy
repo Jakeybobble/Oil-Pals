@@ -163,7 +163,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_abilities","path":"sprites/spr_abilities/spr_abilities.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_abilities",
     "tags": [],
     "resourceType": "GMSequence",

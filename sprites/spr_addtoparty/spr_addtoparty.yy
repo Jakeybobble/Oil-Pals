@@ -60,7 +60,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_addtoparty","path":"sprites/spr_addtoparty/spr_addtoparty.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_addtoparty",
     "tags": [],
     "resourceType": "GMSequence",

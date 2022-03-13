@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_ebboy","path":"sprites/spr_face_ebboy/spr_face_ebboy.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_ebboy",
     "tags": [],
     "resourceType": "GMSequence",

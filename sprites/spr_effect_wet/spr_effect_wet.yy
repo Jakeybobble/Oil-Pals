@@ -83,7 +83,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_effect_wet","path":"sprites/spr_effect_wet/spr_effect_wet.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_effect_wet",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_hpborder","path":"sprites/spr_hpborder/spr_hpborder.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_hpborder",
     "tags": [],
     "resourceType": "GMSequence",

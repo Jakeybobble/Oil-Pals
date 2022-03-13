@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_oilyplot","path":"sprites/spr_oilyplot/spr_oilyplot.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_oilyplot",
     "tags": [],
     "resourceType": "GMSequence",

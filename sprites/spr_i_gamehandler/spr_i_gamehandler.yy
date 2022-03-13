@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_i_gamehandler","path":"sprites/spr_i_gamehandler/spr_i_gamehandler.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_i_gamehandler",
     "tags": [],
     "resourceType": "GMSequence",

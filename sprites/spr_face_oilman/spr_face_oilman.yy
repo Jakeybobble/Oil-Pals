@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_oilman","path":"sprites/spr_face_oilman/spr_face_oilman.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_oilman",
     "tags": [],
     "resourceType": "GMSequence",

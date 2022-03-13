@@ -60,7 +60,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_oilpals","path":"sprites/spr_oilpals/spr_oilpals.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_oilpals",
     "tags": [],
     "resourceType": "GMSequence",

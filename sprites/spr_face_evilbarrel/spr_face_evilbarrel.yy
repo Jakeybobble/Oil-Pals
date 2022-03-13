@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_evilbarrel","path":"sprites/spr_face_evilbarrel/spr_face_evilbarrel.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_evilbarrel",
     "tags": [],
     "resourceType": "GMSequence",

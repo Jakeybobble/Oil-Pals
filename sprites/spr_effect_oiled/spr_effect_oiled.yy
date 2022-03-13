@@ -67,7 +67,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_effect_oiled","path":"sprites/spr_effect_oiled/spr_effect_oiled.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_effect_oiled",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_chead","path":"sprites/spr_chead/spr_chead.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_chead",
     "tags": [],
     "resourceType": "GMSequence",

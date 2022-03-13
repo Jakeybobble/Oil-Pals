@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_sponge","path":"sprites/spr_sponge/spr_sponge.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_sponge",
     "tags": [],
     "resourceType": "GMSequence",

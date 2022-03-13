@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_tilewet","path":"sprites/spr_tilewet/spr_tilewet.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_tilewet",
     "tags": [],
     "resourceType": "GMSequence",

@@ -71,7 +71,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_grave","path":"sprites/spr_grave/spr_grave.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_grave",
     "tags": [],
     "resourceType": "GMSequence",

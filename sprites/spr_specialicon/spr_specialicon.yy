@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_specialicon","path":"sprites/spr_specialicon/spr_specialicon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_specialicon",
     "tags": [],
     "resourceType": "GMSequence",

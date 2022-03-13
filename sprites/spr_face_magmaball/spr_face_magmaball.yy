@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_face_magmaball","path":"sprites/spr_face_magmaball/spr_face_magmaball.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_face_magmaball",
     "tags": [],
     "resourceType": "GMSequence",

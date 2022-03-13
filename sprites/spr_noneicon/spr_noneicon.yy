@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_noneicon","path":"sprites/spr_noneicon/spr_noneicon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_noneicon",
     "tags": [],
     "resourceType": "GMSequence",

@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_evilbboy","path":"sprites/spr_evilbboy/spr_evilbboy.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_evilbboy",
     "tags": [],
     "resourceType": "GMSequence",

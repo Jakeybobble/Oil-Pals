@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_fireyicon",
     "tags": [],
     "resourceType": "GMSequence",

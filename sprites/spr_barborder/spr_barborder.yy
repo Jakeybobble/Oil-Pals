@@ -59,7 +59,7 @@
     "eventToFunction": {},
     "eventStubScript": null,
     "parent": {"name":"spr_barborder","path":"sprites/spr_barborder/spr_barborder.yy",},
-    "resourceVersion": "1.3",
+    "resourceVersion": "1.4",
     "name": "spr_barborder",
     "tags": [],
     "resourceType": "GMSequence",
