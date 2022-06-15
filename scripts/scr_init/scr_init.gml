@@ -68,8 +68,13 @@ function Grid(_x, _y, width, height) constructor{
 				 draw_set_color(c_white);
 			 }
 		 }
-		 
-		 
+	 }
+	 function updateTiles(){ // This is here so that one can stop updating during pause or w/e
+		 for(var yy = 0; yy < array_length(tiles[0]); yy++){
+			 for(var xx = 0; xx < array_length(tiles); xx++){
+				 tiles[xx,yy].update();
+			 }
+		 }
 	 }
 }
 
@@ -90,6 +95,11 @@ function Tile(posx, posy) constructor{
 	occupied = false;
 	stander = noone;
 	firetime = 0;
+	color_default = make_color_rgb(91,164,48);
+	color = color_default;
+	
+	previewed = false;
+	
 	function getSprite(){
 		switch(status){
 			case TileStatus.clear:
@@ -111,18 +121,26 @@ function Tile(posx, posy) constructor{
 		var spr = getSprite();
 		var imgspd = 300;
 		var subimg = (current_time / imgspd) mod sprite_get_number(spr);
-		draw_sprite(spr, subimg, xpos, ypos);
+		draw_sprite_ext(spr, subimg, xpos, ypos,1,1,0,color,1); // TO-DO: Add separate mask for colored part.
+		
+		
 		if(status == TileStatus.fire){
 			instance_create_depth(xpos+TS/2-1,ypos+TS/2+8,-(ypos+TS/2+8),obj_fire)
 		}
 	}
-	function update(){
-		// In case things break or something...
-		if(stander == noone){ // TO-DO: Add more conditions here
-			occupied = false;
-		}else{
-			occupied = true;
+	function preview(attack){
+		var _col = attack.getTypeColor();
+		if(_col != undefined){
+			color = merge_color(color,_col,0.05); // For Griffin - Change lerp value
 		}
+		previewed = true;
+		
+	}
+	function update(){
+		if(!previewed){
+			color = merge_color(color, color_default,0.2);
+		}
+		previewed = false;
 	}
 	function xToWorld(){
 		return GRID.x + x*TS;
@@ -150,86 +168,6 @@ function randomSound(array) constructor{
 global.sound_water = new randomSound([sou_water1,sou_water2,sou_water3]);
 global.sound_fire = new randomSound([sou_fire1,sou_fire2,sou_fire4]);
 global.sound_hit = new randomSound([hurt1,hurt2,hurt3]);
-
-/* Deprecated
-function Action() constructor{
-	
-	var a = new Attack(2,spr_fireyicon);
-	var b = new Attack(0,spr_fireyicon);
-	centerx = 0; centery = 0;
-	pattern = [ // Note: this points downwards ->
-	[0,0,a,a,0,0,0],
-	[0,a,0,0,a,0,0], 
-	[a,0,0,0,0,a,a]
-	];
-	
-	ability_icon_id = 0;
-	
-	is_distant = false;
-	
-	sound = noone;
-	sound_israndom = false;
-	
-	name = "Cool attack";
-	description = "Does a cool thing...";
-	
-	function preview(pos_x, pos_y, rotation, doaction){
-		var newarray = pattern;
-		var newx = centerx;
-		var newy = centery;
-		if(rotation != 0){
-			repeat(rotation){
-				var results = rotateArray(newarray, newx, newy);
-				newarray = results[0];
-				newx = results[1]; newy = results[2];
-			}
-		}
-		
-		for(var xx = 0; xx < array_length(newarray); xx++){ // Loop through pattern
-			for(var yy = 0; yy < array_length(newarray[0]); yy++){
-				
-				var cxpos = pos_x + xx - newx; var cypos = pos_y + yy - newy;
-				if(cxpos >= 0 && cxpos < array_length(GRID.tiles) && cypos >= 0 && cypos < array_length(GRID.tiles[0])){
-					
-					var t = GRID.tiles[cxpos,cypos];
-					var attack = newarray[xx,yy];
-					
-					if(attack != 0){
-						if(doaction){
-							attack.perform(t);
-							switch(attack.attacktype){
-								case AttackType.fire:
-									audio_play_sound(global.sound_fire.get(),1,0);
-									var atkc = c_red;
-									break;
-								case AttackType.water:
-									audio_play_sound(global.sound_water.get(),1,0);
-									var atkc = c_aqua;
-									break;
-								case AttackType.oil:
-									audio_play_sound(global.sound_water.get(),1,0);
-									var atkc = c_purple;
-									break;
-								case AttackType.normal:
-									if(attack.hint_icon != spr_specialicon){
-										audio_play_sound(global.sound_hit.get(),1,0);	
-									}
-									var atkc = c_purple;
-									break;
-							}
-							instance_create_depth((TS*t.x)+GRID.x,(TS*t.y)+GRID.y,-100,obj_hitfx);
-						}
-						
-						var imgspd = 250;
-						var subimg = (current_time / imgspd) mod sprite_get_number(attack.hint_icon);
-						draw_sprite(attack.hint_icon,subimg,(TS*t.x)+GRID.x,(TS*t.y)+GRID.y);
-					}		
-				}
-			}
-		}	
-	}
-}
-*/
 
 function setToOil(tile){
 		if(tile.status == TileStatus.clear or tile.status == TileStatus.water){

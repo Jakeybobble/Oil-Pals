@@ -1,6 +1,8 @@
 /// @description A piece of code.
 // Written by Jacob.
 
+GRID.updateTiles(); // Updates tile color...
+
 if(0){
 	GRID.y = sin(current_time/700)*30;
 	GRID.x = cos(current_time/700)*30;

@@ -19,12 +19,26 @@ function Attack(_type,icon) constructor{
 	type = _type;
 	hint_icon = icon;
 	condition = noone;
+	color = undefined;
 	
 	function perform(tile,caster){
 		if(tile.stander != noone){
 			tile.stander.takeDamage(1); // Just default...
 		}
 		return true; // If this returns false, the attack cannot be performed.
+	}
+	function getTypeColor(){
+		switch(type){
+			case AttackType.normal:
+				return undefined;
+				break;
+			case AttackType.oil:
+				return make_color_rgb(0,0,0);
+				break;
+			default:
+				return undefined;
+				break;
+		}
 	}
 }
 
@@ -90,6 +104,9 @@ function Ability() constructor{
 				else{
 					draw_sprite_animated(attack.hint_icon,t.xToWorld(),t.yToWorld(),250);
 				}
+				
+				t.preview(attack);
+				
 			}
 		}
 	}
