@@ -100,12 +100,14 @@ for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		draw_rectangle(31,15+48*pcount,64,48+48*pcount,0)
 		draw_set_color(c_white)
 		draw_sprite_ext(p.faceicon,0,32,16+48*pcount,1,1,s,c_white,1);
+		/* drawing boards always breaks so i'm just disabling
 		if(xx == 0){
 			draw_sprite_ext(spr_board,0,32,16+48*pcount,1,1,s,c_white,1);
 		}
 		if(xx == ds_list_size(pawns)-1){
 			draw_sprite_ext(spr_board,0,32,16+48*pcount+32,1,1,s,c_white,1);
 		}
+		*/
 		if(whoseturn == xx){
 			arrowy = 20+48*pcount;
 			draw_sprite_ext(spr_arrow,0,8,arrowy,1,1,0,c_white,1);
