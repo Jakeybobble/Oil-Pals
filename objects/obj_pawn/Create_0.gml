@@ -70,7 +70,9 @@ function takeDamage(dmg, type){ // Type is optional
 	newdmg = clamp(newdmg,1,hp)
 	//hp-= newdmg;
 	hp = clamp(hp-newdmg,0,maxhp);
-	flyingNumber(x,y,newdmg);
+	if(!dead){
+		flyingNumber(x,y,newdmg);
+	}
 	if(hp <= 0){
 		dead = true;
 		onDeath(); // Previously before 'dead = true'.
