@@ -62,6 +62,27 @@ if(pawn_moving){
 	}
 }
 
+var enemiesalive = 0;
+var playersalive = 0;
+	
+for(var xx = 0; xx < ds_list_size(pawns); xx++){
+	var p = pawns[|xx];
+		
+	if(!p.dead){
+		if(p.is_player){
+			playersalive++;
+		}else{
+			enemiesalive++;
+		}
+	}
+		
+}
+
+if(enemiesleft == 0 and enemiesalive == 0 and !win){
+	setPerformTimer(120)
+	win = true;
+}
+
 // Stall performing turn every time there is an action...
 if(state == PickState.performing){
 	performtimer--;
@@ -69,3 +90,4 @@ if(state == PickState.performing){
 		endTurn();
 	}
 }
+

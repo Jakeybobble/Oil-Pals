@@ -4,8 +4,9 @@ function scr_init(){
 
 }
 
-#macro TS 48
+#macro TS 32
 
+global.booming = false;
 global.enemymax = 3;
 global.turnspace = 4;
 global.friendlies = [pawn_evildingo,pawn_chead,pawn_barrel,pawn_pond,pawn_ball,pawn_bboy,pawn_ebboy,pawn_coals,pawn_ovenmitt];
@@ -96,7 +97,7 @@ function Tile(posx, posy) constructor{
 			case TileStatus.test:
 				return spr_fireyplot;
 			case TileStatus.fire:
-				return spr_fireyplot;
+				return spr_tiletest;
 			case TileStatus.water:
 				return spr_tilewet;
 			case TileStatus.oil:
@@ -111,10 +112,8 @@ function Tile(posx, posy) constructor{
 		var imgspd = 300;
 		var subimg = (current_time / imgspd) mod sprite_get_number(spr);
 		draw_sprite(spr, subimg, xpos, ypos);
-		if(status == TileStatus.ruin){
-			var firescale = 1+sin(current_time/200)*0.5;
-			draw_sprite_ext(spr_coolfire,0,xpos+TS/2,ypos+TS/2,1,firescale,0,c_white,1);
-			
+		if(status == TileStatus.fire){
+			instance_create_depth(xpos+TS/2-1,ypos+TS/2+8,-(ypos+TS/2+8),obj_fire)
 		}
 	}
 	function update(){
@@ -238,7 +237,9 @@ function setToOil(tile){
 		}
 	}
 function setToWater(tile){
-	tile.status = TileStatus.water;
+	if(tile.status != TileStatus.ruin){
+		tile.status = TileStatus.water;
+	}
 	tile.firetime = 2;
 }
 function setToFire(tile){
@@ -246,38 +247,47 @@ function setToFire(tile){
 		tile.status = TileStatus.fire;
 		tile.firetime = 2;
 	}else if(tile.status == TileStatus.oil){
-		// Create fire here...
-		tile.status = TileStatus.ruin;
-		tile.occupied = true;
-		//instance_create_depth((tile.x*TS)+GRID.x+TS/2,(tile.y*TS)+GRID.y+TS/2,0,obj_fire);
-		/*
-		if(tile.stander){
-			tile.stander.takeDamage(999);
-		}
-		*/
-		for(var xx = -1; xx < 2; xx+=2){
-			if(tile.x + xx >= 0 && tile.x + xx < array_length(GRID.tiles)){
-					//if(tile.y + yy > 0 && tile.y + yy < array_length(GRID.tiles[0])){
-						var t = GRID.tiles[tile.x+xx,tile.y];
-						setToFire(t);
-						//oilFire(tile);
-					//}
-				}
-			for(var yy = -1; yy < 2; yy+=2){
-				if(tile.y + yy >= 0 && tile.y + yy < array_length(GRID.tiles[0])){
-						var t = GRID.tiles[tile.x,tile.y+yy];
-						setToFire(t);
-						//oilFire(tile);
-				}
-			}
-		}
-		
+		oilFire(tile);
 	}
+	tile.firetime = 2;
 }
 function oilFire(tile){
-	//setToFire(tile);
-	tile.status = TileStatus.ruin;
+	// Create fire here...
+	obj_gamehandler.performtimer = 20;
 	
+	instance_create_depth(tile.xToWorld(),tile.yToWorld(),-100,obj_explosion)
+	
+	tile.status = TileStatus.fire;
+	tile.occupied = false;
+	//instance_create_depth((tile.x*TS)+GRID.x+TS/2,(tile.y*TS)+GRID.y+TS/2,0,obj_fire);
+		
+	if(tile.stander){
+		tile.stander.status.oiled = 0;
+		tile.stander.takeDamage(10);
+	}
+	
+	var Spread = function(tile_){
+		setToFire(tile_)
+	}
+	
+	for(var xx = -1; xx < 2; xx+=2){
+		if(tile.x + xx >= 0 && tile.x + xx < array_length(GRID.tiles)){
+				//if(tile.y + yy > 0 && tile.y + yy < array_length(GRID.tiles[0])){
+					var t = GRID.tiles[tile.x+xx,tile.y];
+					var timer = time_source_create(time_source_game,10,time_source_units_frames,Spread,[t],1);
+					time_source_start(timer)
+					//oilFire(tile);
+				//}
+			}
+		for(var yy = -1; yy < 2; yy+=2){
+			if(tile.y + yy >= 0 && tile.y + yy < array_length(GRID.tiles[0])){
+					var t = GRID.tiles[tile.x,tile.y+yy];
+					var timer = time_source_create(time_source_game,10,time_source_units_frames,Spread,[t],1);
+					time_source_start(timer)
+					//oilFire(tile);
+			}
+		}
+	}
 }
 
 function Status() constructor{

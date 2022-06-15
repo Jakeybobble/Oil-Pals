@@ -81,7 +81,15 @@ function Ability() constructor{
 			var attack = tiles[xx][1];
 			//var cancel = false;
 			if(passesConditions(attack.condition,t)){
-				draw_sprite_animated(attack.hint_icon,t.xToWorld(),t.yToWorld(),250);
+				if(attack.type == AttackType.fire and t.status == TileStatus.oil){
+					draw_sprite_animated(spr_boomyicon,t.xToWorld(),t.yToWorld(),250);
+				}
+				else if(attack.type == AttackType.oil and t.status == TileStatus.fire){
+					draw_sprite_animated(spr_canticon,t.xToWorld(),t.yToWorld(),250);
+				}
+				else{
+					draw_sprite_animated(attack.hint_icon,t.xToWorld(),t.yToWorld(),250);
+				}
 			}
 		}
 	}

@@ -1,10 +1,11 @@
 {
   "spriteId": {
-    "name": "spr_coolfire",
-    "path": "sprites/spr_coolfire/spr_coolfire.yy",
+    "name": "spr_fire",
+    "path": "sprites/spr_fire/spr_fire.yy",
   },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
   "persistent": false,
   "parentObjectId": null,

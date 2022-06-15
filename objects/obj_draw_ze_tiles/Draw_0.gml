@@ -1,0 +1,1 @@
+GRID.drawTiles(GRID.x, GRID.y);

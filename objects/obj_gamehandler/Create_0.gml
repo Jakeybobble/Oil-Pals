@@ -3,11 +3,15 @@
 
 level = 0;
 
-depth = 99;
+win = false;
+
+depth = -999;
 
 player_turn = true;
 
 arrowy = 0;
+
+menutopset = 0;
 
 /*
 var gridpos_x = 96; var gridpos_y = 96;
@@ -154,6 +158,7 @@ function endTurn(){
 	
 	for(var xx = 0; xx < array_length(GRID.tiles); xx++){
 		for(var yy = 0; yy < array_length(GRID.tiles[0]); yy++){
+			/*
 			var t = GRID.tiles[xx,yy];
 			
 			if(t.status == TileStatus.ruin){
@@ -163,6 +168,7 @@ function endTurn(){
 					}
 				}
 			}
+			*/
 			
 			//t.update();
 			/*

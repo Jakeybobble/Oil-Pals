@@ -22,7 +22,7 @@ function World() constructor{
 	function build(){
 		/* TEMPORARY GRID CREATION! */
 		var gridpos_x = 96; var gridpos_y = 96;
-		var grid_width = 13; var grid_height = 9;
+		var grid_width = 14; var grid_height = 7;
 		grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
 	}
 	build(); // May call this from elsewhere

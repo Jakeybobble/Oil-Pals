@@ -1,8 +1,6 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-GRID.drawTiles(GRID.x, GRID.y);
-
 var mx = mouse_x; var my = mouse_y;
 
 // Returns square that the mouse is in.
@@ -17,7 +15,8 @@ var recty = GRID.y + py*TS;
 
 if(state == PickState.choosemove){
 	var p = pawns[|whoseturn];
-	
+	chosen_ability = undefined;
+	menutopset = 256;
 	if(p.dead){
 		state = PickState.performing;
 	}else{
