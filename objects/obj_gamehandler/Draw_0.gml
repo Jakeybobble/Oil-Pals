@@ -22,7 +22,10 @@ if(state == PickState.choosemove){
 	}else{
 		if(p.is_player){
 			#region Is Player
-			draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,0.46);
+			//draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,1); // Opacity prev: 0.46
+			//p.drawSelected(); // NOT WORKING! TO-DO: Add player turn cursor object that teleports.
+			obj_playerturn.x = p.x; obj_playerturn.y = p.y;
+			obj_playerturn.show = true;
 			
 			// Makes sure that the player can't cheat by pulling off something frame perfect.
 			var _cancel = false; 

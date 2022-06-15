@@ -13,6 +13,8 @@ arrowy = 0;
 
 menutopset = 0;
 
+instance_create_depth(-100,-100,100,obj_playerturn);
+
 /*
 var gridpos_x = 96; var gridpos_y = 96;
 var grid_width = 13; var grid_height = 9;

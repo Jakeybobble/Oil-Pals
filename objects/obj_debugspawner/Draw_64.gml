@@ -1,11 +1,14 @@
 /// @description A piece of code.
 // Written by Jacob.
 
+funny+=0.5;
+
+var radius = 16;
 for(var xx = 0; xx < ds_list_size(pages[cursor]); xx++){
-	var posx = room_width-32; var posy = xx*64;
+	var posx = room_width-radius; var posy = xx*(radius*2);
 	var spawn = pages[cursor][|xx];
 	var hovered = false;
-	if(point_in_circle(mouse_x,mouse_y,posx,posy+32,32)){
+	if(point_in_circle(mouse_x,mouse_y,posx,posy+radius,radius)){
 		hovered = true;
 		if(mouse_check_button_pressed(mb_left)){
 			GH.enemiesleft = 1337;
@@ -19,7 +22,8 @@ for(var xx = 0; xx < ds_list_size(pages[cursor]); xx++){
 			}
 		}	
 	}
-	draw_circle(posx,posy+32,32,hovered);
-	draw_sprite(spawn.spr,0,posx,posy+60);
+	draw_circle(posx,posy+radius,radius,hovered);
+	//draw_sprite(spawn.spr,0,posx,posy+60);
+	draw_sprite_ext(spawn.spr,0,posx,posy+(radius*2),0.5,0.5,funny+xx*32,c_white,1);
 	
 }

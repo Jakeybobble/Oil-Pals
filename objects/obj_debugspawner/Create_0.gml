@@ -3,6 +3,8 @@
 
 depth = -200;
 
+funny = 0;
+
 function DebugSpawn(_obj,_spr) constructor{
 	obj = _obj;
 	spr = _spr;

@@ -98,6 +98,8 @@ function Tile(posx, posy) constructor{
 	color_default = make_color_rgb(91,164,48);
 	color = color_default;
 	
+	held_effect = noone;
+	
 	previewed = false;
 	
 	function getSprite(){
@@ -123,15 +125,18 @@ function Tile(posx, posy) constructor{
 		var subimg = (current_time / imgspd) mod sprite_get_number(spr);
 		draw_sprite_ext(spr, subimg, xpos, ypos,1,1,0,color,1); // TO-DO: Add separate mask for colored part.
 		
-		
+		/*
 		if(status == TileStatus.fire){
 			instance_create_depth(xpos+TS/2-1,ypos+TS/2+8,-(ypos+TS/2+8),obj_fire)
+			//draw_sprite(spr_fire,0,xpos+TS/2-1,ypos+TS/2+8);
 		}
+		*/
 	}
 	function preview(attack){
 		var _col = attack.getTypeColor();
 		if(_col != undefined){
-			color = merge_color(color,_col,0.05); // For Griffin - Change lerp value
+			var _colto = merge_color(color_default,_col,0.5);
+			color = merge_color(color,_colto,0.2); // For Griffin - Change lerp value
 		}
 		previewed = true;
 		
@@ -141,6 +146,20 @@ function Tile(posx, posy) constructor{
 			color = merge_color(color, color_default,0.2);
 		}
 		previewed = false;
+		
+		if(status == TileStatus.fire){
+			if(held_effect == noone){
+				var _x = self.xToWorld()+TS/2 - 1; var _y = self.yToWorld()+TS/2 + 8;
+				held_effect = instance_create_depth(_x,_y,-_y,obj_fire)
+			}else{
+				held_effect.firetime = firetime;	
+			}
+		}else{
+			if(held_effect != noone){
+				held_effect.onDestroy();
+				held_effect = noone;
+			}
+		}
 	}
 	function xToWorld(){
 		return GRID.x + x*TS;

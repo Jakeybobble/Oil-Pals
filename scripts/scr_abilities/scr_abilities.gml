@@ -33,7 +33,7 @@ function Attack(_type,icon) constructor{
 				return undefined;
 				break;
 			case AttackType.oil:
-				return make_color_rgb(0,0,0);
+				return #4c2f9a;
 				break;
 			default:
 				return undefined;

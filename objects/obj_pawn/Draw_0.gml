@@ -1,7 +1,6 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-
 if(!dead){
 	draw_self();
 	draw_sprite_part(spr_hpbarfill,0,0,0,44*(hp/maxhp),8,x-21,y-sprite_height-9);

@@ -1,6 +1,11 @@
 /// @description A piece of code.
-// Written by Jacob.
+// Written by Jacob :-).
+event_inherited();
 
-image_yscale = 1+sin(current_time/200)*0.2
-tile = noone;
-depth = -y;
+firetime = 0;
+scale = 1;
+dead = false;
+
+function onDestroy(){
+	dead = true;
+}
