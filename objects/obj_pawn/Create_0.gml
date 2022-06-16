@@ -28,6 +28,32 @@ graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
 
 actions = ds_list_create();
 
+animating = false;
+
+function AnimHolder(_x,_y,_ang,_xscale,_yscale,_blend,_alpha) constructor{
+	x = _x; y = _y; rot = _ang; xscale = _xscale; yscale = _yscale; blend = _blend; alpha = _alpha;
+	showbar = true;
+	function draw(spr,index){
+		draw_sprite_ext(spr,index,x,y,xscale,yscale,rot,blend,alpha);
+	}
+	function setPos(_x,_y){
+		x = _x; y = _y;
+	}
+	function onEnd(){
+		showbar = true; // Probably.	
+	}
+}
+anim = new AnimHolder(x,y,image_angle,image_xscale,image_yscale,image_blend,image_alpha);
+
+/*
+animating_x = x;
+animating_y = y;
+animating_rot = image_angle;
+animating_xscale = image_xscale;
+animating_yscale = image_yscale;
+animating_alpha = 1;
+*/
+
 function doConditions(hasmoved){
 		// This will set the targeting and moving type depending on conditions.
 		// Conditions will be unique.

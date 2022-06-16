@@ -155,7 +155,8 @@ function endTurn(){
 				enemiesalive++;
 			}
 		}
-		
+		p.animating = false;
+		p.anim.onEnd();
 	}
 	
 	for(var xx = 0; xx < array_length(GRID.tiles); xx++){

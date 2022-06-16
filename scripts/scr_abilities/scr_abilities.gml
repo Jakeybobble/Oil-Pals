@@ -69,6 +69,12 @@ function Attack(_type,icon) constructor{
 	}
 }
 
+enum AttackOrder { // Attack will be dealt...
+	instant, // ...before PickState.performing
+	onDemand, // ...when called in PickState.performing. Will not default to post.
+	post // ...at the end of PickState.performing
+}
+
 function Ability() constructor{
 	centerx = 0; centery = 0;
 	sound = undefined;
@@ -77,6 +83,8 @@ function Ability() constructor{
 	is_distant = false;
 	name = "Cool Ability";
 	description = "Does a cool thing...";
+	
+	ordertype = AttackOrder.instant;
 	
 	tier = 0;
 	upgradesto = undefined;
