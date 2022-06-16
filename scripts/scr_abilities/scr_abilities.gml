@@ -40,6 +40,33 @@ function Attack(_type,icon) constructor{
 				break;
 		}
 	}
+	function returnIcon(tile){
+		switch(type){
+			case AttackType.fire:
+				switch(tile.status){
+					case TileStatus.oil:
+						return spr_boomyicon;
+					break;
+					default:
+						return hint_icon;
+					break;
+				}
+			break;
+			case AttackType.oil:
+				switch(tile.status){
+					case TileStatus.fire:
+						return spr_canticon;
+					break;
+					default:
+						return hint_icon;
+					break;
+				}
+			break;
+			default:
+				return hint_icon;
+			break;
+		}
+	}
 }
 
 function Ability() constructor{
@@ -95,16 +122,7 @@ function Ability() constructor{
 			var attack = tiles[xx][1];
 			//var cancel = false;
 			if(passesConditions(attack.condition,t)){
-				if(attack.type == AttackType.fire and t.status == TileStatus.oil){
-					draw_sprite_animated(spr_boomyicon,t.xToWorld(),t.yToWorld(),250);
-				}
-				else if(attack.type == AttackType.oil and t.status == TileStatus.fire){
-					draw_sprite_animated(spr_canticon,t.xToWorld(),t.yToWorld(),250);
-				}
-				else{
-					draw_sprite_animated(attack.hint_icon,t.xToWorld(),t.yToWorld(),250);
-				}
-				
+				draw_sprite_animated(attack.returnIcon(t), t.xToWorld(), t.yToWorld(), 250);
 				t.preview(attack);
 				
 			}
