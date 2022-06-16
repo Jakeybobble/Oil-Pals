@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Ball";
 desc = "A very standard, soggy, ball creature."
 hp = 12;

@@ -95,7 +95,7 @@
     {"id":{"name":"obj_charselect","path":"objects/obj_charselect/obj_charselect.yy",},"order":5,},
     {"id":{"name":"spr_ball","path":"sprites/spr_ball/spr_ball.yy",},"order":8,},
     {"id":{"name":"spr_fishman","path":"sprites/spr_fishman/spr_fishman.yy",},"order":7,},
-    {"id":{"name":"pawn_griffin","path":"objects/pawn_griffin/pawn_griffin.yy",},"order":9,},
+    {"id":{"name":"pawn_griffin","path":"objects/pawn_griffin/pawn_griffin.yy",},"order":1,},
     {"id":{"name":"Sprite32","path":"sprites/Sprite32/Sprite32.yy",},"order":14,},
     {"id":{"name":"spr_evilbarrel","path":"sprites/spr_evilbarrel/spr_evilbarrel.yy",},"order":1,},
     {"id":{"name":"scr_ui","path":"scripts/scr_ui/scr_ui.yy",},"order":3,},

@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Coals";
 desc = "A group of mischevous coal monsters. Can hop anywhere, but leaves fire where they go."
 hp = 6;

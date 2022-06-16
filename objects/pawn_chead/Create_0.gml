@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Cleaverhead";
 desc = "Forever doomed to spill his oil blood everywhere he goes. Leaves a trail of oil where he walks."
 hp = 7;

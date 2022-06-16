@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = false;
 name = "Magma Ball";
 hp = 30;
 maxhp = 30;

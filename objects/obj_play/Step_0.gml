@@ -7,3 +7,7 @@ else{
 
 image_xscale = 1+sizer;
 image_yscale = 1+sizer;
+
+if(keyboard_check_pressed(vk_anykey)){
+	room_goto(Room_Inbetween);
+}

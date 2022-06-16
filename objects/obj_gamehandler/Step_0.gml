@@ -30,7 +30,7 @@ if(keyboard_check(ord("J")) && keyboard_check_pressed(ord("B"))){
 	nextenemy_turns = 50000;
 	show_debug_message("!!!!!!!!!!!!!!!!IT'S TESTING TIME!!!!!!!!!!!!!!!!");
 	//nextenemy = pawn_jakey;
-	spawnPawn(pawn_jakey,8,5, false);
+	spawnPawn(pawn_jakey,8,5, team_bot);
 }
 
 if(pawn_moving){
@@ -71,7 +71,7 @@ for(var xx = 0; xx < ds_list_size(pawns); xx++){
 	var p = pawns[|xx];
 		
 	if(!p.dead){
-		if(p.is_player){
+		if(p.isPlayer()){
 			playersalive++;
 		}else{
 			enemiesalive++;

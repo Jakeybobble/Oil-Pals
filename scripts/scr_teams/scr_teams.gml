@@ -9,6 +9,11 @@ enum TeamType {
 	bot
 }
 
-function Team() constructor {
-	
+function Team(_type) constructor {
+	type = _type;
+	player = new Player(); // To-do: Create global players list or something, instead of init here.
+}
+
+function Player() constructor{
+	name = choose("Dudeo", "Gamer", "Pete", "Schrödinger", "Pinko", "Sonnus", "System32", "Binkus", "Zoombini");
 }

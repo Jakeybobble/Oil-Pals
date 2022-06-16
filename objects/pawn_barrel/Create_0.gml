@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Barrel";
 desc = "The sheriff of the oil rig. Can light fires with his cigarette as well as use oil."
 hp = 15;

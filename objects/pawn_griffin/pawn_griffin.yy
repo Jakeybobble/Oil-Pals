@@ -30,8 +30,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Friendly",
-    "path": "folders/Objects/Pawns/Friendly.yy",
+    "name": "Other",
+    "path": "folders/Objects/Pawns/Other.yy",
   },
   "resourceVersion": "1.0",
   "name": "pawn_griffin",

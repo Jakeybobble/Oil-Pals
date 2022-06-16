@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = false;
 name = "Bow down for your god";
 hp = 999;
 maxhp = hp;

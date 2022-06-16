@@ -18,7 +18,7 @@ for(var xx = 0; xx < ds_list_size(pages[cursor]); xx++){
 			var ttt = GRID.tiles[randx,randy];
 			if(!ttt.occupied){
 				ttt.status = TileStatus.clear;
-				GH.spawnPawn(spawn.obj,ttt.x,ttt.y,false);
+				GH.spawnPawn(spawn.obj,ttt.x,ttt.y,GH.team_bot);
 			}
 		}	
 	}

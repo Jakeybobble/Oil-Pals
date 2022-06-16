@@ -1,6 +1,6 @@
 if(state == PickState.chooseaction or state == PickState.chooseactionposition){
 	var p = pawns[|whoseturn];
-	if(p.is_player){
+	if(p.isPlayer()){
 		#region Is Player
 		var count = ds_list_size(p.actions);
 		draw_set_color(c_black);
@@ -65,7 +65,7 @@ if(state == PickState.chooseaction or state == PickState.chooseactionposition){
 			draw_set_halign(fa_left);
 		}
 		#endregion
-	}else if(!p.is_player){
+	}else if(!p.isPlayer()){
 		// Beep boop.
 		
 		state = PickState.chooseactionposition;
@@ -93,7 +93,7 @@ var ecount = 0;
 
 for(var xx = 0; xx < ds_list_size(pawns); xx++){
 	var p = pawns[|xx];
-	if(p.is_player){
+	if(p.isPlayer()){
 		var s = 0;
 		draw_sprite_ext(spr_ropes,0,32,0+48*pcount,1,1,s,c_white,1);
 		draw_set_color(c_black)

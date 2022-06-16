@@ -1,7 +1,6 @@
 /// @description A piece of code.
 // Written by Jacob.
 
-is_player = true;
 name = "Dingo";
 hp = 5;
 maxhp = hp;
@@ -29,6 +28,19 @@ graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
 actions = ds_list_create();
 
 animating = false;
+
+team = undefined;
+
+function isPlayer(){
+	return team.type == TeamType.player;	
+}
+function isMate(_pawn){ // ((((Is team mate))))
+	if(team == _pawn.team){
+		return true;
+	}else{
+		return false;	
+	}
+}
 
 function AnimHolder(_x,_y,_ang,_xscale,_yscale,_blend,_alpha) constructor{
 	x = _x; y = _y; rot = _ang; xscale = _xscale; yscale = _yscale; blend = _blend; alpha = _alpha;

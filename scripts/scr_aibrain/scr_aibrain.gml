@@ -37,7 +37,10 @@ enum MovingType {
 	randomAligned_diagonal,
 	fearOil, // Fears may be moved to separate enum as they do not have a target
 	fearFire,
-	fearWater
+	fearWater,
+	loveOil, // Will go to loved when in range.
+	loveFire,
+	loveWater
 }
 
 function Brain(_pawn) constructor{
@@ -213,6 +216,84 @@ function Brain(_pawn) constructor{
 			ds_list_destroy(picks);
 			return pick;
 			break;
+			case MovingType.loveOil:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.status == TileStatus.oil){
+					ds_list_add(picks,t);
+				}
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.fearOil:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.status != TileStatus.oil){
+					ds_list_add(picks,t);
+				}
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.loveWater:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.status == TileStatus.water){
+					ds_list_add(picks,t);
+				}
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.fearWater:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.status != TileStatus.water){
+					ds_list_add(picks,t);
+				}
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.loveFire:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.status == TileStatus.fire){
+					ds_list_add(picks,t);
+				}
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
+			case MovingType.fearFire:
+			var picks = ds_list_create();
+			for(var xx = 0; xx < size; xx++){
+				var t = list[|xx];
+				if(t.status != TileStatus.fire){
+					ds_list_add(picks,t);
+				}
+			}
+			
+			var pick = picks[|irandom(ds_list_size(picks)-1)];
+			ds_list_destroy(picks);
+			return pick;
+			break;
 			/* Easily copyable code! Yay!
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
@@ -225,11 +306,12 @@ function Brain(_pawn) constructor{
 			return pick;
 			break;
 			*/
+			
 		}
 		
 	}
 	
-	function pickTarget(list){ // Pick a pawn to target.
+	function pickTarget(list,me){ // Pick a pawn to target.
 		// TO-DO: Make AI work on player team as well
 		
 		// NOTE TO SELF:
@@ -244,7 +326,7 @@ function Brain(_pawn) constructor{
 			for(var xx = 0; xx < ds_list_size(list); xx++){
 				var p = list[|xx];
 				var dis = point_distance(pawn.x,pawn.y,p.x,p.y)
-				if(dis < closest_val && p.is_player){
+				if(dis < closest_val && !p.isMate(me)){
 					closest_val = dis;
 					closest_pawn = p;
 				}
@@ -257,7 +339,7 @@ function Brain(_pawn) constructor{
 			for(var xx = 0; xx < ds_list_size(list); xx++){
 				var p = list[|xx];
 				var dis = point_distance(pawn.x,pawn.y,p.x,p.y);
-				if(dis > furthest_val & p.is_player){
+				if(dis > furthest_val & !p.isMate(me)){
 					furthest_val = dis;
 					furthest_pawn = p;
 				}
@@ -267,7 +349,7 @@ function Brain(_pawn) constructor{
 			case TargetingType.targetRandomEnemy:
 			var picks = ds_list_create();
 			for(var xx = 0; xx < ds_list_size(list); xx++){
-				if(list[|xx].is_player){
+				if(!list[|xx].isMate(me)){
 					ds_list_add(picks);
 				}
 			}
@@ -278,7 +360,7 @@ function Brain(_pawn) constructor{
 			case TargetingType.targetRandomFriend:
 			var picks = ds_list_create();
 			for(var xx = 0; xx < ds_list_size(list); xx++){
-				if(!list[|xx].is_player){
+				if(list[|xx].isMate(me)){
 					ds_list_add(picks);
 				}
 			}

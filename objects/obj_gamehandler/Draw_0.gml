@@ -20,7 +20,7 @@ if(state == PickState.choosemove){
 	if(p.dead){
 		state = PickState.performing;
 	}else{
-		if(p.is_player){
+		if(p.isPlayer()){
 			#region Is Player
 			//draw_sprite_ext(spr_myturn,0,p.x,p.y,1+abs(sin(current_time/300)*0.5),1,0,c_white,1); // Opacity prev: 0.46
 			//p.drawSelected(); // NOT WORKING! TO-DO: Add player turn cursor object that teleports.
@@ -81,7 +81,7 @@ if(state == PickState.choosemove){
 				}
 			}
 			#endregion
-		}else if(!p.is_player){
+		}else if(!p.isPlayer()){
 			#region Is Not Player
 			var movable = ds_list_create();
 			
@@ -110,7 +110,7 @@ if(state == PickState.choosemove){
 				p.doConditions(false);
 				
 				var brain = p.brain;
-				var target = brain.pickTarget(pawns);
+				var target = brain.pickTarget(pawns,p);
 				var totile = brain.doMove(movable, p.tile, target,brain.movingtype);
 				
 				if(totile == undefined or totile == noone){
@@ -146,7 +146,7 @@ if(state == PickState.choosemove){
 
 if(state == PickState.chooseactionposition){
 	var p = pawns[|whoseturn];
-	if(p.is_player){
+	if(p.isPlayer()){
 		#region Is Player
 		var pdir = point_direction(p.x,p.y,mouse_x,mouse_y);
 		var d = floor(((pdir + 45) mod 360)/90);
@@ -173,14 +173,14 @@ if(state == PickState.chooseactionposition){
 			}
 		}
 		#endregion
-	}else if(!p.is_player){
+	}else if(!p.isPlayer()){
 		#region Is not Player
 		
 		/* Old
 		var targets = ds_list_create();
 		for(var xx = 0; xx < ds_list_size(pawns); xx++){
 			var _p = pawns[|xx];
-			if(_p.is_player){
+			if(_p.isPlayer()){
 				ds_list_add(targets,_p);
 			}
 		}
@@ -197,9 +197,10 @@ if(state == PickState.chooseactionposition){
 		*/
 		
 		state = PickState.performing;
-		targetpawn = p.brain.pickTarget(pawns);
-		if(targetpawn != undefined){
+		targetpawn = p.brain.pickTarget(pawns,p);
+		if(targetpawn != undefined && targetpawn != noone){
 			var todir = point_direction(p.x,p.y,targetpawn.x,targetpawn.y);
+			
 			var d = floor(((todir + 45) mod 360)/90);
 			var newdir = (d +1 mod 3);
 			var ability = chosen_ability;

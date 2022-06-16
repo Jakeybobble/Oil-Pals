@@ -32,7 +32,7 @@ function World() constructor{
 			// TO-DO: More spawn types, spawn parameters
 			case SpawnType_player.topleft:
 			for(var xx = 0; xx < ds_list_size(global.roster); xx++){
-			GH.spawnPawn(global.roster[|xx],xx,0,true);
+			GH.spawnPawn(global.roster[|xx],xx,0,GH.team_player); // TO-DO: Change this during MP implemenation.
 			}
 			break;
 		}

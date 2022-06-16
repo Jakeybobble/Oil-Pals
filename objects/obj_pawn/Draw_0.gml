@@ -23,4 +23,4 @@ if(!dead){
 
 status.drawStatus(self);
 
-//draw_text(x,y-10,animating);
+//draw_text(x,y-10,isPlayer());

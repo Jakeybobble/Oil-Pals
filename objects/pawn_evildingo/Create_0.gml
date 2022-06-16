@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Oilman";
 desc = "Big fan of oil. It's his favorite drink."
 hp = 11;

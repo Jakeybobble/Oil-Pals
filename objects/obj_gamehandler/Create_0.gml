@@ -7,11 +7,15 @@ win = false;
 
 depth = -999;
 
-player_turn = true;
-
 arrowy = 0;
 
 menutopset = 0;
+
+//teams = ds_list_create();
+// Edit here for multiplayer...
+team_player = new Team(TeamType.player);
+team_bot = new Team(TeamType.bot);
+//ds_list_add(teams,player_team,bot_team);
 
 instance_create_depth(-100,-100,100,obj_playerturn);
 
@@ -38,11 +42,11 @@ whoseturn = 0;
 
 wave = 1;
 
-function spawnPawn(instance, xpos, ypos, is_player){
+function spawnPawn(instance, xpos, ypos, team){
 	var t = GRID.tiles[xpos,ypos];
 	var tospawn = instance_create_depth(t.xToWorld()+TS/2,t.yToWorld()+TS/2, 0, instance); // Evil
 	tospawn.setToTile(xpos,ypos);
-	tospawn.is_player = is_player;
+	tospawn.team = team;
 	ds_list_add(pawns, tospawn);
 	reSort();
 }
@@ -148,8 +152,10 @@ function endTurn(){
 	for(var xx = 0; xx < ds_list_size(pawns); xx++){
 		var p = pawns[|xx];
 		
+		// TO-DO: Check & return depending on gamemode, like for MP.
+		
 		if(!p.dead){
-			if(p.is_player){
+			if(p.team == team_player){
 				playersalive++;
 			}else{
 				enemiesalive++;
@@ -216,7 +222,8 @@ function endTurn(){
 					ttt.status = TileStatus.clear;
 					nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
 					//spawnPawn(ttt.x,ttt.y,false); // Spawn enemy
-					spawnPawn(nextenemy,ttt.x,ttt.y,false);
+					//spawnPawn(nextenemy,ttt.x,ttt.y,false);
+					spawnPawn(nextenemy,ttt.x,ttt.y,team_bot);
 					break;
 				}
 				tries--;
@@ -236,15 +243,6 @@ nextenemy_turns = 0;
 global.turnspace = 4;
 nextenemy = pawn_tinman;
 enemylist = [pawn_tinman,pawn_oilball,pawn_magmaball,pawn_sniper,pawn_evilbarrel];
-
-/*
-function spawnEnemy(xpos, ypos){
-	var tospawn = instance_create_depth(-100,-100, 0, nextenemy); // Evil
-	tospawn.setToTile(xpos,ypos);
-	tospawn.is_player = false;
-	ds_list_add(pawns, tospawn);
-}
-*/
 
 function endWave(){
 	
@@ -307,7 +305,7 @@ function endWave(){
 				if(!ttt.occupied){
 					ttt.status = TileStatus.clear;
 					nextenemy = enemylist[irandom_range(0,array_length(enemylist)-1)];
-					spawnPawn(nextenemy,ttt.x,ttt.y,false);
+					spawnPawn(nextenemy,ttt.x,ttt.y,team_bot);
 					break;
 				}
 				tries--;

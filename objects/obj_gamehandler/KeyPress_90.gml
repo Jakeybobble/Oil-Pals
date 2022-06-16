@@ -1,5 +1,5 @@
 with(obj_pawn){
-	if(!self.is_player){
+	if(team != GH.team_player){
 		self.takeDamage(99999999);
 	}
 }

@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Brigade Boy";
 desc = "Master of the super soaker. High damage but frail."
 hp = 5;

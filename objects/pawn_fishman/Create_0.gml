@@ -4,7 +4,6 @@
 // Inherit the parent event
 event_inherited();
 
-is_player = true;
 name = "Fishman";
 hp = 15;
 maxhp = 15;
@@ -19,7 +18,7 @@ function doConditions(hasmoved){
 	
 	var shortest = 1000;
 	for(var xx = 0; xx < ds_list_size(GH.pawns); xx++){
-		if(GH.pawns[|xx].is_player){
+		if(!GH.pawns[|xx].isMate(self)){
 			var dis = getBiggestDistance(self,GH.pawns[|xx]);
 			if(dis < shortest){
 				shortest = dis;
