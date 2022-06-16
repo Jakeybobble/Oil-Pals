@@ -64,6 +64,7 @@ function Brain(_pawn) constructor{
 			break;
 			#region furtherFromTarget_random
 			case MovingType.furtherFromTarget_random:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			var dis = point_distance(pawn.x,pawn.y,target.x,target.y);
 			for(var xx = 0; xx < size; xx++){
@@ -85,6 +86,7 @@ function Brain(_pawn) constructor{
 			break;
 			#region furthestFromTarget_far
 			case MovingType.furtherFromTarget_far: // Not yet tested.
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			var dis = point_distance(pawn.x,pawn.y,target.x,target.y);
 			var furthest_spot = undefined;
@@ -103,6 +105,7 @@ function Brain(_pawn) constructor{
 			#endregion
 			break;
 			case MovingType.randomAligned:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -121,6 +124,7 @@ function Brain(_pawn) constructor{
 			
 			break;
 			case MovingType.randomAligned_exact:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -138,6 +142,7 @@ function Brain(_pawn) constructor{
 			return toreturn;
 			break;
 			case MovingType.straightToTarget_front:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -159,7 +164,8 @@ function Brain(_pawn) constructor{
 			ds_list_destroy(picks);
 			return pick;
 			break;
-			case MovingType.straightToTarget_diagonal:
+			case MovingType.straightToTarget_diagonal: // TO-DO: May be broken when there is noone, do test.
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -179,6 +185,7 @@ function Brain(_pawn) constructor{
 			return pick;
 			break;
 			case MovingType.straightToTarget_either:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -191,6 +198,7 @@ function Brain(_pawn) constructor{
 			return pick;
 			break;
 			case MovingType.straightToTarget_exact:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -203,6 +211,7 @@ function Brain(_pawn) constructor{
 			return pick;
 			break;
 			case MovingType.randomAligned_diagonal:
+			if(target == noone) return undefined;
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
 				var t = list[|xx];
@@ -212,6 +221,9 @@ function Brain(_pawn) constructor{
 					ds_list_add(picks,t);
 				}
 			}
+			
+			#region love/hate stuff...
+			
 			var pick = picks[|irandom(ds_list_size(picks)-1)];
 			ds_list_destroy(picks);
 			return pick;
@@ -294,6 +306,8 @@ function Brain(_pawn) constructor{
 			ds_list_destroy(picks);
 			return pick;
 			break;
+			#endregion
+			
 			/* Easily copyable code! Yay!
 			var picks = ds_list_create();
 			for(var xx = 0; xx < size; xx++){
