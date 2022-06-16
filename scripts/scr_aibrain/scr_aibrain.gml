@@ -49,6 +49,7 @@ function Brain(_pawn) constructor{
 	abstain = false; // Will skip attacking if this is true.
 	pawn = _pawn;
 	nextaction = 0;
+	nextpawn = noone; // TO-DO: Store next pawn to attack here, for willreconsider.
 	willreconsider = false; // If true, will do another condition check after moving. Remember to set to false first (to default it out).
 	// Issue: There is no default move. Make it a thing?
 	offset = 1; // Extra variable for certain moving types.
@@ -353,7 +354,7 @@ function Brain(_pawn) constructor{
 			for(var xx = 0; xx < ds_list_size(list); xx++){
 				var p = list[|xx];
 				var dis = point_distance(pawn.x,pawn.y,p.x,p.y);
-				if(dis > furthest_val & !p.isMate(me)){
+				if(dis > furthest_val && !p.isMate(me)){
 					furthest_val = dis;
 					furthest_pawn = p;
 				}

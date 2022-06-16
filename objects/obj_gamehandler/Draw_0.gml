@@ -110,7 +110,21 @@ if(state == PickState.choosemove){
 				p.doConditions(false);
 				
 				var brain = p.brain;
-				var target = brain.pickTarget(pawns,p);
+				
+				// Filter out the deads...
+				var targetpawns = ds_list_create();
+				ds_list_copy(targetpawns,pawns);
+				for(var xx = ds_list_size(targetpawns)-1; xx > 0; xx--){
+					var _p = targetpawns[|xx];
+					if(_p.dead){
+						ds_list_delete(targetpawns,xx);
+					}
+				}
+				
+				var target = brain.pickTarget(targetpawns,p);
+				
+				ds_list_destroy(targetpawns);
+				
 				var totile = brain.doMove(movable, p.tile, target,brain.movingtype);
 				
 				if(totile == undefined or totile == noone){
@@ -197,7 +211,20 @@ if(state == PickState.chooseactionposition){
 		*/
 		
 		state = PickState.performing;
-		targetpawn = p.brain.pickTarget(pawns,p);
+		
+		// Filter out the deads...
+		var targetpawns = ds_list_create();
+		ds_list_copy(targetpawns,pawns);
+		for(var xx = ds_list_size(targetpawns)-1; xx > 0; xx--){
+			var _p = targetpawns[|xx];
+			if(_p.dead){
+				ds_list_delete(targetpawns,xx);
+			}
+		}
+		
+		//targetpawn = p.brain.pickTarget(pawns,p);
+		targetpawn = p.brain.pickTarget(targetpawns,p);
+		ds_list_destroy(targetpawns);
 		if(targetpawn != undefined && targetpawn != noone){
 			var todir = point_direction(p.x,p.y,targetpawn.x,targetpawn.y);
 			
