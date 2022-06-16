@@ -95,7 +95,9 @@ function Tile(posx, posy) constructor{
 	occupied = false;
 	stander = noone;
 	firetime = 0;
-	color_default = make_color_rgb(91,164,48);
+	bd = spr_bdtest;
+	//grass color: 38 179 0
+	color_default = make_color_rgb(38,179,0);
 	color = color_default;
 	
 	held_effect = noone;
@@ -105,11 +107,11 @@ function Tile(posx, posy) constructor{
 	function getSprite(){
 		switch(status){
 			case TileStatus.clear:
-				return spr_tiletest;
+				return spr_tileempty;
 			case TileStatus.test:
 				return spr_fireyplot;
 			case TileStatus.fire:
-				return spr_tiletest;
+				return spr_tileempty;
 			case TileStatus.water:
 				return spr_tilewet;
 			case TileStatus.oil:
@@ -123,8 +125,12 @@ function Tile(posx, posy) constructor{
 		var spr = getSprite();
 		var imgspd = 300;
 		var subimg = (current_time / imgspd) mod sprite_get_number(spr);
-		draw_sprite_ext(spr, subimg, xpos, ypos,1,1,0,color,1); // TO-DO: Add separate mask for colored part.
-		
+		if(y == 0){
+			draw_sprite_part(bd,0,0+(32*(x-1)),0,32+(32*(x-1)),32,xpos-32,ypos-35);
+		}
+		draw_sprite_ext(spr_tilepillar, 0, xpos, ypos,1,1,0,c_white,1); 
+		draw_sprite_ext(spr_tile, 0, xpos, ypos,1,1,0,color,1);
+		draw_sprite_ext(spr, subimg, xpos, ypos,1,1,0,c_white,1); 
 		/*
 		if(status == TileStatus.fire){
 			instance_create_depth(xpos+TS/2-1,ypos+TS/2+8,-(ypos+TS/2+8),obj_fire)
