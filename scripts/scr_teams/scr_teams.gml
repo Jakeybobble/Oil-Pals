@@ -15,5 +15,5 @@ function Team(_type) constructor {
 }
 
 function Player() constructor{
-	name = choose("Dudeo", "Gamer", "Pete", "Schrödinger", "Pinko", "Sonnus", "System32", "Binkus", "Zoombini");
+	name = choose("Dudeo", "Gamer", "Pete", "Schrödinger", "Pinko", "Sonnus", "System32", "Binkus", "Zoombini", "Bloptris", "Mushy", "Dankbob", "Fishfishfish", "Tree Grover", "Wambotron", "6-Deeps");
 }

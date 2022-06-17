@@ -25,7 +25,7 @@ var c = new Attack(AttackType.normal,spr_noneicon);
 var b = new Attack(AttackType.fire,spr_fireyicon);
 var d = new Attack(AttackType.normal,spr_specialicon);
 b.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(2);
 	}

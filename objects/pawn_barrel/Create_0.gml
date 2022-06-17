@@ -25,7 +25,7 @@ b.perform = function(tile){
 	}
 }
 a.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(4);
 	}

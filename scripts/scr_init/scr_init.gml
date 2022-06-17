@@ -157,6 +157,9 @@ function Tile(posx, posy) constructor{
 			if(held_effect == noone){
 				var _x = self.xToWorld()+TS/2 - 1; var _y = self.yToWorld()+TS/2 + 8;
 				held_effect = instance_create_depth(_x,_y,-_y,obj_fire)
+				if(firetime == 1){
+					held_effect.scale = 0.6; // <-- Magic number! Sorry!
+				}
 			}else{
 				held_effect.firetime = firetime;	
 			}
@@ -205,14 +208,17 @@ function setToWater(tile){
 	}
 	tile.firetime = 2;
 }
-function setToFire(tile){
+function setToFire(tile, strength){
+	if(strength == undefined){
+		strength = 2;
+	}
 	if(tile.status == TileStatus.clear){
 		tile.status = TileStatus.fire;
-		tile.firetime = 2;
+		tile.firetime = strength;
 	}else if(tile.status == TileStatus.oil){
 		oilFire(tile);
 	}
-	tile.firetime = 2;
+	tile.firetime = strength;
 }
 function oilFire(tile){
 	// Create fire here...
@@ -229,26 +235,33 @@ function oilFire(tile){
 		tile.stander.takeDamage(10);
 	}
 	
-	var Spread = function(tile_){
-		setToFire(tile_)
+	var Spread = function(_tile){
+		//setToFire(_tile, 2) // Bring this line back for old fire spread...
+		var str = 1;
+		if(_tile.status == TileStatus.fire){
+			if(_tile.firetime){
+				str = 2;
+			}
+		}
+		setToFire(_tile,str);
 	}
 	
 	for(var xx = -1; xx < 2; xx+=2){
 		if(tile.x + xx >= 0 && tile.x + xx < array_length(GRID.tiles)){
-				//if(tile.y + yy > 0 && tile.y + yy < array_length(GRID.tiles[0])){
-					var t = GRID.tiles[tile.x+xx,tile.y];
-					var timer = time_source_create(time_source_game,10,time_source_units_frames,Spread,[t],1);
-					time_source_start(timer)
-					//oilFire(tile);
-				//}
-			}
-		for(var yy = -1; yy < 2; yy+=2){
-			if(tile.y + yy >= 0 && tile.y + yy < array_length(GRID.tiles[0])){
-					var t = GRID.tiles[tile.x,tile.y+yy];
-					var timer = time_source_create(time_source_game,10,time_source_units_frames,Spread,[t],1);
-					time_source_start(timer)
-					//oilFire(tile);
-			}
+			//if(tile.y + yy > 0 && tile.y + yy < array_length(GRID.tiles[0])){
+				var t = GRID.tiles[tile.x+xx,tile.y];
+				var timer = time_source_create(time_source_game,10,time_source_units_frames,Spread,[t],1);
+				time_source_start(timer)
+				//oilFire(tile);
+			//}
+		}
+	}
+	for(var yy = -1; yy < 2; yy+=2){
+		if(tile.y + yy >= 0 && tile.y + yy < array_length(GRID.tiles[0])){
+				var t = GRID.tiles[tile.x,tile.y+yy];
+				var timer = time_source_create(time_source_game,10,time_source_units_frames,Spread,[t],1);
+				time_source_start(timer)
+				//oilFire(tile);
 		}
 	}
 }

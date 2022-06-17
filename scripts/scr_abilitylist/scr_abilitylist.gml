@@ -105,7 +105,7 @@ ds_map_add(global.abilities,"extinguisher",extinguisher);
 #region // BARREL
 var a = new Attack(AttackType.fire,spr_fireyicon); var b = new Attack(AttackType.oil,spr_oilyicon); var c = new Attack(AttackType.oil,spr_oilyicon);
 a.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(4);
 	}
@@ -206,11 +206,11 @@ a.perform = function(tile,caster){
 b.perform = function(tile){
 	if(tile.stander != noone){
 		tile.stander.takeDamage(5);
-		setToFire(tile);
+		setToFire(tile,2);
 	}
 }
 c.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(3);
 	}
@@ -246,13 +246,13 @@ a.perform = function(_t,caster){
 }
 a.condition = AttackCondition.mustBeFree;
 b.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(3);
 	}
 }
 c.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 }
 d.perform = function(tile,caster){
 	if(tile.status == TileStatus.fire){
@@ -388,19 +388,19 @@ ds_map_add(global.abilities,"splash",splash);
 #region // EVIL BRIGADE BOY
 var b = new Attack(AttackType.fire,spr_fireyicon); var c = new Attack(AttackType.fire,spr_fireyicon); var d = new Attack(AttackType.fire,spr_fireyicon);
 b.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(7);
 	}
 }
 c.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(2);
 	}
 }
 d.perform = function(tile){
-	setToFire(tile);
+	setToFire(tile,2);
 	if(tile.stander != noone){
 		tile.stander.takeDamage(3);
 	}
