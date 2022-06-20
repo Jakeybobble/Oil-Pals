@@ -51,8 +51,10 @@ function Brain(_pawn) constructor{
 	nextaction = 0;
 	nextpawn = noone; // TO-DO: Store next pawn to attack here, for willreconsider.
 	willreconsider = false; // If true, will do another condition check after moving. Remember to set to false first (to default it out).
-	// Issue: There is no default move. Make it a thing?
+	
+	// -- "Arguments" --
 	offset = 1; // Extra variable for certain moving types.
+	arg_target = noone; // For checking if target is specific object.
 	
 	movingtype_backup = MovingType.randomSpot;
 	

@@ -12,12 +12,14 @@ enum WorldType {
 	grassy
 }
 enum SpawnType_player {
-	topleft
+	topleft,
+	middle // In a square
 }
 function World() constructor{
 	
 	grid = undefined;
-	spawntype_player = SpawnType_player.topleft;
+	//spawntype_player = SpawnType_player.topleft;
+	spawntype_player = SpawnType_player.middle;
 	spawntype_enemy = undefined; // <- To-do.
 	function build(){
 		/* TEMPORARY GRID CREATION! */
@@ -32,8 +34,36 @@ function World() constructor{
 			// TO-DO: More spawn types, spawn parameters
 			case SpawnType_player.topleft:
 			for(var xx = 0; xx < ds_list_size(global.roster); xx++){
-			GH.spawnPawn(global.roster[|xx],xx,0,GH.team_player); // TO-DO: Change this during MP implemenation.
+				GH.spawnPawn(global.roster[|xx],xx,0,GH.team_player); // TO-DO: Change this during MP implemenation.
 			}
+			break;
+			case SpawnType_player.middle: // In a spiral
+			var mov_x = 0; var mov_y = 0;
+			var m = 0; var mx = 0; var s = 0;
+			var dir = 0;
+			var mid_x = floor(GRID.getWidth()/2); var mid_y = floor(GRID.getHeight()/2); // TO-DO: Better alignment to center
+			for(var xx = 0; xx < ds_list_size(global.roster); xx++){
+				
+				var dir_x = lengthdir_x(1,dir); var dir_y = lengthdir_y(1,dir);
+				var xpos = mid_x + mov_x;
+				var ypos = mid_y + mov_y;
+				if(m < mx){
+					m++;
+				}else{
+					if(s == 0){
+						s = 1;
+					}else{
+						mx++; s = 0;
+					}
+					m = 0; dir+=90;
+				}
+				
+				mov_x+=dir_x;
+				mov_y+=dir_y;
+				GH.spawnPawn(global.roster[|xx],xpos,ypos,GH.team_player);
+				
+			}
+			
 			break;
 		}
 		
