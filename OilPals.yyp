@@ -149,6 +149,7 @@
     {"id":{"name":"obj_hitfx","path":"objects/obj_hitfx/obj_hitfx.yy",},"order":2,},
     {"id":{"name":"spr_deadgrass","path":"sprites/spr_deadgrass/spr_deadgrass.yy",},"order":5,},
     {"id":{"name":"pawn_evildingo","path":"objects/pawn_evildingo/pawn_evildingo.yy",},"order":0,},
+    {"id":{"name":"mus_oilchoosesyou","path":"sounds/mus_oilchoosesyou/mus_oilchoosesyou.yy",},"order":1,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":8,},
     {"id":{"name":"obj_transition","path":"objects/obj_transition/obj_transition.yy",},"order":4,},
     {"id":{"name":"spr_boomyicon","path":"sprites/spr_boomyicon/spr_boomyicon.yy",},"order":22,},
