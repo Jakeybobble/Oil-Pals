@@ -3,7 +3,7 @@
 
 gui = new GUI();
 
-text = new GUI_Text(gui,room_width/2,5,"Welcome to the debug room of independent doom.\n(Do not overstay your welcome)");
+text = new GUI_Text(gui,room_width/2,5,"Welcome to the debug room of impending doom.\n(Do not overstay your welcome)");
 text.setAll(font_express,c_red,fa_middle,fa_top);
 text.setShadow(#1439a8);
 
