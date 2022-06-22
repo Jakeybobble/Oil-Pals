@@ -21,6 +21,9 @@ function World() constructor{
 	//spawntype_player = SpawnType_player.topleft;
 	spawntype_player = SpawnType_player.middle;
 	spawntype_enemy = undefined; // <- To-do.
+	
+	events = ds_list_create(); // <- Also To-do.
+	
 	function build(){
 		/* TEMPORARY GRID CREATION! */
 		var gridpos_x = 96; var gridpos_y = 96;
@@ -74,6 +77,24 @@ function World() constructor{
 		spawnFriendlies();
 	}
 	
+	function endWave(){
+		// Loop through events here
+	}
+	
+}
+
+enum WorldEventType {
+	countdown, // Activates/counts down at end of round
+	condition, // Activates on condition
+	condition_endround // Activates after end round if condition is true
+}
+
+function WorldEvent() constructor {
+	// World events are things that can be set to activate in a certain amount of rounds.
+	// These are typically not added in the middle of a game.
+	// Can also be activated through special conditions.
+	
+
 }
 
 enum TileSetterType {

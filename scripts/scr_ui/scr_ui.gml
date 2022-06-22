@@ -11,6 +11,13 @@ function draw_text_shadowed(x,y,string){
 	draw_text(x,y,string);
 }
 
+function draw_text_shadow(x,y,string,_shadowcolor,_color){ // TO-DO: Replace draw_text_shadowed with this?
+	draw_set_color(_shadowcolor);
+	draw_text(x+2,y+2,string);
+	draw_set_color(_color);
+	draw_text(x,y,string);
+}
+
 function draw_text_shadowed_ext(x,y,string,sep,w){
 	draw_set_color(c_black);
 	draw_text_ext(x+2,y+2,string,sep,w);
