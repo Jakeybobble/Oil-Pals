@@ -27,11 +27,14 @@ function GUI_Element(_parent,_x,_y) constructor{
 	elements = array_create(0);
 	array_push(parent.elements,self);
 	x = _x; y = _y; // Position is relative to parent.
+	hide = false; // Also ceases functions, naturally.
 	draw = function(){
 		
 	}
 	doDraw = function(){
-		draw();
+		if(!hide){
+			draw();
+		}
 		for(var xx = 0; xx < array_length(elements); xx++){
 			elements[xx].doDraw();
 		}
@@ -96,12 +99,21 @@ function GUI_Scrollable(_parent,_x,_y,_vertical): GUI_Element(_parent,_x,_y) con
 	vertical = _vertical;
 	onhover = false; // Currently does nothing.
 	sens = 30; // TO-DO: Figure out PC scroll strength?
+	limit_min = 0;
+	limit_max = 1750;
+	function setLimits(_min,_max){
+		limit_max = _max;
+		limit_min = _min;
+	}
+	
 	draw = function(){
 		var pow = (mouse_wheel_down() - mouse_wheel_up())*sens;
 		if(vertical){
 			// TO-DO: Don't change x, change another variable and return that on getX()...
+			//y = clamp(y+pow,-limit_max,limit_min); // These don't work properly.
 			y+=pow;
 		}else{
+			//x = clamp(x+pow,-limit_max,limit_min);
 			x+=pow;
 		}
 	}

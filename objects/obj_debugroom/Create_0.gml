@@ -25,3 +25,5 @@ for(var xx = 0; xx < 3; xx++){
 
 infotext = new GUI_Text(gui,room_width-48,room_height,"Press any key to go to menu.");
 infotext.setAligns(fa_right,fa_bottom);
+
+audio_play_sound(mus_secretdebugsong,10,true);
