@@ -40,7 +40,9 @@ enum MovingType {
 	fearWater,
 	loveOil, // Will go to loved when in range.
 	loveFire,
-	loveWater
+	loveWater,
+	
+	NUM // This has to be last - Used for counting
 }
 
 function Brain(_pawn) constructor{

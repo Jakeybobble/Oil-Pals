@@ -22,6 +22,9 @@ if(keyboard_check_pressed(vk_anykey)){
 		case ord("I"):
 		reSort();
 		break;
+		case ord("B"):
+			spawnPawn(pawn_dumbo,7,5, team_bot);
+		break;
 	}
 }
 

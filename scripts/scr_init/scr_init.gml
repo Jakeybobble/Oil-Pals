@@ -134,8 +134,12 @@ function Tile(_grid, posx, posy) constructor{
 			draw_sprite_part(bd,0,0+(32*(x-1)),0,32+(32*(x-1)),32,xpos-32,ypos-35);
 		}
 		// NOTE: Sprites happen here.
-		var _pillar = asset_get_index("spr_tilepillar_" + suffix);
-		var _tile = asset_get_index("spr_tile_" + suffix);
+		var u = ""; // Underscore
+		if(suffix != ""){
+			u+="_";
+		}
+		var _pillar = asset_get_index("spr_tilepillar" + u + suffix);
+		var _tile = asset_get_index("spr_tile" + u + suffix);
 		draw_sprite_ext(_pillar, 0, xpos, ypos,1,1,0,c_white,1); 
 		draw_sprite_ext(_tile, 0, xpos, ypos,1,1,0,color,1);
 		draw_sprite_ext(spr, subimg, xpos, ypos,1,1,0,c_white,1); 

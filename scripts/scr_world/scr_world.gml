@@ -21,7 +21,7 @@ function World() constructor{
 	//spawntype_player = SpawnType_player.topleft;
 	spawntype_player = SpawnType_player.middle;
 	spawntype_enemy = undefined; // <- To-do.
-	worldtype = WorldType.test;
+	worldtype = WorldType.grassy;
 	
 	events = ds_list_create(); // <- Also To-do.
 	
