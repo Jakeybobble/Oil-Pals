@@ -12,6 +12,8 @@ faceicon = spr_face_oilman;
 
 fireimmunity = false;
 
+accum_dmg = 0; // Accumulated damage for the current step frame
+
 status = new Status(); // Contains pawn status effects
 
 tile = noone;
@@ -109,7 +111,8 @@ function takeDamage(dmg, type){ // Type is optional
 	//hp-= newdmg;
 	hp = clamp(hp-newdmg,0,maxhp);
 	if(!dead){
-		flyingNumber(x,y,newdmg);
+		//flyingNumber(x,y,newdmg); // Old
+		accum_dmg+=newdmg;
 	}
 	if(hp <= 0){
 		dead = true;

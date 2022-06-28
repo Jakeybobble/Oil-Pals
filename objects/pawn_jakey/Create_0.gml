@@ -56,6 +56,10 @@ move1 = global.abilities[?"test"];
 var b = new Attack(AttackType.normal, spr_noneicon);
 b.perform = function(tile){
 	barks.freebark("This is an odd round, it is...",x,y-32);
+	repeat(5){
+		//takeDamage(1);
+		// This is just here for no reason now.
+	}
 }
 move2 = new Ability();
 move2.pattern = [
