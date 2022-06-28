@@ -22,15 +22,16 @@ function restartGame(){
 	game_restart();
 }
 
-function Grid(_x, _y, width, height) constructor{
+function Grid(_world,_x, _y, width, height) constructor{
 	
 	x = _x; y = _y;
 	tiles[0,0] = 0; // Tiles array
+	world = _world;
 	
 	 for(var xx = 0; xx < width; xx++){
 		 for(var yy = 0; yy < height; yy++){
 			 
-			 tiles[xx,yy] = new Tile(xx,yy);
+			 tiles[xx,yy] = new Tile(self,xx,yy);
 			 
 		 }
 	 }
@@ -88,21 +89,25 @@ enum TileStatus {
 }
 
 // To-do: Have tile standard for world...
-function Tile(posx, posy) constructor{
+function Tile(_grid, posx, posy) constructor{
 	x = posx; y = posy;
+	grid = _grid;
 	status = TileStatus.clear;
 	memory = status;
 	occupied = false;
 	stander = noone;
 	firetime = 0;
 	bd = spr_bdtest;
-	//grass color: 38 179 0
-	color_default = make_color_rgb(38,179,0);
-	color = color_default;
 	
 	held_effect = noone;
 	
 	previewed = false;
+	
+	//color_default = make_color_rgb(38,179,0);
+	color_default = _grid.world.getDefaultTileColor();
+	color = color_default;
+	
+	suffix = _grid.world.getSuffix();
 	
 	function getSprite(){
 		switch(status){
@@ -128,8 +133,11 @@ function Tile(posx, posy) constructor{
 		if(y == 0){
 			draw_sprite_part(bd,0,0+(32*(x-1)),0,32+(32*(x-1)),32,xpos-32,ypos-35);
 		}
-		draw_sprite_ext(spr_tilepillar, 0, xpos, ypos,1,1,0,c_white,1); 
-		draw_sprite_ext(spr_tile, 0, xpos, ypos,1,1,0,color,1);
+		// NOTE: Sprites happen here.
+		var _pillar = asset_get_index("spr_tilepillar_" + suffix);
+		var _tile = asset_get_index("spr_tile_" + suffix);
+		draw_sprite_ext(_pillar, 0, xpos, ypos,1,1,0,c_white,1); 
+		draw_sprite_ext(_tile, 0, xpos, ypos,1,1,0,color,1);
 		draw_sprite_ext(spr, subimg, xpos, ypos,1,1,0,c_white,1); 
 		/*
 		if(status == TileStatus.fire){

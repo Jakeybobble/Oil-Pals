@@ -35,6 +35,9 @@ function Attack(_type,icon) constructor{
 			case AttackType.oil:
 				return #4c2f9a;
 				break;
+			case AttackType.fire:
+				return #ff807b; // <--- Change this
+				break;
 			default:
 				return undefined;
 				break;

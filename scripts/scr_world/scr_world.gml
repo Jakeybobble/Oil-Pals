@@ -21,14 +21,38 @@ function World() constructor{
 	//spawntype_player = SpawnType_player.topleft;
 	spawntype_player = SpawnType_player.middle;
 	spawntype_enemy = undefined; // <- To-do.
+	worldtype = WorldType.test;
 	
 	events = ds_list_create(); // <- Also To-do.
+	
+	function getSuffix(){
+		var ret = "";
+		switch(worldtype){ // Add prefixes here eventually
+			case WorldType.test:
+				ret = "test";
+			break;
+		}
+		return ret;
+	}
+	
+	function getDefaultTileColor(){ // Has to be up here for evil reasons.
+		var ret = make_color_rgb(38,179,0); // Default green.
+		switch(worldtype){
+			case WorldType.test:
+				ret = make_color_rgb(255,255,255);
+			break;
+			case WorldType.grassy:
+			
+			break;
+		}
+		return ret;
+	}
 	
 	function build(){
 		/* TEMPORARY GRID CREATION! */
 		var gridpos_x = 96; var gridpos_y = 96;
 		var grid_width = 14; var grid_height = 7;
-		grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
+		grid = new Grid(self,gridpos_x, gridpos_y, grid_width, grid_height);
 	}
 	build(); // May call this from elsewhere
 	
@@ -71,6 +95,12 @@ function World() constructor{
 		}
 		
 	}
+
+	/*
+	function getTileSprites(){ // Returns the default sprites... etc.
+			
+	}
+	*/
 	
 	// Events
 	function atInit(){

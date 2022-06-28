@@ -19,15 +19,9 @@ team_bot = new Team(TeamType.bot);
 
 instance_create_depth(-100,-100,100,obj_playerturn);
 
-/*
-var gridpos_x = 96; var gridpos_y = 96;
-var grid_width = 13; var grid_height = 9;
-grid = new Grid(gridpos_x, gridpos_y, grid_width, grid_height);
-*/
 world = new World();
 
 pawns = ds_list_create(); // All pawns, including players
-
 
 tile_memory = noone; // Last tile stood on
 tiledata_memory = ds_list_create(); // All tiles changed during move
