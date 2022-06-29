@@ -97,3 +97,20 @@ function draw_sprite_animated(sprite,x,y,imgspd){
 	var subimg = (current_time / imgspd) mod sprite_get_number(sprite);
 	draw_sprite(sprite,subimg,x,y);
 }
+
+function getTaunt(){ // Returns random taunted pawn
+	var taunts = array_create(0);
+	for(var xx = 0; xx < ds_list_size(GH.pawns); xx++){
+		var p = GH.pawns[|xx];
+		if(p.status.taunt > 0){
+			array_push(taunts,p);
+		}
+	}
+	var length = array_length(taunts);
+	var ret = noone;
+	if(length > 0){
+		ret = taunts[irandom(length-1)];
+	}
+	return ret;
+	
+}

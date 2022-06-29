@@ -286,6 +286,9 @@ function Status() constructor{
 	onfire = 0;
 	weaktowater = false;
 	damageboost = 0;
+	
+	taunt = 0;
+	
 	// TO-DO: Make effects either block out or interupt eachother.
 	
 	function affectDamage(dmg, type){
@@ -302,6 +305,7 @@ function Status() constructor{
 		if(oiled>0) oiled--;
 		if(onfire>0) onfire--;
 		if(wet>0) wet--;
+		if(taunt>0) taunt--;
 	}
 	function endTurn(){
 		if(damageboost>0) damageboost--;
@@ -328,10 +332,13 @@ function Status() constructor{
 		if(wet > 0){
 			draw_sprite_animated(spr_effect_wet,pawn.x,pawn.y,100);
 		}
+		if(taunt > 0){
+			draw_sprite_animated(spr_effect_taunt,pawn.x,pawn.y,250);
+		}
 		
 	}
 	function clear(){ // Clears all status effects...
-		oiled = 0; wet = 0; onfire = 0; damageboost = 0;
+		oiled = 0; wet = 0; onfire = 0; damageboost = 0; taunt = 0;
 	}
 	
 }

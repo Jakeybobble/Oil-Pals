@@ -20,6 +20,8 @@ move3 = global.abilities[?"oildrool"];
 brain.movingtype = MovingType.loveOil;
 brain.willreconsider = true;
 
+status.taunt = 100;
+
 function doConditions(hasmoved){
 	brain.nextaction = choose(0,2);
 	brain.movingtype = MovingType.loveOil;

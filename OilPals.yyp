@@ -17,6 +17,7 @@
     {"id":{"name":"spr_griffin","path":"sprites/spr_griffin/spr_griffin.yy",},"order":9,},
     {"id":{"name":"scr_info","path":"scripts/scr_info/scr_info.yy",},"order":2,},
     {"id":{"name":"spr_face_magmaball","path":"sprites/spr_face_magmaball/spr_face_magmaball.yy",},"order":2,},
+    {"id":{"name":"spr_effect_taunt","path":"sprites/spr_effect_taunt/spr_effect_taunt.yy",},"order":3,},
     {"id":{"name":"sou_water3","path":"sounds/sou_water3/sou_water3.yy",},"order":6,},
     {"id":{"name":"spr_ropes","path":"sprites/spr_ropes/spr_ropes.yy",},"order":13,},
     {"id":{"name":"spr_man","path":"sprites/spr_man/spr_man.yy",},"order":7,},

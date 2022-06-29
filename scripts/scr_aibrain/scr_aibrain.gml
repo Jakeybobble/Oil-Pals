@@ -331,12 +331,11 @@ function Brain(_pawn) constructor{
 	}
 	
 	function pickTarget(list,me){ // Pick a pawn to target.
-		// TO-DO: Make AI work on player team as well
 		
-		// NOTE TO SELF:
-		// I don't quite remember my thoughts about this, but I think you're supposed to
-		// create a list of possible targets (so like, all players for example), but
-		// that doesn't make sense with all the "targetRandomFriend" stuff.
+		var taunt = getTaunt();
+		if(taunt != noone){
+			return taunt; // NOTE: Do more stuff here in the future, potentially
+		}
 		
 		switch(targetingtype){
 			case TargetingType.targetClosestEnemy:
