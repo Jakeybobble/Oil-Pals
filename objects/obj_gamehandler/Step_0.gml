@@ -25,15 +25,14 @@ if(keyboard_check_pressed(vk_anykey)){
 		case ord("B"):
 			spawnPawn(pawn_dumbo,7,5, team_bot);
 		break;
+		case ord("J"):
+		enemiesleft = 1337;
+		nextenemy_turns = 50000;
+		show_debug_message("!!!!!!!!!!!!!!!!IT'S TESTING TIME!!!!!!!!!!!!!!!!");
+		//nextenemy = pawn_jakey;
+		spawnPawn(pawn_jakey,8,5, team_bot);
+		break;
 	}
-}
-
-if(keyboard_check(ord("J")) && keyboard_check_pressed(ord("B"))){
-	enemiesleft = 1337;
-	nextenemy_turns = 50000;
-	show_debug_message("!!!!!!!!!!!!!!!!IT'S TESTING TIME!!!!!!!!!!!!!!!!");
-	//nextenemy = pawn_jakey;
-	spawnPawn(pawn_jakey,8,5, team_bot);
 }
 
 if(pawn_moving){
