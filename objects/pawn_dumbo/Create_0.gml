@@ -23,7 +23,7 @@ b.perform = function(tile){
 		dumbocount = 0;
 	}
 	brain.movingtype = dumbocount;
-	
+	animhandler.play(global.anims[?"test"]);
 	
 }
 move = new Ability();

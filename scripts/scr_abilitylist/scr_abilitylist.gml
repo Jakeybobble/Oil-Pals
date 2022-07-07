@@ -13,6 +13,7 @@ var _test = new Ability();
 var a = new Attack(AttackType.normal,spr_noneicon);
 _test.perform = function(tile,caster){
 	caster.barks.freebark("Hooray! for testing!",caster.x,caster.y-32);
+	caster.animhandler.play(global.anims[?"hop"]);
 }
 _test.pattern = [
 	[a]

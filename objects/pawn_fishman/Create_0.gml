@@ -39,8 +39,8 @@ animtimer = 30;
 anim_actor = noone;
 anim_tile = noone;
 function doAnim(){ // Loop to do animation...
-	anim_actor.animating = true;
-	animating = true;
+	anim_actor.anim.animating = true;
+	anim.animating = true;
 	anim.setPos(x,y);
 	anim_actor.anim.setPos(anim_actor.x,anim_actor.y);
 	if(animtimer <15){

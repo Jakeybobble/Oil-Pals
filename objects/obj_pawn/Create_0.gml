@@ -29,8 +29,6 @@ graveid = irandom_range(0,sprite_get_number(spr_grave)-1);
 
 actions = ds_list_create();
 
-animating = false;
-
 team = undefined;
 
 function isPlayer(){
@@ -47,8 +45,13 @@ function isMate(_pawn){ // ((((Is team mate))))
 function AnimHolder(_x,_y,_ang,_xscale,_yscale,_blend,_alpha) constructor{
 	x = _x; y = _y; rot = _ang; xscale = _xscale; yscale = _yscale; blend = _blend; alpha = _alpha;
 	showbar = true;
+	animating = false;
+	
 	function draw(spr,index){
 		draw_sprite_ext(spr,index,x,y,xscale,yscale,rot,blend,alpha);
+	}
+	function copy(_obj){ // Used to reset holder position, can also copy other.
+		x = _obj.x; y = _obj.y; rot = _obj.image_angle; xscale = _obj.image_xscale; yscale = _obj.image_yscale; blend = _obj.image_blend; alpha = _obj.image_alpha;
 	}
 	function setPos(_x,_y){
 		x = _x; y = _y;
@@ -59,14 +62,7 @@ function AnimHolder(_x,_y,_ang,_xscale,_yscale,_blend,_alpha) constructor{
 }
 anim = new AnimHolder(x,y,image_angle,image_xscale,image_yscale,image_blend,image_alpha);
 
-/*
-animating_x = x;
-animating_y = y;
-animating_rot = image_angle;
-animating_xscale = image_xscale;
-animating_yscale = image_yscale;
-animating_alpha = 1;
-*/
+animhandler = new AnimHandler(self);
 
 function doConditions(hasmoved){
 		// This will set the targeting and moving type depending on conditions.

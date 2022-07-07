@@ -155,7 +155,7 @@ function endTurn(){
 				enemiesalive++;
 			}
 		}
-		p.animating = false;
+		p.anim.animating = false; // Should be able to remove this
 		p.anim.onEnd();
 	}
 	
