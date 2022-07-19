@@ -47,6 +47,24 @@ function GUI_Element(_parent,_x,_y) constructor{
 	}
 }
 
+function GUI_Sprite(_parent,_x,_y,_sprite): GUI_Element(_parent,_x,_y) constructor{
+	sprite = _sprite;
+	index = 0;
+	animated = false;
+	animspeed = 100;
+	function setAnim(_speed){
+		animated = true;
+		animspeed = _speed;
+	}
+	draw = function(){
+		if(!animated){
+			draw_sprite(sprite,index,getX(),getY());
+		}else{
+			draw_sprite_animated(sprite,getX(),getY(),animspeed);
+		}
+	}
+}
+
 function GUI_Text(_parent,_x,_y, _text): GUI_Element(_parent,_x,_y) constructor{
 	text = _text;
 	font = font_express;
@@ -111,7 +129,7 @@ function GUI_Scrollable(_parent,_x,_y,_vertical): GUI_Element(_parent,_x,_y) con
 		if(vertical){
 			// TO-DO: Don't change x, change another variable and return that on getX()...
 			//y = clamp(y+pow,-limit_max,limit_min); // These don't work properly.
-			y+=pow;
+			y-=pow;
 		}else{
 			//x = clamp(x+pow,-limit_max,limit_min);
 			x+=pow;
