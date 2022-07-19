@@ -32,6 +32,9 @@ if(keyboard_check_pressed(vk_anykey)){
 		//nextenemy = pawn_jakey;
 		spawnPawn(pawn_jakey,8,5, team_bot);
 		break;
+		case vk_escape:
+			pausemenu = !pausemenu;
+		break;
 	}
 }
 

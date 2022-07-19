@@ -11,6 +11,8 @@ arrowy = 0;
 
 menutopset = 0;
 
+pausemenu = false; // NOTE: Pause menu is not supposed to pause the game!
+
 //teams = ds_list_create();
 // Edit here for multiplayer...
 team_player = new Team(TeamType.player);

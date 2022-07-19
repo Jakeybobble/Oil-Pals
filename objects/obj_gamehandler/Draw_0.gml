@@ -27,53 +27,55 @@ if(state == PickState.choosemove){
 			obj_playerturn.x = p.x; obj_playerturn.y = p.y;
 			obj_playerturn.show = true;
 			
-			// Makes sure that the player can't cheat by pulling off something frame perfect.
-			var _cancel = false; 
-			if(keyboard_check_pressed(vk_anykey)){
-				for(var xx = 0; xx < ds_list_size(p.actions); xx++){
-					if(keyboard_lastkey == ord(string(xx+1))){
-						// Act as if standing still, then skip to choose attack location...
-						// NOTE: This makes it so you have to right click twice to undo to last...
-						ds_list_clear(tiledata_memory);
-						tile_memory = pawns[|whoseturn].tile;
-						state = PickState.chooseactionposition;
-						chosen_ability = p.actions[|xx];
+			if(!pausemenu){
+				// Makes sure that the player can't cheat by pulling off something frame perfect.
+				var _cancel = false; 
+				if(keyboard_check_pressed(vk_anykey)){
+					for(var xx = 0; xx < ds_list_size(p.actions); xx++){
+						if(keyboard_lastkey == ord(string(xx+1))){
+							// Act as if standing still, then skip to choose attack location...
+							// NOTE: This makes it so you have to right click twice to undo to last...
+							ds_list_clear(tiledata_memory);
+							tile_memory = pawns[|whoseturn].tile;
+							state = PickState.chooseactionposition;
+							chosen_ability = p.actions[|xx];
+						}
 					}
 				}
-			}
 			
-			if (!_cancel){
-				if(px >= 0 && px < array_length(GRID.tiles)){
-					if(py >= 0 && py < array_length(GRID.tiles[0])){
+				if (!_cancel){
+					if(px >= 0 && px < array_length(GRID.tiles)){
+						if(py >= 0 && py < array_length(GRID.tiles[0])){
 			
-						var t = GRID.tiles[px,py];
-						var mytile = (px == p.tile.x && py == p.tile.y);
-						var col = c_white;
-						var canmovethere = false;
-						if((abs(p.tile.x - px) < p.movespace) && (abs(p.tile.y - py) < p.movespace)){
-							if(t.occupied == false or mytile){
-								canmovethere = true;
+							var t = GRID.tiles[px,py];
+							var mytile = (px == p.tile.x && py == p.tile.y);
+							var col = c_white;
+							var canmovethere = false;
+							if((abs(p.tile.x - px) < p.movespace) && (abs(p.tile.y - py) < p.movespace)){
+								if(t.occupied == false or mytile){
+									canmovethere = true;
+								}
 							}
-						}
-						if(!canmovethere){
-							col = c_gray
-						}
-						draw_set_color(col);
-						draw_rectangle(rectx,recty,rectx+TS,recty+TS,true);
-						draw_set_color(c_white);
+							if(!canmovethere){
+								col = c_gray
+							}
+							draw_set_color(col);
+							draw_rectangle(rectx,recty,rectx+TS,recty+TS,true);
+							draw_set_color(c_white);
 			
-						if(mouse_check_button_pressed(mb_left)){
+							if(mouse_check_button_pressed(mb_left)){
 		
-							if(canmovethere){
-								ds_list_clear(tiledata_memory);
-								if(mytile){
-									tile_memory = pawns[|whoseturn].tile;
-									state = PickState.chooseaction;
-								}else if(t.occupied != true){
-									tile_memory = pawns[|whoseturn].tile;
-									pawn_moving = true;
-									pawn_moving_x = px;
-									pawn_moving_y = py;
+								if(canmovethere){
+									ds_list_clear(tiledata_memory);
+									if(mytile){
+										tile_memory = pawns[|whoseturn].tile;
+										state = PickState.chooseaction;
+									}else if(t.occupied != true){
+										tile_memory = pawns[|whoseturn].tile;
+										pawn_moving = true;
+										pawn_moving_x = px;
+										pawn_moving_y = py;
+									}
 								}
 							}
 						}
@@ -167,23 +169,25 @@ if(state == PickState.chooseactionposition){
 		var newdir = (d +1 mod 3);
 		var ability = chosen_ability;
 		
-		var to_attack = undefined;
-		if(ability != undefined){
-			to_attack = ability.getTiles(px,py,newdir,p);
-			ability.preview(to_attack);
-		}
+		if(!pausemenu){
+			var to_attack = undefined;
+			if(ability != undefined){
+				to_attack = ability.getTiles(px,py,newdir,p);
+				ability.preview(to_attack);
+			}
 		
-		if(mouse_check_button_pressed(mb_right)){
-			chosen_ability = noone;
-			state = PickState.chooseaction;
-			mouse_clear(mb_right);
-		}else if(mouse_check_button_pressed(mb_left)){
-			if(to_attack != undefined){
-				var perform = ability.perform(to_attack,p);
-				if(perform){
-					state = PickState.performing;
+			if(mouse_check_button_pressed(mb_right)){
+				chosen_ability = noone;
+				state = PickState.chooseaction;
+				mouse_clear(mb_right);
+			}else if(mouse_check_button_pressed(mb_left)){
+				if(to_attack != undefined){
+					var perform = ability.perform(to_attack,p);
+					if(perform){
+						state = PickState.performing;
+					}
+					mouse_clear(mb_left);
 				}
-				mouse_clear(mb_left);
 			}
 		}
 		#endregion
