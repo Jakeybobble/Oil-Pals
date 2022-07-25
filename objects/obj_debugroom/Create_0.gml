@@ -33,6 +33,9 @@ for(var xx = 0; xx < 3; xx++){
 }
 
 worldsbutton = new GUI_SimpleButton(gui,90,200,spr_debugroom_worldsicon);
+worldsbutton.func = function(){
+	room_goto(Room_WorldProgress);
+}
 
 infotext = new GUI_Text(gui,room_width-48,room_height,"Press any key to go to menu.");
 infotext.setAligns(fa_right,fa_bottom);

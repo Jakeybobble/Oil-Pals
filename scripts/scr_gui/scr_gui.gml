@@ -4,6 +4,8 @@ function scr_uisystem(){
 
 }
 
+#macro GUIDEBUG false
+
 function GUI() constructor{
 	x = 0; y = 0;
 	elements = array_create(0);
@@ -17,7 +19,16 @@ function GUI() constructor{
 	function draw(){
 		for(var xx = 0; xx < array_length(elements); xx++){
 			elements[xx].doDraw();
+			if(GUIDEBUG){
+				draw_set_color(c_red);
+				draw_set_font(font_babyblocks);
+				elements[xx].debugDraw();
+				draw_set_color(c_white);
+			}
 		}
+	}
+	function destroy(){
+		
 	}
 	
 }
@@ -37,6 +48,12 @@ function GUI_Element(_parent,_x,_y) constructor{
 		}
 		for(var xx = 0; xx < array_length(elements); xx++){
 			elements[xx].doDraw();
+			if(GUIDEBUG){
+				draw_set_color(c_red);
+				draw_set_font(font_babyblocks);
+				elements[xx].debugDraw();
+				draw_set_color(c_white);
+			}
 		}
 	}
 	function getX(){
@@ -44,6 +61,18 @@ function GUI_Element(_parent,_x,_y) constructor{
 	}
 	function getY(){
 		return parent.getY() + y;
+	}
+	function destroy(){
+		for(var xx = 0; xx < array_length(parent.elements); xx++){
+			if(parent.elements[xx] == self){
+				array_delete(parent.elements,xx,1);
+			}
+		}	
+	}
+	function debugDraw(){
+		var _x = getX(); var _y = getY();
+		draw_circle(_x,_y,3,true);
+		draw_text_shadow(_x+8,_y,"Element:\n" + string(_x) + ", " + string(_y),c_black,c_red);
 	}
 }
 
@@ -72,6 +101,7 @@ function GUI_Text(_parent,_x,_y, _text): GUI_Element(_parent,_x,_y) constructor{
 	valign = fa_top;
 	color = c_white;
 	shadowcolor = undefined;
+	num = choose(1,2,3,4,5,6,7,8,9);
 	function setFont(_font){
 		font = _font;
 	}
@@ -90,7 +120,7 @@ function GUI_Text(_parent,_x,_y, _text): GUI_Element(_parent,_x,_y) constructor{
 	function setShadow(_color){
 		shadowcolor = _color;
 	}
-	draw = function(){
+	function draw(){
 		// To-do: Figure out that push/pop thing.
 		draw_set_halign(halign);
 		draw_set_valign(valign);
@@ -124,7 +154,7 @@ function GUI_Scrollable(_parent,_x,_y,_vertical): GUI_Element(_parent,_x,_y) con
 		limit_min = _min;
 	}
 	
-	draw = function(){
+	function draw(){
 		var pow = (mouse_wheel_down() - mouse_wheel_up())*sens;
 		if(vertical){
 			// TO-DO: Don't change x, change another variable and return that on getX()...
@@ -133,6 +163,19 @@ function GUI_Scrollable(_parent,_x,_y,_vertical): GUI_Element(_parent,_x,_y) con
 		}else{
 			//x = clamp(x+pow,-limit_max,limit_min);
 			x+=pow;
+		}
+	}
+	function debugDraw(){
+		if(vertical){
+			// TO-DO (Laziness)
+		}else{
+			show_debug_message("bruh");
+			var _s = 32;
+			var x1 = getX()-limit_min; var x2 = getX() + limit_max;
+			draw_line(x1,getY()-_s,x1,getY()+_s);
+			//draw_line(getX()+x,getY()-_s,getX()+x,getY()+_s); // Cursor // To-do.
+			draw_line(x1,getY(),x2,getY()); // Hangline
+			draw_line(x2,getY()-_s,x2,getY()+_s);
 		}
 	}
 }
@@ -152,7 +195,7 @@ function GUI_Button(_parent,_x, _y, _sprite): GUI_Element(_parent,_x,_y) constru
 		show_debug_message("This button is missing a function :-)");
 	}
 	
-	draw = function(){
+	function draw(){
 		var state = 0;
 		if(point_in_rectangle(mouse_x,mouse_y,getX(),getY(),getX()+width,getY()+height)){
 			state = 1;
@@ -193,7 +236,7 @@ function GUI_SimpleButton(_parent,_x, _y, _sprite): GUI_Element(_parent,_x,_y) c
 		show_debug_message("This simple button is missing a function :-)");
 	}
 	
-	draw = function(){
+	function draw(){
 		var offset = 0; var hovered = false;
 		if(point_in_rectangle(mouse_x,mouse_y,getX(),getY(),getX()+width,getY()+height)){
 			hovered = true;
