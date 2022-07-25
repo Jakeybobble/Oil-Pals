@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},"LayerId":{"name":"af121f13-8c9e-4d55-abb6-dd90ed701eda","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_debugroom_icon1","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},"resourceVersion":"1.0","name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},"LayerId":{"name":"af121f13-8c9e-4d55-abb6-dd90ed701eda","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_debugroom_worldsicon","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},"resourceVersion":"1.0","name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_debugroom_icon1","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},
+    "spriteId": {"name":"spr_debugroom_worldsicon","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"MomentsEventKeyframe",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"264ab6a8-93d2-48b8-8a4e-065ab69ffcde","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
+            {"id":"d59d5720-be7f-4e92-af42-f0d46a005cc7","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"c103c6a4-2aa4-4327-a4a8-31150f2174bc","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe`1","elementType":"SpriteFrameKeyframe",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore`1","elementType":"SpriteFrameKeyframe",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack","modifiers":[],},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_debugroom_icon1","path":"sprites/spr_debugroom_icon1/spr_debugroom_icon1.yy",},
+    "parent": {"name":"spr_debugroom_worldsicon","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},
     "resourceVersion": "1.4",
-    "name": "spr_debugroom_icon1",
+    "name": "spr_debugroom_worldsicon",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/Rooms/DebugRoom.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_debugroom_icon1",
+  "name": "spr_debugroom_worldsicon",
   "tags": [],
   "resourceType": "GMSprite",
 }

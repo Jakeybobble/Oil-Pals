@@ -1,6 +1,7 @@
 {
   "resources": [
     {"id":{"name":"pawn_ovenmitt","path":"objects/pawn_ovenmitt/pawn_ovenmitt.yy",},"order":4,},
+    {"id":{"name":"spr_debugroom_worldsicon","path":"sprites/spr_debugroom_worldsicon/spr_debugroom_worldsicon.yy",},"order":4,},
     {"id":{"name":"spr_arrow","path":"sprites/spr_arrow/spr_arrow.yy",},"order":8,},
     {"id":{"name":"spr_hpborder","path":"sprites/spr_hpborder/spr_hpborder.yy",},"order":9,},
     {"id":{"name":"spr_face_chead","path":"sprites/spr_face_chead/spr_face_chead.yy",},"order":3,},
@@ -109,7 +110,7 @@
     {"id":{"name":"pawn_griffin","path":"objects/pawn_griffin/pawn_griffin.yy",},"order":1,},
     {"id":{"name":"Sprite32","path":"sprites/Sprite32/Sprite32.yy",},"order":10,},
     {"id":{"name":"spr_evilbarrel","path":"sprites/spr_evilbarrel/spr_evilbarrel.yy",},"order":1,},
-    {"id":{"name":"scr_ui","path":"scripts/scr_ui/scr_ui.yy",},"order":3,},
+    {"id":{"name":"scr_drawhelpers","path":"scripts/scr_drawhelpers/scr_drawhelpers.yy",},"order":3,},
     {"id":{"name":"scr_init","path":"scripts/scr_init/scr_init.yy",},"order":0,},
     {"id":{"name":"pawn_chead","path":"objects/pawn_chead/pawn_chead.yy",},"order":3,},
     {"id":{"name":"spr_face_evilbarrel","path":"sprites/spr_face_evilbarrel/spr_face_evilbarrel.yy",},"order":3,},

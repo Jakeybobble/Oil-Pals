@@ -180,3 +180,39 @@ function GUI_Button(_parent,_x, _y, _sprite): GUI_Element(_parent,_x,_y) constru
 		draw_sprite_animated(spr,getX(),getY(),animspeed);
 	}
 }
+
+function GUI_SimpleButton(_parent,_x, _y, _sprite): GUI_Element(_parent,_x,_y) constructor{
+	sprite = _sprite;
+	width = sprite_get_width(sprite); height = sprite_get_height(sprite);
+	
+	function setSprites(_spr){
+		sprite = _spr;
+	}
+	
+	func = function(){ // Function to run when pressed.
+		show_debug_message("This simple button is missing a function :-)");
+	}
+	
+	draw = function(){
+		var offset = 0; var hovered = false;
+		if(point_in_rectangle(mouse_x,mouse_y,getX(),getY(),getX()+width,getY()+height)){
+			hovered = true;
+			if(mouse_check_button(mb_left)){
+				offset = 1;
+			}
+			if(mouse_check_button_released(mb_left)){
+				func();
+				mouse_clear(mb_left);
+			}
+		}
+		
+		draw_sprite(sprite,0,getX(),getY()+offset);
+		if(hovered){
+			gpu_set_blendmode(bm_add);
+			draw_set_alpha(0.5);
+			draw_rectangle(getX(),getY(),getX()+width,getY()+height,false);
+			draw_set_alpha(1);
+			gpu_set_blendmode(bm_normal);
+		}
+	}
+}
