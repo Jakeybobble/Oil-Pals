@@ -1,7 +1,7 @@
 /// @description A piece of code.
 // Oil Pals moment.
 
-audio_play_sound(mus_secretdebugsong,10,true);
+audio_play_sound(mus_worlddebugging,10,true);
 
 gui = new GUI();
 

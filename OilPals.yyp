@@ -16,6 +16,7 @@
     {"id":{"name":"spr_fire","path":"sprites/spr_fire/spr_fire.yy",},"order":13,},
     {"id":{"name":"spr_fireyicon","path":"sprites/spr_fireyicon/spr_fireyicon.yy",},"order":0,},
     {"id":{"name":"spr_dumbo","path":"sprites/spr_dumbo/spr_dumbo.yy",},"order":0,},
+    {"id":{"name":"mus_worlddebugging","path":"sounds/mus_worlddebugging/mus_worlddebugging.yy",},"order":3,},
     {"id":{"name":"spr_griffin","path":"sprites/spr_griffin/spr_griffin.yy",},"order":9,},
     {"id":{"name":"scr_info","path":"scripts/scr_info/scr_info.yy",},"order":2,},
     {"id":{"name":"spr_face_magmaball","path":"sprites/spr_face_magmaball/spr_face_magmaball.yy",},"order":2,},
@@ -264,7 +265,7 @@
   ],
   "IncludedFiles": [],
   "MetaData": {
-    "IDEVersion": "2022.6.0.23",
+    "IDEVersion": "2022.6.1.26",
   },
   "resourceVersion": "1.5",
   "name": "OilPals",
