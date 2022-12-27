@@ -236,6 +236,10 @@ function GUI_SimpleButton(_parent,_x, _y, _sprite): GUI_Element(_parent,_x,_y) c
 		show_debug_message("This simple button is missing a function :-)");
 	}
 	
+	function draw_extra(_x, _y){
+		// Extra stuff to draw on hover... Thank me later.
+	}
+	
 	function draw(){
 		var offset = 0; var hovered = false;
 		if(point_in_rectangle(mouse_x,mouse_y,getX(),getY(),getX()+width,getY()+height)){
@@ -256,6 +260,8 @@ function GUI_SimpleButton(_parent,_x, _y, _sprite): GUI_Element(_parent,_x,_y) c
 			draw_rectangle(getX(),getY(),getX()+width,getY()+height,false);
 			draw_set_alpha(1);
 			gpu_set_blendmode(bm_normal);
+			
+			draw_extra(getX(),getY());
 		}
 	}
 }

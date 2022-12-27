@@ -39,5 +39,8 @@ for(var xx = 0; xx < array_length(planets); xx++){
 			show_debug_message(world.worldtype);
 			world.load();
 		}
+		draw_extra = function(_x, _y) {
+			draw_text(_x,_y-10,world.debugname);
+		}
 	}
 }
