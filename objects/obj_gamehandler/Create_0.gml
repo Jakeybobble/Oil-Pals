@@ -21,7 +21,7 @@ team_bot = new Team(TeamType.bot);
 
 instance_create_depth(-100,-100,100,obj_playerturn);
 
-world = new World();
+world = global.world;
 
 pawns = ds_list_create(); // All pawns, including players
 
@@ -71,8 +71,6 @@ function nextTurn(){
 		
 	}
 }
-
-world.atInit(); // <- Here's the world init!
 
 pawn_moving = false;
 pawn_moving_x = 0; pawn_moving_y = 0; // Tile moving to
@@ -231,6 +229,8 @@ function endTurn(){
 	startTurn();
 	state = PickState.choosemove;
 }
+
+world.atInit(); // <- Here's the world init!
 
 startTurn();
 

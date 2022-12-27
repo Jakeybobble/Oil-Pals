@@ -15,6 +15,9 @@ enum SpawnType_player {
 	topleft,
 	middle // In a square
 }
+
+global.world = noone;
+
 function World() constructor{
 	
 	grid = undefined;
@@ -24,6 +27,13 @@ function World() constructor{
 	worldtype = WorldType.grassy;
 	
 	events = ds_list_create(); // <- Also To-do.
+	
+	debugname = "Thomas";
+	
+	function load(){ // Loads and runs  the world.
+		global.world = self;
+		room_goto(Room1);
+	}
 	
 	function getSuffix(){
 		var ret = "";
@@ -54,7 +64,7 @@ function World() constructor{
 		var grid_width = 14; var grid_height = 7;
 		grid = new Grid(self,gridpos_x, gridpos_y, grid_width, grid_height);
 	}
-	build(); // May call this from elsewhere
+	//build(); // May call this from elsewhere
 	
 	function spawnFriendlies(){
 		switch(spawntype_player){
@@ -104,6 +114,7 @@ function World() constructor{
 	
 	// Events
 	function atInit(){
+		build();
 		spawnFriendlies();
 	}
 	
@@ -131,8 +142,6 @@ enum TileSetterType {
 	pattern	
 }
 function TileSetter() constructor{
-	
-	
 	
 	function get(){
 		
